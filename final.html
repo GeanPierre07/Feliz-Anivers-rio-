@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Para você ❤️</title>
+    <title>Seu último presente 🎁</title>
 
     <style>
         * {
@@ -18,36 +18,52 @@
             background: #000;
             color: white;
             font-family: Arial, Helvetica, sans-serif;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             text-align: center;
-            overflow: hidden;
+
+            overflow-x: hidden;
         }
 
         /* FUNDO */
+
         .background {
             position: fixed;
             inset: 0;
-            overflow: hidden;
+
             background:
-                radial-gradient(circle at center,
-                    rgba(255, 40, 80, .12),
-                    transparent 45%),
+                radial-gradient(
+                    circle at center,
+                    rgba(255, 50, 90, .12),
+                    transparent 45%
+                ),
                 #000;
+
+            z-index: 0;
         }
 
         /* ESTRELAS */
+
         .star {
-            position: absolute;
+            position: fixed;
+
             width: 2px;
             height: 2px;
+
             background: white;
+
             border-radius: 50%;
+
             animation: piscar 2s infinite alternate;
+
+            z-index: 1;
         }
 
         @keyframes piscar {
+
             from {
                 opacity: .2;
             }
@@ -58,32 +74,60 @@
         }
 
         /* CONTEÚDO */
+
         .container {
             position: relative;
+
             z-index: 5;
+
             width: 90%;
-            max-width: 750px;
-            animation: aparecer 2s ease forwards;
+
+            max-width: 800px;
+
+            padding: 50px 20px;
+
+            animation: aparecer 1.5s ease;
+        }
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .pequeno {
+
             color: #888;
-            letter-spacing: 5px;
-            text-transform: uppercase;
+
             font-size: 12px;
-            margin-bottom: 25px;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
         }
 
         h1 {
-            font-size: clamp(45px, 10vw, 90px);
-            margin-bottom: 25px;
 
-            background: linear-gradient(
-                90deg,
-                #fff,
-                #ff4d6d,
-                #fff
-            );
+            font-size: clamp(35px, 8vw, 65px);
+
+            margin-bottom: 15px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #fff,
+                    #ff4d6d,
+                    #fff
+                );
 
             background-size: 200%;
 
@@ -94,77 +138,286 @@
         }
 
         @keyframes brilho {
-            0% {
+
+            from {
                 background-position: 0%;
             }
 
-            100% {
+            to {
                 background-position: 200%;
             }
         }
 
-        .texto {
-            color: #ccc;
-            font-size: 18px;
-            line-height: 1.9;
+        .descricao {
+
+            color: #aaa;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+            margin-bottom: 40px;
         }
 
-        .destaque {
-            color: white;
-            font-size: 21px;
-            margin: 25px 0;
+
+        /* PRESENTES */
+
+        .presentes {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
         }
 
-        .coracao {
-            font-size: 65px;
-            margin: 25px 0;
-            animation: pulsar 1.5s infinite;
-            filter: drop-shadow(0 0 15px rgba(255, 50, 90, .6));
+        .presente {
+
+            width: 170px;
+
+            height: 190px;
+
+            border: 1px solid rgba(255,255,255,.15);
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,.04);
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            cursor: pointer;
+
+            transition: .4s;
+
+            backdrop-filter: blur(10px);
+
+            user-select: none;
         }
 
-        @keyframes pulsar {
-            0%, 100% {
-                transform: scale(1);
-            }
+        .presente:hover {
 
-            50% {
-                transform: scale(1.25);
-            }
+            transform:
+                translateY(-10px)
+                scale(1.05);
+
+            border-color: #ff4d6d;
+
+            box-shadow:
+                0 0 35px
+                rgba(255,77,109,.3);
         }
 
-        .assinatura {
-            margin-top: 35px;
-            color: #777;
-            font-size: 14px;
+        .emoji-presente {
+
+            font-size: 70px;
+
+            margin-bottom: 15px;
+
+            filter:
+                drop-shadow(
+                    0 0 10px
+                    rgba(255,255,255,.15)
+                );
+
+            transition: .4s;
+        }
+
+        .presente:hover .emoji-presente {
+
+            transform: scale(1.15);
+        }
+
+        .numero {
+
+            color: #888;
+
+            font-size: 13px;
+
             letter-spacing: 2px;
         }
 
-        @keyframes aparecer {
+
+        /* PRESENTE ESCOLHIDO */
+
+        .presente.escolhido {
+
+            border-color: #ff4d6d;
+
+            background:
+                rgba(255,77,109,.08);
+
+            transform: scale(1.05);
+
+            box-shadow:
+                0 0 40px
+                rgba(255,77,109,.25);
+        }
+
+
+        /* PRESENTES BLOQUEADOS */
+
+        .presente.bloqueado {
+
+            opacity: .15;
+
+            filter: grayscale(1);
+
+            cursor: not-allowed;
+
+            pointer-events: none;
+
+            transform: scale(.95);
+        }
+
+
+        /* RESULTADO */
+
+        .resultado {
+
+            display: none;
+
+            margin-top: 40px;
+
+            padding: 30px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,.05);
+
+            border:
+                1px solid
+                rgba(255,255,255,.12);
+
+            animation:
+                revelar .8s ease forwards;
+        }
+
+        @keyframes revelar {
+
             from {
+
                 opacity: 0;
-                transform: translateY(40px);
+
+                transform:
+                    scale(.8)
+                    translateY(20px);
             }
 
             to {
+
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    scale(1)
+                    translateY(0);
             }
         }
 
-        /* CORAÇÕES */
-        .heart {
-            position: fixed;
-            bottom: -30px;
+        .resultado .emoji {
+
+            font-size: 80px;
+
+            margin-bottom: 15px;
+
+            animation:
+                aparecerEmoji 1s ease;
+        }
+
+        @keyframes aparecerEmoji {
+
+            0% {
+
+                transform: scale(0)
+                    rotate(-20deg);
+
+                opacity: 0;
+            }
+
+            70% {
+
+                transform: scale(1.2)
+                    rotate(10deg);
+            }
+
+            100% {
+
+                transform: scale(1)
+                    rotate(0);
+
+                opacity: 1;
+            }
+        }
+
+        .resultado h2 {
+
             color: #ff4d6d;
+
+            font-size: 30px;
+
+            margin-bottom: 15px;
+        }
+
+        .resultado p {
+
+            color: #ccc;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+        .aviso {
+
+            margin-top: 25px;
+
+            color: #777;
+
+            font-size: 13px;
+
+            font-style: italic;
+        }
+
+
+        /* CORAÇÕES */
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -30px;
+
+            color: #ff4d6d;
+
             font-size: 20px;
+
             pointer-events: none;
-            animation: subir 6s linear forwards;
+
             z-index: 3;
+
+            animation:
+                subir 6s linear forwards;
         }
 
         @keyframes subir {
+
             0% {
-                transform: translateY(0) rotate(0deg);
+
+                transform:
+                    translateY(0)
+                    rotate(0);
+
                 opacity: 0;
             }
 
@@ -173,145 +426,389 @@
             }
 
             100% {
-                transform: translateY(-110vh) rotate(360deg);
+
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
                 opacity: 0;
             }
         }
 
-        /* BRILHO CENTRAL */
-        .glow {
-            position: fixed;
-            width: 350px;
-            height: 350px;
-            border-radius: 50%;
-            background: rgba(255, 40, 80, .08);
-            filter: blur(80px);
-            animation: glow 4s infinite alternate;
-        }
 
-        @keyframes glow {
-            from {
-                transform: scale(.8);
-                opacity: .4;
+        /* RESPONSIVO */
+
+        @media (max-width: 600px) {
+
+            .presentes {
+
+                gap: 15px;
             }
 
-            to {
-                transform: scale(1.2);
-                opacity: .8;
+            .presente {
+
+                width: 140px;
+
+                height: 170px;
+            }
+
+            .emoji-presente {
+
+                font-size: 60px;
             }
         }
+
     </style>
 </head>
 
 <body>
 
-    <div class="background" id="stars"></div>
+    <div class="background"></div>
 
-    <div class="glow"></div>
-
-    <main class="container">
+    <div class="container">
 
         <div class="pequeno">
-            e agora... a última parte
+            chegou a hora...
         </div>
 
         <h1>
-            Você é especial. ❤️
+            Escolha seu presente 🎁
         </h1>
 
-        <div class="texto">
+        <p class="descricao">
+            Existem três presentes esperando por você.<br>
+            Mas cuidado... depois que escolher, não tem como voltar. 👀
+        </p>
 
-            <p>
-                Eu não fiz tudo isso simplesmente para te desejar
-                um "feliz aniversário".
-            </p>
 
-            <p class="destaque">
-                Eu fiz porque você se tornou alguém especial para mim.
-            </p>
+        <!-- PRESENTES -->
 
-            <p>
-                Entre tantas pessoas que poderiam ter cruzado meu caminho,
-                foi justamente você que apareceu.
-            </p>
+        <div class="presentes" id="presentes">
 
-            <p>
-                E talvez seja isso que torna tudo tão interessante:
-                algumas pessoas simplesmente chegam...
-                e acabam deixando uma marca.
-            </p>
+            <!-- PRESENTE 1 -->
 
-            <div class="coracao">
-                ❤️
+            <div
+                class="presente"
+                onclick="escolherPresente(1)"
+                id="presente1"
+            >
+
+                <div class="emoji-presente">
+                    🎁
+                </div>
+
+                <div class="numero">
+                    PRESENTE 01
+                </div>
+
             </div>
 
-            <p>
-                Então aproveita seu dia, aproveita cada momento,
-                sorri bastante e nunca esquece o quanto você é incrível.
-            </p>
+
+            <!-- PRESENTE 2 -->
+
+            <div
+                class="presente"
+                onclick="escolherPresente(2)"
+                id="presente2"
+            >
+
+                <div class="emoji-presente">
+                    🎁
+                </div>
+
+                <div class="numero">
+                    PRESENTE 02
+                </div>
+
+            </div>
+
+
+            <!-- PRESENTE 3 -->
+
+            <div
+                class="presente"
+                onclick="escolherPresente(3)"
+                id="presente3"
+            >
+
+                <div class="emoji-presente">
+                    🎁
+                </div>
+
+                <div class="numero">
+                    PRESENTE 03
+                </div>
+
+            </div>
 
         </div>
 
-        <div class="assinatura">
-            Feliz aniversário. 🖤
+
+        <!-- RESULTADO -->
+
+        <div
+            class="resultado"
+            id="resultado"
+        >
+
+            <div
+                class="emoji"
+                id="emojiResultado"
+            ></div>
+
+            <h2 id="nomeResultado"></h2>
+
+            <p id="mensagemResultado"></p>
+
+            <div class="aviso">
+                Você já escolheu... agora não vale tentar voltar. kkkkk 😈
+            </div>
+
         </div>
 
-    </main>
+    </div>
+
 
     <script>
 
-        /* CRIAR ESTRELAS */
-        const estrelas = document.getElementById("stars");
+        /* ==============================
+           ESTRELAS
+        ============================== */
 
         for (let i = 0; i < 120; i++) {
 
-            const estrela = document.createElement("div");
+            const estrela =
+                document.createElement("div");
 
             estrela.classList.add("star");
 
             estrela.style.left =
-                Math.random() * 100 + "%";
+                Math.random() * 100 + "vw";
 
             estrela.style.top =
-                Math.random() * 100 + "%";
+                Math.random() * 100 + "vh";
 
             estrela.style.animationDelay =
                 Math.random() * 3 + "s";
 
-            estrela.style.opacity =
-                Math.random();
-
-            estrelas.appendChild(estrela);
+            document.body.appendChild(estrela);
         }
 
 
-        /* CORAÇÕES FLUTUANDO */
-        function criarCoracao() {
+        /* ==============================
+           PRESENTES
+        ============================== */
 
-            const heart = document.createElement("div");
+        const presentes = {
 
-            heart.classList.add("heart");
+            1: {
+                nome: "Fênix",
+                emoji: "🔥🦅",
+                mensagem:
+                    "Você encontrou a Fênix. 🔥🦅 Uma escolha poderosa... renascimento, força e algo que nunca deixa de voltar ainda mais forte."
+            },
 
-            heart.innerHTML =
-                Math.random() > 0.5 ? "❤️" : "♡";
+            2: {
+                nome: "Mini Lion",
+                emoji: "🦁",
+                mensagem:
+                    "Você encontrou o Mini Lion. 🦁 Pequeno no tamanho, mas gigante na presença. Uma escolha fofinha, mas perigosa kkkkk."
+            },
 
-            heart.style.left =
-                Math.random() * 100 + "vw";
+            3: {
+                nome: "Zeus",
+                emoji: "⚡🧔",
+                mensagem:
+                    "Você encontrou Zeus. ⚡🧔 Você literalmente escolheu o deus dos deuses. Agora aguenta as consequências dessa escolha. kkkkk"
+            }
 
-            heart.style.fontSize =
-                (15 + Math.random() * 25) + "px";
+        };
 
-            heart.style.animationDuration =
-                (4 + Math.random() * 4) + "s";
 
-            document.body.appendChild(heart);
+        let jaEscolheu = false;
+
+
+        /* ==============================
+           ESCOLHER PRESENTE
+        ============================== */
+
+        function escolherPresente(numero) {
+
+            /*
+                Se já escolheu,
+                não deixa escolher novamente.
+            */
+
+            if (jaEscolheu) {
+
+                return;
+            }
+
+
+            jaEscolheu = true;
+
+
+            const presenteEscolhido =
+                document.getElementById(
+                    "presente" + numero
+                );
+
+
+            /*
+                Marca o escolhido
+            */
+
+            presenteEscolhido.classList.add(
+                "escolhido"
+            );
+
+
+            /*
+                Bloqueia os outros dois
+            */
+
+            for (let i = 1; i <= 3; i++) {
+
+                if (i !== numero) {
+
+                    document
+                        .getElementById(
+                            "presente" + i
+                        )
+                        .classList.add(
+                            "bloqueado"
+                        );
+                }
+            }
+
+
+            /*
+                Dados do presente
+            */
+
+            const dados =
+                presentes[numero];
+
+
+            /*
+                Coloca resultado
+            */
+
+            document.getElementById(
+                "emojiResultado"
+            ).innerHTML =
+                dados.emoji;
+
+
+            document.getElementById(
+                "nomeResultado"
+            ).innerHTML =
+                dados.nome;
+
+
+            document.getElementById(
+                "mensagemResultado"
+            ).innerHTML =
+                dados.mensagem;
+
+
+            /*
+                Mostra resultado
+            */
+
+            document.getElementById(
+                "resultado"
+            ).style.display =
+                "block";
+
+
+            /*
+                Rola até o resultado
+            */
 
             setTimeout(() => {
-                heart.remove();
-            }, 8000);
+
+                document
+                    .getElementById("resultado")
+                    .scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+            }, 300);
+
+
+            /*
+                Solta corações
+            */
+
+            criarCoracoes();
+
         }
 
-        setInterval(criarCoracao, 500);
+
+        /* ==============================
+           CORAÇÕES
+        ============================== */
+
+        function criarCoracoes() {
+
+            for (
+                let i = 0;
+                i < 25;
+                i++
+            ) {
+
+                setTimeout(() => {
+
+                    const heart =
+                        document.createElement(
+                            "div"
+                        );
+
+                    heart.classList.add(
+                        "heart"
+                    );
+
+                    heart.innerHTML =
+                        Math.random() > .5
+                        ? "❤️"
+                        : "♡";
+
+
+                    heart.style.left =
+                        Math.random() * 100 +
+                        "vw";
+
+
+                    heart.style.fontSize =
+                        (15 +
+                        Math.random() * 25) +
+                        "px";
+
+
+                    heart.style.animationDuration =
+                        (3 +
+                        Math.random() * 4) +
+                        "s";
+
+
+                    document.body.appendChild(
+                        heart
+                    );
+
+
+                    setTimeout(() => {
+
+                        heart.remove();
+
+                    }, 7000);
+
+                }, i * 120);
+
+            }
+
+        }
 
     </script>
 
