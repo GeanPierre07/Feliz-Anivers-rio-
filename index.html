@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Uma surpresa para você ✨</title>
 
 <style>
@@ -13,21 +14,28 @@
     box-sizing: border-box;
 }
 
-body {
-    min-height: 100vh;
+html, body {
+    width: 100%;
+    min-height: 100%;
     background: #000;
-    color: white;
+    color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
 }
 
-/* ESTRELAS */
-.stars {
+body {
+    min-height: 100vh;
+}
+
+/* =========================
+   ESTRELAS
+========================= */
+
+#stars {
     position: fixed;
     inset: 0;
-    overflow: hidden;
-    pointer-events: none;
     z-index: 0;
+    pointer-events: none;
 }
 
 .star {
@@ -36,347 +44,533 @@ body {
     height: 2px;
     background: white;
     border-radius: 50%;
-    animation: twinkle 3s infinite ease-in-out;
+    opacity: .5;
+    animation: brilho 3s infinite ease-in-out;
 }
 
-@keyframes twinkle {
-    0%, 100% {
-        opacity: .2;
+@keyframes brilho {
+    0%,100% {
+        opacity: .15;
     }
+
     50% {
         opacity: 1;
     }
 }
 
-/* PÁGINAS */
-.page {
-    min-height: 100vh;
+/* =========================
+   TELAS
+========================= */
+
+.tela {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+
     display: none;
+
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 30px 20px;
+
+    padding: 25px;
+
     text-align: center;
-    position: relative;
-    z-index: 1;
 }
 
-.page.active {
+.tela.ativa {
     display: flex;
 }
 
-/* ENTRADA */
-.intro h1 {
-    font-size: clamp(2.2rem, 7vw, 5rem);
-    margin-bottom: 20px;
-    background: linear-gradient(90deg, #fff, #a855f7, #fff);
+/* =========================
+   PRIMEIRA TELA
+========================= */
+
+#tela1 h1 {
+    font-size: clamp(2.3rem, 7vw, 5rem);
+
+    margin-bottom: 25px;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #a855f7,
+        #ffffff
+    );
+
     background-size: 200%;
+
     -webkit-background-clip: text;
+    background-clip: text;
+
     color: transparent;
-    animation: shine 4s linear infinite;
+
+    animation: brilhoTexto 4s linear infinite;
 }
 
-@keyframes shine {
+@keyframes brilhoTexto {
     to {
         background-position: 200%;
     }
 }
 
-.intro p {
-    max-width: 650px;
+#typing {
     color: #aaa;
     font-size: 1.1rem;
-    line-height: 1.7;
-    min-height: 60px;
+    min-height: 30px;
 }
 
-.btn {
+.botao {
     margin-top: 35px;
-    padding: 15px 30px;
+
+    padding: 15px 32px;
+
     border: 1px solid #9333ea;
     border-radius: 50px;
+
     background: transparent;
+
     color: white;
+
     font-size: 1rem;
+
     cursor: pointer;
+
     transition: .3s;
-    box-shadow: 0 0 20px rgba(147,51,234,.2);
+
+    box-shadow:
+        0 0 20px rgba(147,51,234,.2);
 }
 
-.btn:hover {
+.botao:hover {
     background: #9333ea;
-    box-shadow: 0 0 35px rgba(147,51,234,.7);
-    transform: scale(1.05);
+
+    transform: scale(1.06);
+
+    box-shadow:
+        0 0 40px rgba(147,51,234,.6);
 }
 
-/* MENSAGEM */
-.message {
-    max-width: 750px;
+/* =========================
+   SEGUNDA TELA
+========================= */
+
+.coracao {
+    font-size: 4rem;
+
+    margin-bottom: 20px;
+
+    animation: pulsar 1.5s infinite;
 }
 
-.message h2 {
+@keyframes pulsar {
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+}
+
+#tela2 {
+    max-width: 850px;
+    margin: auto;
+}
+
+#tela2 h2 {
     font-size: clamp(2rem, 6vw, 4rem);
+
     margin-bottom: 25px;
 }
 
-.message p {
+#tela2 p {
+    max-width: 700px;
+
     color: #ccc;
+
     font-size: 1.1rem;
+
     line-height: 1.9;
 }
 
-.heart {
-    font-size: 4rem;
-    margin-bottom: 20px;
-    animation: pulse 1.5s infinite;
-}
+/* =========================
+   PRESENTES
+========================= */
 
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.2);
-    }
-}
-
-/* PRESENTES */
-.gifts h2 {
+#tela3 h2 {
     font-size: clamp(2rem, 6vw, 4rem);
+
     margin-bottom: 10px;
 }
 
-.gifts > p {
-    color: #999;
+.subtitulo {
+    color: #888;
+
     margin-bottom: 40px;
 }
 
-.gift-container {
+.presentes {
     display: flex;
-    gap: 25px;
+
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
+
+    gap: 25px;
+
     flex-wrap: wrap;
+
     max-width: 900px;
 }
 
-.gift {
+.presente {
     width: 190px;
-    min-height: 220px;
+    height: 220px;
+
     border: 1px solid #292929;
+
     border-radius: 25px;
-    background: rgba(255,255,255,.03);
+
+    background:
+        rgba(255,255,255,.03);
+
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+
     align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
     cursor: pointer;
+
     transition: .4s;
-    padding: 25px 15px;
 }
 
-.gift:hover {
-    transform: translateY(-10px) scale(1.03);
+.presente:hover {
+    transform: translateY(-10px) scale(1.04);
+
     border-color: #9333ea;
-    box-shadow: 0 0 35px rgba(147,51,234,.25);
+
+    box-shadow:
+        0 0 35px rgba(147,51,234,.35);
 }
 
-.gift-emoji {
+.emoji-presente {
     font-size: 5rem;
+
     margin-bottom: 15px;
-    transition: .4s;
 }
 
-.gift h3 {
-    font-size: 1.1rem;
+.presente h3 {
     color: #aaa;
+
+    font-size: 1rem;
+
     font-weight: normal;
 }
 
-.reveal {
+/* =========================
+   PRESENTE REVELADO
+========================= */
+
+.revelado {
     display: none;
+
     flex-direction: column;
+
     align-items: center;
-    animation: reveal .6s ease forwards;
+
+    justify-content: center;
 }
 
-@keyframes reveal {
-    from {
-        opacity: 0;
-        transform: scale(.5);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.reveal .big-emoji {
+.revelado .emoji {
     font-size: 6rem;
+
     margin-bottom: 15px;
 }
 
-.reveal h3 {
+.revelado h3 {
     font-size: 1.5rem;
+
     margin-bottom: 8px;
 }
 
-.reveal span {
-    color: #999;
+.revelado span {
+    color: #888;
 }
 
-/* ESCONDIDO */
-.gift.disabled {
-    opacity: .15;
+/* =========================
+   PRESENTES DESATIVADOS
+========================= */
+
+.presente.desativado {
+    opacity: 0;
+
     pointer-events: none;
-    transform: scale(.95);
+
+    transform: scale(.7);
+
+    transition: .5s;
 }
 
-/* FINAL */
-.final {
-    max-width: 750px;
-}
+/* =========================
+   TELA FINAL
+========================= */
 
-.final h2 {
-    font-size: clamp(2.2rem, 6vw, 4rem);
+#tela4 h2 {
+    font-size: clamp(2rem, 6vw, 4rem);
+
     margin-bottom: 25px;
 }
 
-.final p {
+#tela4 p {
+    max-width: 700px;
+
     color: #aaa;
-    line-height: 1.8;
+
     font-size: 1.1rem;
+
+    line-height: 1.9;
 }
 
-.final-heart {
+.finalEmoji {
     font-size: 4rem;
+
     margin-bottom: 20px;
-    animation: pulse 1.5s infinite;
+
+    animation: pulsar 1.5s infinite;
 }
 
-/* RESPONSIVO */
-@media (max-width: 600px) {
-    .gift {
-        width: 160px;
-        min-height: 190px;
+/* =========================
+   CELULAR
+========================= */
+
+@media(max-width:600px) {
+
+    .presente {
+        width: 150px;
+        height: 190px;
     }
 
-    .gift-emoji {
+    .emoji-presente {
         font-size: 4rem;
     }
 
-    .gift-container {
-        gap: 15px;
+    .revelado .emoji {
+        font-size: 5rem;
     }
 }
 </style>
+
 </head>
 
 <body>
 
 <!-- ESTRELAS -->
-<div class="stars" id="stars"></div>
+<div id="stars"></div>
 
-<!-- PRIMEIRA PARTE -->
-<section class="page active intro" id="page1">
 
-    <h1>Tenho uma coisa pra te mostrar...</h1>
+<!-- ==================================================
+     TELA 1
+================================================== -->
+
+<section class="tela ativa" id="tela1">
+
+    <h1>
+        Tenho uma coisa pra te mostrar...
+    </h1>
 
     <p id="typing"></p>
 
-    <button class="btn" onclick="nextPage(2)">
+    <button
+        class="botao"
+        onclick="mostrarTela(2)"
+    >
         Clique para descobrir ✨
     </button>
 
 </section>
 
 
-<!-- SEGUNDA PARTE -->
-<section class="page message" id="page2">
+<!-- ==================================================
+     TELA 2
+================================================== -->
 
-    <div class="heart">❤️</div>
+<section class="tela" id="tela2">
 
-    <h2>Feliz aniversário! 🎂</h2>
+    <div class="coracao">
+        ❤️
+    </div>
+
+    <h2>
+        Feliz aniversário! 🎂
+    </h2>
 
     <p>
-        Hoje é o seu dia, então eu queria fazer alguma coisa
-        um pouco diferente.<br><br>
 
-        Talvez você não esperasse receber uma surpresa assim,
-        mas eu queria deixar registrado o quanto foi especial
-        ter conhecido você e ter tido a oportunidade de me
-        aproximar de você.<br><br>
+        Hoje é o seu dia, então eu queria fazer
+        alguma coisa um pouco diferente.
 
-        Espero que esse novo ciclo seja cheio de momentos
-        incríveis, conquistas, felicidade e pessoas que façam
-        você sorrir de verdade.
+        <br><br>
+
+        Talvez você não esperasse receber uma
+        surpresa assim, mas eu queria deixar
+        registrado o quanto foi especial ter
+        conhecido você e ter tido a oportunidade
+        de me aproximar de você.
+
+        <br><br>
+
+        Espero que esse novo ciclo seja cheio
+        de momentos incríveis, conquistas,
+        felicidade e pessoas que façam você
+        sorrir de verdade.
+
     </p>
 
-    <button class="btn" onclick="nextPage(3)">
+    <button
+        class="botao"
+        onclick="mostrarTela(3)"
+    >
         Tem mais uma coisa... 👀
     </button>
 
 </section>
 
 
-<!-- PRESENTES -->
-<section class="page gifts" id="page3">
+<!-- ==================================================
+     TELA 3 — PRESENTES
+================================================== -->
 
-    <h2>Escolha um presente 🎁</h2>
+<section class="tela" id="tela3">
 
-    <p>
-        Mas escolha com cuidado... depois que escolher,
-        os outros desaparecem. 👀
+    <h2>
+        Escolha um presente 🎁
+    </h2>
+
+    <p class="subtitulo">
+        Escolha apenas um...
+        depois os outros desaparecem. 👀
     </p>
 
-    <div class="gift-container">
+
+    <div class="presentes">
+
 
         <!-- FÊNIX -->
-        <div class="gift" id="gift1" onclick="chooseGift(1)">
 
-            <div class="gift-content">
-                <div class="gift-emoji">🎁</div>
-                <h3>Presente 01</h3>
+        <div
+            class="presente"
+            id="presente1"
+            onclick="escolherPresente(1)"
+        >
+
+            <div class="conteudo">
+                <div class="emoji-presente">
+                    🎁
+                </div>
+
+                <h3>
+                    Presente 01
+                </h3>
             </div>
 
-            <div class="reveal">
-                <div class="big-emoji">🐦‍🔥</div>
-                <h3>Fênix</h3>
-                <span>Renascimento e força.</span>
+
+            <div class="revelado">
+
+                <div class="emoji">
+                    🐦‍🔥
+                </div>
+
+                <h3>
+                    Fênix
+                </h3>
+
+                <span>
+                    Renascimento e força.
+                </span>
+
             </div>
 
         </div>
 
 
         <!-- MINI LION -->
-        <div class="gift" id="gift2" onclick="chooseGift(2)">
 
-            <div class="gift-content">
-                <div class="gift-emoji">🎁</div>
-                <h3>Presente 02</h3>
+        <div
+            class="presente"
+            id="presente2"
+            onclick="escolherPresente(2)"
+        >
+
+            <div class="conteudo">
+
+                <div class="emoji-presente">
+                    🎁
+                </div>
+
+                <h3>
+                    Presente 02
+                </h3>
+
             </div>
 
-            <div class="reveal">
-                <div class="big-emoji">🦁</div>
-                <h3>Mini Lion</h3>
-                <span>Pequeno no tamanho, gigante na presença.</span>
+
+            <div class="revelado">
+
+                <div class="emoji">
+                    🦁
+                </div>
+
+                <h3>
+                    Mini Lion
+                </h3>
+
+                <span>
+                    Pequeno no tamanho,
+                    gigante na presença.
+                </span>
+
             </div>
 
         </div>
 
 
         <!-- ZEUS -->
-        <div class="gift" id="gift3" onclick="chooseGift(3)">
 
-            <div class="gift-content">
-                <div class="gift-emoji">🎁</div>
-                <h3>Presente 03</h3>
+        <div
+            class="presente"
+            id="presente3"
+            onclick="escolherPresente(3)"
+        >
+
+            <div class="conteudo">
+
+                <div class="emoji-presente">
+                    🎁
+                </div>
+
+                <h3>
+                    Presente 03
+                </h3>
+
             </div>
 
-            <div class="reveal">
-                <div class="big-emoji">⚡</div>
-                <h3>Zeus</h3>
-                <span>O poder dos deuses. ⚡</span>
+
+            <div class="revelado">
+
+                <div class="emoji">
+                    ⚡
+                </div>
+
+                <h3>
+                    Zeus
+                </h3>
+
+                <span>
+                    O poder dos deuses.
+                </span>
+
             </div>
 
         </div>
@@ -386,20 +580,35 @@ body {
 </section>
 
 
-<!-- FINAL -->
-<section class="page final" id="page4">
+<!-- ==================================================
+     TELA 4 — FINAL
+================================================== -->
 
-    <div class="final-heart">💜</div>
+<section class="tela" id="tela4">
 
-    <h2>Espero que tenha gostado. ✨</h2>
+    <div class="finalEmoji">
+        💜
+    </div>
+
+    <h2>
+        Espero que tenha gostado. ✨
+    </h2>
 
     <p>
-        Independente do presente que você escolheu,
-        a verdadeira intenção dessa surpresa era te fazer
-        sorrir nem que fosse por alguns minutos.<br><br>
 
-        Feliz aniversário. ❤️<br>
-        Que seu novo ciclo seja simplesmente incrível.
+        Independente do presente que você escolheu,
+        a verdadeira intenção dessa surpresa era
+        te fazer sorrir.
+
+        <br><br>
+
+        Feliz aniversário. ❤️
+
+        <br>
+
+        Que seu novo ciclo seja simplesmente
+        incrível.
+
     </p>
 
 </section>
@@ -407,100 +616,164 @@ body {
 
 <script>
 
-/* CRIAR ESTRELAS */
-const starsContainer = document.getElementById("stars");
+/* ==================================================
+   ESTRELAS
+================================================== */
 
-for (let i = 0; i < 180; i++) {
+const estrelas =
+document.getElementById("stars");
 
-    const star = document.createElement("div");
+for(let i = 0; i < 180; i++){
 
-    star.classList.add("star");
+    const estrela =
+    document.createElement("div");
 
-    star.style.left = Math.random() * 100 + "%";
-    star.style.top = Math.random() * 100 + "%";
+    estrela.className = "star";
 
-    const size = Math.random() * 2 + 1;
+    estrela.style.left =
+    Math.random() * 100 + "%";
 
-    star.style.width = size + "px";
-    star.style.height = size + "px";
+    estrela.style.top =
+    Math.random() * 100 + "%";
 
-    star.style.animationDelay =
-        Math.random() * 3 + "s";
+    const tamanho =
+    Math.random() * 2 + 1;
 
-    starsContainer.appendChild(star);
+    estrela.style.width =
+    tamanho + "px";
+
+    estrela.style.height =
+    tamanho + "px";
+
+    estrela.style.animationDelay =
+    Math.random() * 3 + "s";
+
+    estrelas.appendChild(estrela);
 }
 
 
-/* TEXTO DIGITANDO */
-const text =
+/* ==================================================
+   TEXTO DIGITANDO
+================================================== */
+
+const frase =
 "Algumas coisas merecem ser descobertas aos poucos...";
 
-let index = 0;
+let posicao = 0;
 
-function typeText() {
+function escrever(){
 
-    if (index < text.length) {
+    if(posicao < frase.length){
 
         document.getElementById("typing").textContent +=
-            text.charAt(index);
+        frase[posicao];
 
-        index++;
+        posicao++;
 
-        setTimeout(typeText, 45);
+        setTimeout(escrever,45);
     }
 }
 
-typeText();
+escrever();
 
 
-/* TROCAR PÁGINA */
-function nextPage(pageNumber) {
+/* ==================================================
+   TROCAR TELA
+================================================== */
 
-    document.querySelectorAll(".page").forEach(page => {
-        page.classList.remove("active");
-    });
+function mostrarTela(numero){
+
+    /*
+       PRIMEIRO ESCONDE TODAS AS TELAS
+    */
 
     document
-        .getElementById("page" + pageNumber)
-        .classList.add("active");
+    .querySelectorAll(".tela")
+    .forEach(function(tela){
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+        tela.classList.remove("ativa");
+
     });
+
+
+    /*
+       DEPOIS MOSTRA SOMENTE A ESCOLHIDA
+    */
+
+    const novaTela =
+    document.getElementById("tela" + numero);
+
+    novaTela.classList.add("ativa");
+
 }
 
 
-/* ESCOLHER PRESENTE */
-function chooseGift(number) {
+/* ==================================================
+   ESCOLHER PRESENTE
+================================================== */
 
-    const selected = document.getElementById("gift" + number);
+let presenteEscolhido = false;
 
-    /* impede escolher novamente */
-    if (selected.classList.contains("disabled")) {
+function escolherPresente(numero){
+
+    if(presenteEscolhido){
         return;
     }
 
-    /* revela o presente escolhido */
-    selected.querySelector(".gift-content").style.display = "none";
-    selected.querySelector(".reveal").style.display = "flex";
+    presenteEscolhido = true;
 
-    /* desativa os outros dois */
-    for (let i = 1; i <= 3; i++) {
 
-        if (i !== number) {
+    /*
+       PEGA O PRESENTE ESCOLHIDO
+    */
+
+    const escolhido =
+    document.getElementById(
+        "presente" + numero
+    );
+
+
+    /*
+       ESCONDE A IMAGEM DO PRESENTE
+       E MOSTRA O PERSONAGEM
+    */
+
+    escolhido.querySelector(".conteudo")
+    .style.display = "none";
+
+
+    escolhido.querySelector(".revelado")
+    .style.display = "flex";
+
+
+    /*
+       FAZ OS OUTROS DOIS SUMIREM
+    */
+
+    for(let i = 1; i <= 3; i++){
+
+        if(i !== numero){
 
             document
-                .getElementById("gift" + i)
-                .classList.add("disabled");
+            .getElementById("presente" + i)
+            .classList
+            .add("desativado");
+
         }
+
     }
 
-    /* depois de revelar, libera o botão invisível
-       através de um clique no próprio presente */
-    selected.onclick = function() {
-        nextPage(4);
-    };
+
+    /*
+       DEPOIS DE 2,5 SEGUNDOS,
+       VAI PARA A TELA FINAL
+    */
+
+    setTimeout(function(){
+
+        mostrarTela(4);
+
+    },2500);
 
 }
 
