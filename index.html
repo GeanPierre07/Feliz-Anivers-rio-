@@ -1,234 +1,511 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uma surpresa para você ✨</title>
 
-    <title>Uma surpresa para você</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+body {
+    min-height: 100vh;
+    background: #000;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
 
-        body {
-            min-height: 100vh;
-            background: #000;
-            color: white;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
+/* ESTRELAS */
+.stars {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
 
-        .stars {
-            position: fixed;
-            inset: 0;
-            background:
-                radial-gradient(2px 2px at 10% 20%, white, transparent),
-                radial-gradient(1px 1px at 30% 80%, white, transparent),
-                radial-gradient(2px 2px at 70% 30%, white, transparent),
-                radial-gradient(1px 1px at 90% 70%, white, transparent),
-                radial-gradient(1px 1px at 50% 50%, white, transparent),
-                radial-gradient(2px 2px at 80% 10%, white, transparent),
-                radial-gradient(1px 1px at 20% 60%, white, transparent);
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+}
 
-            background-size: 300px 300px;
-            animation: estrelas 10s linear infinite;
-            opacity: .6;
-        }
+@keyframes twinkle {
+    0%, 100% {
+        opacity: .2;
+    }
+    50% {
+        opacity: 1;
+    }
+}
 
-        @keyframes estrelas {
-            from {
-                transform: translateY(0);
-            }
+/* PÁGINAS */
+.page {
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
 
-            to {
-                transform: translateY(-300px);
-            }
-        }
+.page.active {
+    display: flex;
+}
 
-        .container {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            width: 90%;
-            max-width: 700px;
-        }
+/* ENTRADA */
+.intro h1 {
+    font-size: clamp(2.2rem, 7vw, 5rem);
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #fff, #a855f7, #fff);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 4s linear infinite;
+}
 
-        .subtitulo {
-            color: #888;
-            font-size: 13px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-            animation: aparecer 2s ease;
-        }
+@keyframes shine {
+    to {
+        background-position: 200%;
+    }
+}
 
-        h1 {
-            font-size: clamp(42px, 9vw, 80px);
-            margin-bottom: 25px;
+.intro p {
+    max-width: 650px;
+    color: #aaa;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    min-height: 60px;
+}
 
-            background: linear-gradient(
-                90deg,
-                #fff,
-                #ff4d6d,
-                #fff
-            );
+.btn {
+    margin-top: 35px;
+    padding: 15px 30px;
+    border: 1px solid #9333ea;
+    border-radius: 50px;
+    background: transparent;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: 0 0 20px rgba(147,51,234,.2);
+}
 
-            background-size: 200%;
+.btn:hover {
+    background: #9333ea;
+    box-shadow: 0 0 35px rgba(147,51,234,.7);
+    transform: scale(1.05);
+}
 
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+/* MENSAGEM */
+.message {
+    max-width: 750px;
+}
 
-            animation:
-                aparecer 2s ease,
-                brilho 4s linear infinite;
-        }
+.message h2 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    margin-bottom: 25px;
+}
 
-        @keyframes brilho {
-            from {
-                background-position: 0%;
-            }
+.message p {
+    color: #ccc;
+    font-size: 1.1rem;
+    line-height: 1.9;
+}
 
-            to {
-                background-position: 200%;
-            }
-        }
+.heart {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: pulse 1.5s infinite;
+}
 
-        .mensagem {
-            color: #ccc;
-            font-size: 18px;
-            line-height: 1.8;
-            min-height: 80px;
-        }
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
 
-        .cursor {
-            color: #ff4d6d;
-            animation: piscar .7s infinite;
-        }
+/* PRESENTES */
+.gifts h2 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    margin-bottom: 10px;
+}
 
-        @keyframes piscar {
-            50% {
-                opacity: 0;
-            }
-        }
+.gifts > p {
+    color: #999;
+    margin-bottom: 40px;
+}
 
-        .coracao {
-            font-size: 45px;
-            margin: 30px 0;
-            animation: pulsar 1.5s infinite;
-        }
+.gift-container {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    max-width: 900px;
+}
 
-        @keyframes pulsar {
-            0%, 100% {
-                transform: scale(1);
-            }
+.gift {
+    width: 190px;
+    min-height: 220px;
+    border: 1px solid #292929;
+    border-radius: 25px;
+    background: rgba(255,255,255,.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .4s;
+    padding: 25px 15px;
+}
 
-            50% {
-                transform: scale(1.2);
-            }
-        }
+.gift:hover {
+    transform: translateY(-10px) scale(1.03);
+    border-color: #9333ea;
+    box-shadow: 0 0 35px rgba(147,51,234,.25);
+}
 
-        .botao {
-            display: inline-block;
-            padding: 16px 35px;
+.gift-emoji {
+    font-size: 5rem;
+    margin-bottom: 15px;
+    transition: .4s;
+}
 
-            border: 1px solid #ff4d6d;
-            border-radius: 50px;
+.gift h3 {
+    font-size: 1.1rem;
+    color: #aaa;
+    font-weight: normal;
+}
 
-            background: transparent;
-            color: white;
+.reveal {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    animation: reveal .6s ease forwards;
+}
 
-            font-size: 16px;
-            text-decoration: none;
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: scale(.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
-            cursor: pointer;
+.reveal .big-emoji {
+    font-size: 6rem;
+    margin-bottom: 15px;
+}
 
-            transition: .3s;
+.reveal h3 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
 
-            box-shadow: 0 0 0 rgba(255, 77, 109, 0);
-        }
+.reveal span {
+    color: #999;
+}
 
-        .botao:hover {
-            background: #ff4d6d;
+/* ESCONDIDO */
+.gift.disabled {
+    opacity: .15;
+    pointer-events: none;
+    transform: scale(.95);
+}
 
-            box-shadow:
-                0 0 30px rgba(255, 77, 109, .6);
+/* FINAL */
+.final {
+    max-width: 750px;
+}
 
-            transform: scale(1.05);
-        }
+.final h2 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    margin-bottom: 25px;
+}
 
-        @keyframes aparecer {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+.final p {
+    color: #aaa;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+.final-heart {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: pulse 1.5s infinite;
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+    .gift {
+        width: 160px;
+        min-height: 190px;
+    }
+
+    .gift-emoji {
+        font-size: 4rem;
+    }
+
+    .gift-container {
+        gap: 15px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <div class="stars"></div>
+<!-- ESTRELAS -->
+<div class="stars" id="stars"></div>
 
-    <main class="container">
+<!-- PRIMEIRA PARTE -->
+<section class="page active intro" id="page1">
 
-        <div class="subtitulo">
-            uma pequena surpresa...
+    <h1>Tenho uma coisa pra te mostrar...</h1>
+
+    <p id="typing"></p>
+
+    <button class="btn" onclick="nextPage(2)">
+        Clique para descobrir ✨
+    </button>
+
+</section>
+
+
+<!-- SEGUNDA PARTE -->
+<section class="page message" id="page2">
+
+    <div class="heart">❤️</div>
+
+    <h2>Feliz aniversário! 🎂</h2>
+
+    <p>
+        Hoje é o seu dia, então eu queria fazer alguma coisa
+        um pouco diferente.<br><br>
+
+        Talvez você não esperasse receber uma surpresa assim,
+        mas eu queria deixar registrado o quanto foi especial
+        ter conhecido você e ter tido a oportunidade de me
+        aproximar de você.<br><br>
+
+        Espero que esse novo ciclo seja cheio de momentos
+        incríveis, conquistas, felicidade e pessoas que façam
+        você sorrir de verdade.
+    </p>
+
+    <button class="btn" onclick="nextPage(3)">
+        Tem mais uma coisa... 👀
+    </button>
+
+</section>
+
+
+<!-- PRESENTES -->
+<section class="page gifts" id="page3">
+
+    <h2>Escolha um presente 🎁</h2>
+
+    <p>
+        Mas escolha com cuidado... depois que escolher,
+        os outros desaparecem. 👀
+    </p>
+
+    <div class="gift-container">
+
+        <!-- FÊNIX -->
+        <div class="gift" id="gift1" onclick="chooseGift(1)">
+
+            <div class="gift-content">
+                <div class="gift-emoji">🎁</div>
+                <h3>Presente 01</h3>
+            </div>
+
+            <div class="reveal">
+                <div class="big-emoji">🐦‍🔥</div>
+                <h3>Fênix</h3>
+                <span>Renascimento e força.</span>
+            </div>
+
         </div>
 
-        <h1>
-            Feliz Aniversário ❤️
-        </h1>
 
-        <div class="mensagem">
-            <span id="texto"></span>
-            <span class="cursor">|</span>
+        <!-- MINI LION -->
+        <div class="gift" id="gift2" onclick="chooseGift(2)">
+
+            <div class="gift-content">
+                <div class="gift-emoji">🎁</div>
+                <h3>Presente 02</h3>
+            </div>
+
+            <div class="reveal">
+                <div class="big-emoji">🦁</div>
+                <h3>Mini Lion</h3>
+                <span>Pequeno no tamanho, gigante na presença.</span>
+            </div>
+
         </div>
 
-        <div class="coracao">
-            ❤️
+
+        <!-- ZEUS -->
+        <div class="gift" id="gift3" onclick="chooseGift(3)">
+
+            <div class="gift-content">
+                <div class="gift-emoji">🎁</div>
+                <h3>Presente 03</h3>
+            </div>
+
+            <div class="reveal">
+                <div class="big-emoji">⚡</div>
+                <h3>Zeus</h3>
+                <span>O poder dos deuses. ⚡</span>
+            </div>
+
         </div>
 
-        <!-- BOTÃO QUE ABRE A SURPRESA -->
-        <a href="surpresa.html" class="botao">
-            Clique para descobrir
-        </a>
+    </div>
 
-    </main>
+</section>
 
-    <script>
 
-        const texto =
-            "Eu poderia simplesmente te mandar uma mensagem... mas achei que você merecia algo diferente.";
+<!-- FINAL -->
+<section class="page final" id="page4">
 
-        let i = 0;
+    <div class="final-heart">💜</div>
 
-        function escrever() {
+    <h2>Espero que tenha gostado. ✨</h2>
 
-            if (i < texto.length) {
+    <p>
+        Independente do presente que você escolheu,
+        a verdadeira intenção dessa surpresa era te fazer
+        sorrir nem que fosse por alguns minutos.<br><br>
 
-                document.getElementById("texto").innerHTML +=
-                    texto.charAt(i);
+        Feliz aniversário. ❤️<br>
+        Que seu novo ciclo seja simplesmente incrível.
+    </p>
 
-                i++;
+</section>
 
-                setTimeout(escrever, 45);
-            }
+
+<script>
+
+/* CRIAR ESTRELAS */
+const starsContainer = document.getElementById("stars");
+
+for (let i = 0; i < 180; i++) {
+
+    const star = document.createElement("div");
+
+    star.classList.add("star");
+
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+
+    const size = Math.random() * 2 + 1;
+
+    star.style.width = size + "px";
+    star.style.height = size + "px";
+
+    star.style.animationDelay =
+        Math.random() * 3 + "s";
+
+    starsContainer.appendChild(star);
+}
+
+
+/* TEXTO DIGITANDO */
+const text =
+"Algumas coisas merecem ser descobertas aos poucos...";
+
+let index = 0;
+
+function typeText() {
+
+    if (index < text.length) {
+
+        document.getElementById("typing").textContent +=
+            text.charAt(index);
+
+        index++;
+
+        setTimeout(typeText, 45);
+    }
+}
+
+typeText();
+
+
+/* TROCAR PÁGINA */
+function nextPage(pageNumber) {
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document
+        .getElementById("page" + pageNumber)
+        .classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* ESCOLHER PRESENTE */
+function chooseGift(number) {
+
+    const selected = document.getElementById("gift" + number);
+
+    /* impede escolher novamente */
+    if (selected.classList.contains("disabled")) {
+        return;
+    }
+
+    /* revela o presente escolhido */
+    selected.querySelector(".gift-content").style.display = "none";
+    selected.querySelector(".reveal").style.display = "flex";
+
+    /* desativa os outros dois */
+    for (let i = 1; i <= 3; i++) {
+
+        if (i !== number) {
+
+            document
+                .getElementById("gift" + i)
+                .classList.add("disabled");
         }
+    }
 
-        escrever();
+    /* depois de revelar, libera o botão invisível
+       através de um clique no próprio presente */
+    selected.onclick = function() {
+        nextPage(4);
+    };
 
-    </script>
+}
+
+</script>
 
 </body>
 </html>
+```
