@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Uma pequena surpresa 👑</title>
 
+
 <style>
+
+/* ========================= */
+/* CONFIGURAÇÕES */
+/* ========================= */
 
 *{
     margin:0;
@@ -24,45 +33,69 @@ html,body{
 body{
 
     background:
-        radial-gradient(circle at 50% 20%,rgba(180,80,180,.25),transparent 30%),
-        radial-gradient(circle at 20% 80%,rgba(255,100,180,.12),transparent 30%),
-        linear-gradient(135deg,#16091f,#281034,#120718);
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(180,80,180,.25),
+            transparent 30%
+        ),
 
-    color:#fff;
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(255,100,180,.12),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #16091f,
+            #281034,
+            #120718
+        );
+
+    color:white;
 }
 
 
 /* ========================= */
-/* FUNDO DE ESTRELAS */
+/* ESTRELAS SUBINDO */
 /* ========================= */
 
 .background{
+
     position:fixed;
+
     inset:0;
+
     overflow:hidden;
+
     pointer-events:none;
+
 }
+
 
 .star{
 
     position:absolute;
 
     width:3px;
+
     height:3px;
 
-    background:#fff;
+    background:white;
 
     border-radius:50%;
 
     box-shadow:
-        0 0 6px #fff,
+        0 0 6px white,
         0 0 12px #f5a6ff;
 
     animation:
         starRise linear infinite;
 
     opacity:0;
+
 }
+
 
 @keyframes starRise{
 
@@ -73,6 +106,7 @@ body{
             scale(.4);
 
         opacity:0;
+
     }
 
     15%{
@@ -90,7 +124,9 @@ body{
             scale(1.2);
 
         opacity:0;
+
     }
+
 }
 
 
@@ -102,7 +138,7 @@ body{
 
     position:absolute;
 
-    color:#fff;
+    color:white;
 
     font-size:18px;
 
@@ -110,18 +146,28 @@ body{
         twinkle 2s infinite ease-in-out;
 
     opacity:.7;
+
 }
+
 
 @keyframes twinkle{
 
     0%,100%{
+
         opacity:.25;
-        transform:scale(.8);
+
+        transform:
+            scale(.8);
+
     }
 
     50%{
+
         opacity:1;
-        transform:scale(1.2);
+
+        transform:
+            scale(1.2);
+
     }
 
 }
@@ -154,10 +200,11 @@ body{
         translateY(20px);
 
     transition:
-
         opacity .8s ease,
         transform .8s ease;
+
 }
+
 
 .page.active{
 
@@ -168,6 +215,7 @@ body{
     transform:
         scale(1)
         translateY(0);
+
 }
 
 
@@ -194,22 +242,30 @@ body{
         crownFloat 3s ease-in-out infinite;
 
     filter:
-        drop-shadow(0 0 15px rgba(255,200,255,.7));
+        drop-shadow(
+            0 0 15px
+            rgba(255,200,255,.7)
+        );
+
 }
 
 
 @keyframes crownFloat{
 
     0%,100%{
+
         transform:
             translateY(0)
             rotate(-3deg);
+
     }
 
     50%{
+
         transform:
             translateY(-12px)
             rotate(3deg);
+
     }
 
 }
@@ -288,12 +344,12 @@ p{
 
     padding:16px 35px;
 
-    border:1px solid rgba(255,255,255,.25);
+    border:1px solid
+        rgba(255,255,255,.25);
 
     border-radius:50px;
 
     background:
-
         linear-gradient(
             135deg,
             #db65b0,
@@ -309,9 +365,11 @@ p{
     cursor:pointer;
 
     box-shadow:
+        0 0 20px
+        rgba(219,101,176,.3),
 
-        0 0 20px rgba(219,101,176,.3),
-        0 10px 30px rgba(0,0,0,.4);
+        0 10px 30px
+        rgba(0,0,0,.4);
 
     transition:.3s;
 
@@ -325,9 +383,11 @@ p{
         scale(1.05);
 
     box-shadow:
+        0 0 30px
+        rgba(239,120,200,.7),
 
-        0 0 30px rgba(239,120,200,.7),
-        0 15px 40px rgba(0,0,0,.5);
+        0 15px 40px
+        rgba(0,0,0,.5);
 
 }
 
@@ -361,15 +421,19 @@ p{
 @keyframes decorationFloat{
 
     0%,100%{
+
         transform:
             translateY(0)
             rotate(0);
+
     }
 
     50%{
+
         transform:
             translateY(-20px)
             rotate(10deg);
+
     }
 
 }
@@ -439,7 +503,6 @@ p{
     border-radius:12px;
 
     background:
-
         linear-gradient(
             135deg,
             #e86bb3,
@@ -447,8 +510,8 @@ p{
         );
 
     box-shadow:
-
-        0 0 25px rgba(226,100,190,.35);
+        0 0 25px
+        rgba(226,100,190,.35);
 
 }
 
@@ -519,79 +582,6 @@ p{
 
 
 /* ========================= */
-/* REVELAÇÃO */
-/* ========================= */
-
-.reveal{
-
-    display:none;
-
-    margin-top:30px;
-
-    animation:
-        reveal .9s ease;
-
-}
-
-
-.reveal.show{
-
-    display:block;
-
-}
-
-
-.reveal-icon{
-
-    font-size:100px;
-
-    animation:
-        revealIcon 1.2s ease infinite alternate;
-
-}
-
-
-@keyframes reveal{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            scale(.3);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-            scale(1);
-    }
-
-}
-
-
-@keyframes revealIcon{
-
-    from{
-
-        transform:
-            scale(1)
-            rotate(-5deg);
-    }
-
-    to{
-
-        transform:
-            scale(1.15)
-            rotate(5deg);
-    }
-
-}
-
-
-/* ========================= */
 /* PRESENTES BLOQUEADOS */
 /* ========================= */
 
@@ -603,6 +593,226 @@ p{
 
     transform:
         scale(.5);
+
+}
+
+
+/* ========================= */
+/* QUADRADO DA REVELAÇÃO */
+/* ========================= */
+
+.reveal{
+
+    display:none;
+
+    position:fixed;
+
+    left:50%;
+
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.3);
+
+    width:min(700px,88vw);
+
+    min-height:420px;
+
+    padding:50px 30px;
+
+    border-radius:35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(80,25,90,.98),
+            rgba(35,12,45,.98)
+        );
+
+    border:
+        1px solid
+        rgba(255,180,240,.45);
+
+    box-shadow:
+
+        0 0 30px
+        rgba(238,100,210,.35),
+
+        0 0 100px
+        rgba(180,70,220,.2),
+
+        inset 0 0 40px
+        rgba(255,255,255,.03);
+
+    z-index:50;
+
+    text-align:center;
+
+    transition:
+        transform .8s
+        cubic-bezier(.17,.89,.32,1.28),
+
+        opacity .5s ease;
+
+    opacity:0;
+
+}
+
+
+.reveal.show{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    opacity:1;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1);
+
+}
+
+
+/* ========================= */
+/* BRILHO DO QUADRADO */
+/* ========================= */
+
+.reveal::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-3px;
+
+    border-radius:38px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,150,230,.8),
+            transparent
+        );
+
+    opacity:.5;
+
+    z-index:-1;
+
+    animation:
+        borderGlow 3s linear infinite;
+
+}
+
+
+@keyframes borderGlow{
+
+    0%{
+
+        transform:
+            translateX(-100%);
+
+    }
+
+    100%{
+
+        transform:
+            translateX(100%);
+
+    }
+
+}
+
+
+/* ========================= */
+/* EMOJI DO PRESENTE */
+/* ========================= */
+
+.reveal-icon{
+
+    font-size:140px;
+
+    margin-bottom:20px;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(255,190,245,.7)
+        );
+
+    animation:
+        revealIcon 1.3s
+        ease-in-out infinite alternate;
+
+}
+
+
+@keyframes revealIcon{
+
+    from{
+
+        transform:
+            scale(1)
+            rotate(-5deg);
+
+    }
+
+    to{
+
+        transform:
+            scale(1.12)
+            rotate(5deg);
+
+    }
+
+}
+
+
+/* ========================= */
+/* NOME DO PRESENTE */
+/* ========================= */
+
+.reveal h2{
+
+    font-size:
+        clamp(35px,6vw,60px);
+
+    margin-bottom:15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #ffb9e9,
+            #fff
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+
+.reveal p{
+
+    color:#ead9e8;
+
+    font-size:20px;
+
+}
+
+
+.reveal .btn{
+
+    margin-top:30px;
+
 }
 
 
@@ -619,6 +829,7 @@ p{
     pointer-events:none;
 
     z-index:100;
+
 }
 
 
@@ -629,7 +840,8 @@ p{
     font-size:25px;
 
     animation:
-        explode 1.5s ease-out forwards;
+        explode 1.5s
+        ease-out forwards;
 
 }
 
@@ -663,7 +875,7 @@ p{
 
 
 /* ========================= */
-/* MOBILE */
+/* CELULAR */
 /* ========================= */
 
 @media(max-width:600px){
@@ -701,9 +913,34 @@ p{
 
     }
 
+    .reveal{
+
+        width:90vw;
+
+        min-height:430px;
+
+        padding:35px 20px;
+
+        border-radius:28px;
+
+    }
+
+    .reveal-icon{
+
+        font-size:110px;
+
+    }
+
+    .reveal h2{
+
+        font-size:40px;
+
+    }
+
 }
 
 </style>
+
 </head>
 
 
@@ -714,39 +951,74 @@ p{
 <!-- FUNDO -->
 <!-- ========================= -->
 
-<div class="background" id="background"></div>
+<div
+class="background"
+id="background">
+</div>
 
 
 <!-- ESTRELAS FIXAS -->
 
-<div class="fixed-star" style="top:10%;left:10%">✦</div>
+<div
+class="fixed-star"
+style="top:10%;left:10%">
+✦
+</div>
 
-<div class="fixed-star" style="top:18%;right:15%">✧</div>
+<div
+class="fixed-star"
+style="top:18%;right:15%">
+✧
+</div>
 
-<div class="fixed-star" style="top:40%;left:6%">✦</div>
+<div
+class="fixed-star"
+style="top:40%;left:6%">
+✦
+</div>
 
-<div class="fixed-star" style="top:65%;right:8%">✧</div>
+<div
+class="fixed-star"
+style="top:65%;right:8%">
+✧
+</div>
 
-<div class="fixed-star" style="bottom:12%;left:18%">✦</div>
+<div
+class="fixed-star"
+style="bottom:12%;left:18%">
+✦
+</div>
 
-<div class="fixed-star" style="bottom:20%;right:25%">✧</div>
+<div
+class="fixed-star"
+style="bottom:20%;right:25%">
+✧
+</div>
 
 
 <!-- DECORAÇÕES -->
 
-<div class="decoration" style="top:12%;left:25%">
+<div
+class="decoration"
+style="top:12%;left:25%">
 👑
 </div>
 
-<div class="decoration" style="top:25%;right:8%">
+<div
+class="decoration"
+style="top:25%;right:8%">
 ✨
 </div>
 
-<div class="decoration" style="bottom:15%;left:10%">
+<div
+class="decoration"
+style="bottom:15%;left:10%">
 💗
 </div>
 
-<div class="decoration" style="bottom:20%;right:12%">
+<div
+class="decoration"
+style="bottom:20%;right:12%">
 👑
 </div>
 
@@ -755,7 +1027,9 @@ p{
 <!-- TELA 1 -->
 <!-- ========================= -->
 
-<section class="page active" id="page1">
+<section
+class="page active"
+id="page1">
 
 <div class="content">
 
@@ -767,12 +1041,14 @@ p{
 Uma pequena surpresa...
 </h1>
 
-<p class="typing" id="typing"></p>
+<p
+class="typing"
+id="typing">
+</p>
 
 <button
 class="btn"
-onclick="nextPage(2)"
->
+onclick="nextPage(2)">
 
 ✨ CLIQUE PARA DESCOBRIR ✨
 
@@ -787,7 +1063,9 @@ onclick="nextPage(2)"
 <!-- TELA 2 -->
 <!-- ========================= -->
 
-<section class="page" id="page2">
+<section
+class="page"
+id="page2">
 
 <div class="content">
 
@@ -818,8 +1096,7 @@ e que ele seja tão especial quanto merece. 💗
 
 <button
 class="btn"
-onclick="nextPage(3)"
->
+onclick="nextPage(3)">
 
 Continuar ✨
 
@@ -834,7 +1111,9 @@ Continuar ✨
 <!-- TELA 3 -->
 <!-- ========================= -->
 
-<section class="page" id="page3">
+<section
+class="page"
+id="page3">
 
 <div class="content">
 
@@ -869,8 +1148,7 @@ Aproveite muito o seu dia. 💗
 
 <button
 class="btn"
-onclick="nextPage(4)"
->
+onclick="nextPage(4)">
 
 Tenho uma última coisa... 🎁
 
@@ -885,7 +1163,9 @@ Tenho uma última coisa... 🎁
 <!-- TELA 4 -->
 <!-- ========================= -->
 
-<section class="page" id="page4">
+<section
+class="page"
+id="page4">
 
 <div class="content">
 
@@ -915,16 +1195,17 @@ Mas você só pode escolher um. 👀
 
 <button
 class="gift"
-onclick="chooseGift(this,'phoenix')"
->
+onclick="chooseGift(this,'phoenix')">
 
 <div class="gift-crown">
 👑
 </div>
 
-<div class="gift-lid"></div>
+<div class="gift-lid">
+</div>
 
-<div class="gift-box"></div>
+<div class="gift-box">
+</div>
 
 <div class="ribbon">
 🎀
@@ -937,16 +1218,17 @@ onclick="chooseGift(this,'phoenix')"
 
 <button
 class="gift"
-onclick="chooseGift(this,'lion')"
->
+onclick="chooseGift(this,'lion')">
 
 <div class="gift-crown">
 👑
 </div>
 
-<div class="gift-lid"></div>
+<div class="gift-lid">
+</div>
 
-<div class="gift-box"></div>
+<div class="gift-box">
+</div>
 
 <div class="ribbon">
 🎀
@@ -959,16 +1241,17 @@ onclick="chooseGift(this,'lion')"
 
 <button
 class="gift"
-onclick="chooseGift(this,'zeus')"
->
+onclick="chooseGift(this,'zeus')">
 
 <div class="gift-crown">
 👑
 </div>
 
-<div class="gift-lid"></div>
+<div class="gift-lid">
+</div>
 
-<div class="gift-box"></div>
+<div class="gift-box">
+</div>
 
 <div class="ribbon">
 🎀
@@ -979,28 +1262,32 @@ onclick="chooseGift(this,'zeus')"
 </div>
 
 
+<!-- ========================= -->
 <!-- REVELAÇÃO -->
+<!-- ========================= -->
 
 <div
 class="reveal"
-id="reveal"
->
+id="reveal">
 
 <div
 class="reveal-icon"
-id="revealIcon"
-></div>
+id="revealIcon">
+</div>
 
-<h2 id="revealTitle"></h2>
+<h2
+id="revealTitle">
+</h2>
 
-<p id="revealText"></p>
+<p
+id="revealText">
+</p>
 
 <button
 class="btn"
-onclick="nextPage(5)"
->
+onclick="nextPage(5)">
 
-Finalizar ✨
+✨ Continuar
 
 </button>
 
@@ -1015,7 +1302,9 @@ Finalizar ✨
 <!-- TELA FINAL -->
 <!-- ========================= -->
 
-<section class="page" id="page5">
+<section
+class="page"
+id="page5">
 
 <div class="content">
 
@@ -1044,8 +1333,7 @@ Aproveite muito o seu dia! 🎂
 
 <button
 class="btn"
-onclick="location.reload()"
->
+onclick="location.reload()">
 
 👑 Voltar ao início
 
@@ -1060,22 +1348,22 @@ onclick="location.reload()"
 
 <div
 class="explosion"
-id="explosion"
-></div>
+id="explosion">
+</div>
 
 
 <script>
 
 
 /* ========================= */
-/* CRIAR ESTRELAS SUBINDO */
+/* ESTRELAS */
 /* ========================= */
 
 const background =
 document.getElementById("background");
 
 
-for(let i = 0; i < 70; i++){
+for(let i=0;i<70;i++){
 
     const star =
     document.createElement("div");
@@ -1084,22 +1372,22 @@ for(let i = 0; i < 70; i++){
     "star";
 
     star.style.left =
-    Math.random() * 100 + "%";
+    Math.random()*100+"%";
 
     star.style.animationDelay =
-    Math.random() * 10 + "s";
+    Math.random()*10+"s";
 
     star.style.animationDuration =
-    5 + Math.random() * 9 + "s";
+    5+Math.random()*9+"s";
 
     const size =
-    2 + Math.random() * 4;
+    2+Math.random()*4;
 
     star.style.width =
-    size + "px";
+    size+"px";
 
     star.style.height =
-    size + "px";
+    size+"px";
 
     background.appendChild(star);
 
@@ -1113,12 +1401,12 @@ for(let i = 0; i < 70; i++){
 const text =
 "Porque algumas pessoas merecem receber algo diferente no dia delas. ✨";
 
-let index = 0;
+let index=0;
 
 
 function typeText(){
 
-    if(index < text.length){
+    if(index<text.length){
 
         document
         .getElementById("typing")
@@ -1148,18 +1436,20 @@ function nextPage(number){
 
     document
     .querySelectorAll(".page")
-    .forEach(page => {
+    .forEach(page=>{
 
-        page.classList.remove("active");
+        page.classList.remove(
+            "active"
+        );
 
     });
 
 
-    setTimeout(() => {
+    setTimeout(()=>{
 
         const page =
         document.getElementById(
-            "page" + number
+            "page"+number
         );
 
         page.classList.add(
@@ -1177,8 +1467,7 @@ function nextPage(number){
 /* ESCOLHER PRESENTE */
 /* ========================= */
 
-let alreadyChosen =
-false;
+let alreadyChosen=false;
 
 
 function chooseGift(
@@ -1190,17 +1479,16 @@ function chooseGift(
     return;
 
 
-    alreadyChosen =
-    true;
+    alreadyChosen=true;
 
 
-    /* BLOQUEIA OS OUTROS */
+    /* FAZ OS OUTROS PRESENTES SUMIREM */
 
     document
     .querySelectorAll(".gift")
-    .forEach(g => {
+    .forEach(g=>{
 
-        if(g !== element){
+        if(g!==element){
 
             g.classList.add(
                 "disabled"
@@ -1210,6 +1498,8 @@ function chooseGift(
 
     });
 
+
+    /* EXPLOSÃO */
 
     createExplosion();
 
@@ -1232,49 +1522,54 @@ function chooseGift(
     );
 
 
-    if(gift === "phoenix"){
+    /* FÊNIX */
 
-        icon.textContent =
-        "🔥";
+    if(gift==="phoenix"){
 
-        title.textContent =
+        icon.textContent="🔥";
+
+        title.textContent=
         "FÊNIX";
 
-        text.textContent =
+        text.textContent=
         "Você encontrou a Fênix. 🔥";
 
     }
 
 
-    if(gift === "lion"){
+    /* MINI LION */
 
-        icon.textContent =
-        "🦁";
+    if(gift==="lion"){
 
-        title.textContent =
+        icon.textContent="🦁";
+
+        title.textContent=
         "MINI LION";
 
-        text.textContent =
+        text.textContent=
         "Você encontrou o Mini Lion. 🦁";
 
     }
 
 
-    if(gift === "zeus"){
+    /* ZEUS */
 
-        icon.textContent =
-        "⚡";
+    if(gift==="zeus"){
 
-        title.textContent =
+        icon.textContent="⚡";
+
+        title.textContent=
         "ZEUS";
 
-        text.textContent =
+        text.textContent=
         "Você encontrou Zeus. ⚡";
 
     }
 
 
-    setTimeout(() => {
+    /* MOSTRA O QUADRADO */
+
+    setTimeout(()=>{
 
         document
         .getElementById("reveal")
@@ -1288,7 +1583,7 @@ function chooseGift(
 
 
 /* ========================= */
-/* EXPLOSÃO */
+/* EXPLOSÃO DE PARTÍCULAS */
 /* ========================= */
 
 function createExplosion(){
@@ -1299,7 +1594,7 @@ function createExplosion(){
     );
 
 
-    const symbols = [
+    const symbols=[
         "✨",
         "💗",
         "👑",
@@ -1308,31 +1603,28 @@ function createExplosion(){
     ];
 
 
-    for(let i = 0; i < 30; i++){
+    for(let i=0;i<30;i++){
 
         const spark =
         document.createElement("div");
 
 
-        spark.className =
+        spark.className=
         "spark";
 
 
-        spark.textContent =
+        spark.textContent=
         symbols[
             Math.floor(
-                Math.random() *
+                Math.random()*
                 symbols.length
             )
         ];
 
 
-        spark.style.left =
-        "50%";
+        spark.style.left="50%";
 
-
-        spark.style.top =
-        "50%";
+        spark.style.top="50%";
 
 
         spark.style.setProperty(
@@ -1352,7 +1644,7 @@ function createExplosion(){
         );
 
 
-        setTimeout(() => {
+        setTimeout(()=>{
 
             spark.remove();
 
@@ -1364,6 +1656,8 @@ function createExplosion(){
 
 </script>
 
+
 </body>
+
 </html>
 ```
