@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para você ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #000;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* FUNDO */
+        .background {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at center,
+                    rgba(255, 40, 80, .12),
+                    transparent 45%),
+                #000;
+        }
+
+        /* ESTRELAS */
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: piscar 2s infinite alternate;
+        }
+
+        @keyframes piscar {
+            from {
+                opacity: .2;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* CONTEÚDO */
+        .container {
+            position: relative;
+            z-index: 5;
+            width: 90%;
+            max-width: 750px;
+            animation: aparecer 2s ease forwards;
+        }
+
+        .pequeno {
+            color: #888;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-size: 12px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(45px, 10vw, 90px);
+            margin-bottom: 25px;
+
+            background: linear-gradient(
+                90deg,
+                #fff,
+                #ff4d6d,
+                #fff
+            );
+
+            background-size: 200%;
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: brilho 4s linear infinite;
+        }
+
+        @keyframes brilho {
+            0% {
+                background-position: 0%;
+            }
+
+            100% {
+                background-position: 200%;
+            }
+        }
+
+        .texto {
+            color: #ccc;
+            font-size: 18px;
+            line-height: 1.9;
+        }
+
+        .destaque {
+            color: white;
+            font-size: 21px;
+            margin: 25px 0;
+        }
+
+        .coracao {
+            font-size: 65px;
+            margin: 25px 0;
+            animation: pulsar 1.5s infinite;
+            filter: drop-shadow(0 0 15px rgba(255, 50, 90, .6));
+        }
+
+        @keyframes pulsar {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.25);
+            }
+        }
+
+        .assinatura {
+            margin-top: 35px;
+            color: #777;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* CORAÇÕES */
+        .heart {
+            position: fixed;
+            bottom: -30px;
+            color: #ff4d6d;
+            font-size: 20px;
+            pointer-events: none;
+            animation: subir 6s linear forwards;
+            z-index: 3;
+        }
+
+        @keyframes subir {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* BRILHO CENTRAL */
+        .glow {
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: rgba(255, 40, 80, .08);
+            filter: blur(80px);
+            animation: glow 4s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                transform: scale(.8);
+                opacity: .4;
+            }
+
+            to {
+                transform: scale(1.2);
+                opacity: .8;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background" id="stars"></div>
+
+    <div class="glow"></div>
+
+    <main class="container">
+
+        <div class="pequeno">
+            e agora... a última parte
+        </div>
+
+        <h1>
+            Você é especial. ❤️
+        </h1>
+
+        <div class="texto">
+
+            <p>
+                Eu não fiz tudo isso simplesmente para te desejar
+                um "feliz aniversário".
+            </p>
+
+            <p class="destaque">
+                Eu fiz porque você se tornou alguém especial para mim.
+            </p>
+
+            <p>
+                Entre tantas pessoas que poderiam ter cruzado meu caminho,
+                foi justamente você que apareceu.
+            </p>
+
+            <p>
+                E talvez seja isso que torna tudo tão interessante:
+                algumas pessoas simplesmente chegam...
+                e acabam deixando uma marca.
+            </p>
+
+            <div class="coracao">
+                ❤️
+            </div>
+
+            <p>
+                Então aproveita seu dia, aproveita cada momento,
+                sorri bastante e nunca esquece o quanto você é incrível.
+            </p>
+
+        </div>
+
+        <div class="assinatura">
+            Feliz aniversário. 🖤
+        </div>
+
+    </main>
+
+    <script>
+
+        /* CRIAR ESTRELAS */
+        const estrelas = document.getElementById("stars");
+
+        for (let i = 0; i < 120; i++) {
+
+            const estrela = document.createElement("div");
+
+            estrela.classList.add("star");
+
+            estrela.style.left =
+                Math.random() * 100 + "%";
+
+            estrela.style.top =
+                Math.random() * 100 + "%";
+
+            estrela.style.animationDelay =
+                Math.random() * 3 + "s";
+
+            estrela.style.opacity =
+                Math.random();
+
+            estrelas.appendChild(estrela);
+        }
+
+
+        /* CORAÇÕES FLUTUANDO */
+        function criarCoracao() {
+
+            const heart = document.createElement("div");
+
+            heart.classList.add("heart");
+
+            heart.innerHTML =
+                Math.random() > 0.5 ? "❤️" : "♡";
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (15 + Math.random() * 25) + "px";
+
+            heart.style.animationDuration =
+                (4 + Math.random() * 4) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+
+        setInterval(criarCoracao, 500);
+
+    </script>
+
+</body>
+</html>
