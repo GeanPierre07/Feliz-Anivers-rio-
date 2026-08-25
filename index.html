@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Uma pequena surpresa 👑</title>
 
 <style>
+
+/* =====================================================
+   CONFIGURAÇÕES GERAIS
+===================================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -21,105 +29,176 @@ body {
 }
 
 body {
+
     font-family: "Segoe UI", Arial, sans-serif;
+
     color: white;
+
     background:
-        radial-gradient(circle at 50% 20%, rgba(190, 80, 200, .25), transparent 30%),
-        radial-gradient(circle at 20% 80%, rgba(255, 90, 180, .12), transparent 30%),
-        linear-gradient(135deg, #120618, #281034, #0d0512);
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(190, 80, 200, .25),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(255, 90, 180, .12),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #120618,
+            #281034,
+            #0d0512
+        );
 }
 
-/* =========================
-   ESTRELAS
-========================= */
+
+/* =====================================================
+   ESTRELAS SUBINDO
+===================================================== */
 
 #stars {
+
     position: fixed;
+
     inset: 0;
+
     overflow: hidden;
+
     pointer-events: none;
+
     z-index: 1;
 }
 
+
 .star {
+
     position: absolute;
+
     bottom: -20px;
+
     width: 3px;
     height: 3px;
+
     border-radius: 50%;
+
     background: white;
+
     box-shadow:
         0 0 6px white,
         0 0 12px #f0a4ff;
+
     animation: subir linear infinite;
+
     opacity: 0;
 }
 
+
 @keyframes subir {
+
     0% {
-        transform: translateY(0) scale(.5);
+
+        transform:
+            translateY(0)
+            scale(.5);
+
         opacity: 0;
     }
 
     15% {
+
         opacity: .9;
     }
 
     80% {
+
         opacity: .8;
     }
 
     100% {
-        transform: translateY(-120vh) scale(1.2);
+
+        transform:
+            translateY(-120vh)
+            scale(1.2);
+
         opacity: 0;
     }
 }
 
-/* =========================
+
+/* =====================================================
    ESTRELAS DECORATIVAS
-========================= */
+===================================================== */
 
 .fixed-star {
+
     position: fixed;
+
     z-index: 2;
+
     color: white;
+
     font-size: 20px;
-    animation: piscar 2s ease-in-out infinite;
+
+    animation:
+        piscar 2s ease-in-out infinite;
+
     pointer-events: none;
 }
 
+
 @keyframes piscar {
-    0%, 100% {
+
+    0%,
+    100% {
+
         opacity: .25;
-        transform: scale(.8);
+
+        transform:
+            scale(.8);
     }
 
     50% {
+
         opacity: 1;
-        transform: scale(1.2);
+
+        transform:
+            scale(1.2);
     }
 }
 
-/* =========================
+
+/* =====================================================
    PÁGINAS
-========================= */
+===================================================== */
 
 .page {
+
     position: absolute;
+
     inset: 0;
+
     z-index: 5;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     padding: 20px;
 
     opacity: 0;
+
     visibility: hidden;
+
     pointer-events: none;
 
-    transform: scale(1.05);
+    transform:
+        scale(1.05);
 
     transition:
         opacity .7s ease,
@@ -127,50 +206,78 @@ body {
         visibility .7s ease;
 }
 
+
 .page.active {
+
     opacity: 1;
+
     visibility: visible;
+
     pointer-events: auto;
-    transform: scale(1);
+
+    transform:
+        scale(1);
 }
 
+
 .content {
+
     width: min(900px, 100%);
+
     text-align: center;
+
     padding: 25px;
 }
 
-/* =========================
+
+/* =====================================================
    COROA
-========================= */
+===================================================== */
 
 .crown {
+
     font-size: 65px;
 
     filter:
-        drop-shadow(0 0 15px rgba(255, 190, 250, .8));
+        drop-shadow(
+            0 0 15px
+            rgba(255, 190, 250, .8)
+        );
 
-    animation: coroa 3s ease-in-out infinite;
+    animation:
+        coroa 3s ease-in-out infinite;
 }
 
+
 @keyframes coroa {
-    0%, 100% {
-        transform: translateY(0) rotate(-3deg);
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(-3deg);
     }
 
     50% {
-        transform: translateY(-12px) rotate(3deg);
+
+        transform:
+            translateY(-12px)
+            rotate(3deg);
     }
 }
 
-/* =========================
+
+/* =====================================================
    TEXTOS
-========================= */
+===================================================== */
 
 h1 {
+
     margin: 15px 0;
 
-    font-size: clamp(38px, 7vw, 75px);
+    font-size:
+        clamp(38px, 7vw, 75px);
 
     background:
         linear-gradient(
@@ -181,47 +288,63 @@ h1 {
         );
 
     -webkit-background-clip: text;
+
     -webkit-text-fill-color: transparent;
 }
 
+
 h2 {
+
     margin-bottom: 25px;
 
-    font-size: clamp(28px, 5vw, 48px);
+    font-size:
+        clamp(28px, 5vw, 48px);
 
     color: #f5c1e7;
 }
 
+
 p {
+
     max-width: 700px;
+
     margin: auto;
 
     color: #ead9e8;
 
-    font-size: clamp(17px, 2.5vw, 21px);
+    font-size:
+        clamp(17px, 2.5vw, 21px);
 
     line-height: 1.7;
 }
 
+
 .typing {
+
     min-height: 40px;
 }
 
-/* =========================
+
+/* =====================================================
    BOTÕES
-========================= */
+===================================================== */
 
 .btn {
+
     margin-top: 30px;
 
     padding: 16px 35px;
 
-    border: 1px solid rgba(255,255,255,.25);
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
     border-radius: 50px;
 
     color: white;
 
     font-size: 17px;
+
     font-weight: bold;
 
     background:
@@ -234,31 +357,48 @@ p {
     cursor: pointer;
 
     box-shadow:
-        0 0 20px rgba(220, 90, 190, .3),
-        0 10px 30px rgba(0,0,0,.4);
+        0 0 20px
+        rgba(220, 90, 190, .3),
+
+        0 10px 30px
+        rgba(0,0,0,.4);
 
     transition: .3s;
 }
 
+
 .btn:hover {
-    transform: translateY(-5px) scale(1.05);
+
+    transform:
+        translateY(-5px)
+        scale(1.05);
 
     box-shadow:
-        0 0 35px rgba(235, 110, 205, .7),
-        0 15px 40px rgba(0,0,0,.5);
+        0 0 35px
+        rgba(235, 110, 205, .7),
+
+        0 15px 40px
+        rgba(0,0,0,.5);
 }
+
 
 .btn:active {
-    transform: scale(.94);
+
+    transform:
+        scale(.94);
 }
 
-/* =========================
+
+/* =====================================================
    PRESENTES
-========================= */
+===================================================== */
 
 .gifts {
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     gap: 30px;
@@ -266,13 +406,17 @@ p {
     margin-top: 40px;
 }
 
+
 .gift {
+
     position: relative;
 
     width: 150px;
+
     height: 160px;
 
     border: none;
+
     background: transparent;
 
     cursor: pointer;
@@ -280,17 +424,25 @@ p {
     transition: .4s;
 }
 
+
 .gift:hover {
-    transform: translateY(-15px) scale(1.08);
+
+    transform:
+        translateY(-15px)
+        scale(1.08);
 }
 
+
 .gift-box {
+
     position: absolute;
 
     left: 10px;
+
     bottom: 10px;
 
     width: 130px;
+
     height: 100px;
 
     border-radius: 12px;
@@ -303,10 +455,13 @@ p {
         );
 
     box-shadow:
-        0 0 30px rgba(230, 100, 200, .4);
+        0 0 30px
+        rgba(230, 100, 200, .4);
 }
 
+
 .gift-box::before {
+
     content: "";
 
     position: absolute;
@@ -314,18 +469,23 @@ p {
     left: 52px;
 
     width: 25px;
+
     height: 100%;
 
     background: #ffe4f5;
 }
 
+
 .gift-lid {
+
     position: absolute;
 
     left: 3px;
+
     bottom: 95px;
 
     width: 145px;
+
     height: 30px;
 
     border-radius: 10px;
@@ -333,89 +493,277 @@ p {
     background: #c7549b;
 }
 
+
 .gift-crown {
+
     position: absolute;
 
     top: -30px;
+
     left: 53px;
 
     font-size: 32px;
 
-    animation: coroa 2s infinite;
+    animation:
+        coroa 2s infinite;
 }
 
+
 .ribbon {
+
     position: absolute;
 
     left: 57px;
+
     bottom: 115px;
 
     font-size: 35px;
 }
 
-/* =========================
+
+/* =====================================================
    PRESENTES DESAPARECENDO
-========================= */
+===================================================== */
 
 .gift.disabled {
+
     pointer-events: none;
 
-    animation: sumir .6s forwards;
+    animation:
+        sumir .6s forwards;
 }
 
+
 @keyframes sumir {
+
     to {
+
         opacity: 0;
-        transform: scale(.2) rotate(20deg);
+
+        transform:
+            scale(.2)
+            rotate(20deg);
     }
 }
 
-/* =========================
-   FUNDO ESCURECIDO DA REVELAÇÃO
-========================= */
 
-#revealOverlay {
+/* =====================================================
+   CONFIRMAÇÃO
+===================================================== */
+
+#confirmOverlay {
+
     position: fixed;
+
     inset: 0;
 
-    z-index: 100;
+    z-index: 150;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
-    background: rgba(5, 1, 10, .78);
-    backdrop-filter: blur(8px);
+    background:
+        rgba(5, 1, 10, .78);
+
+    backdrop-filter:
+        blur(8px);
 
     opacity: 0;
+
     visibility: hidden;
+
     pointer-events: none;
 
-    transition: opacity .5s ease;
+    transition:
+        opacity .4s ease;
 }
 
-#revealOverlay.show {
+
+#confirmOverlay.show {
+
     opacity: 1;
+
     visibility: visible;
+
     pointer-events: auto;
 }
 
-/* =========================
-   QUADRADO GRANDE
-========================= */
 
-.reveal-box {
-    position: relative;
+.confirm-box {
 
-    width: min(700px, 88vw);
-    min-height: 480px;
+    width:
+        min(550px, 88vw);
 
-    padding: 50px 30px;
+    padding:
+        45px 30px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #35113f,
+            #18091f
+        );
+
+    border:
+        1px solid
+        rgba(255, 180, 240, .55);
+
+    box-shadow:
+        0 0 40px
+        rgba(235, 100, 210, .45),
+
+        0 0 100px
+        rgba(160, 60, 210, .25);
+
+    transform:
+        scale(.6);
+
+    transition:
+        transform .5s
+        cubic-bezier(.17,.89,.32,1.28);
+}
+
+
+#confirmOverlay.show
+.confirm-box {
+
+    transform:
+        scale(1);
+}
+
+
+.confirm-crown {
+
+    font-size: 65px;
+
+    margin-bottom: 10px;
+
+    animation:
+        coroa 2s ease-in-out infinite;
+}
+
+
+.confirm-box h2 {
+
+    margin-bottom: 15px;
+}
+
+
+.confirm-box p {
+
+    font-size: 19px;
+}
+
+
+.confirm-buttons {
 
     display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-top: 25px;
+}
+
+
+.confirm-buttons .btn {
+
+    margin-top: 0;
+}
+
+
+.no-btn {
+
+    background:
+        linear-gradient(
+            135deg,
+            #49334d,
+            #291c2d
+        );
+}
+
+
+.yes-btn:hover {
+
+    box-shadow:
+        0 0 35px
+        rgba(255, 130, 220, .8);
+}
+
+
+/* =====================================================
+   REVELAÇÃO
+===================================================== */
+
+#revealOverlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 200;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(5, 1, 10, .82);
+
+    backdrop-filter:
+        blur(10px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity .5s ease;
+}
+
+
+#revealOverlay.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+.reveal-box {
+
+    position: relative;
+
+    width:
+        min(700px, 88vw);
+
+    min-height: 480px;
+
+    padding:
+        50px 30px;
+
+    display: flex;
+
     flex-direction: column;
 
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
@@ -429,26 +777,43 @@ p {
             #18091f
         );
 
-    border: 1px solid rgba(255, 180, 240, .55);
+    border:
+        1px solid
+        rgba(255, 180, 240, .55);
 
     box-shadow:
-        0 0 40px rgba(235, 100, 210, .45),
-        0 0 120px rgba(160, 60, 210, .25),
-        inset 0 0 50px rgba(255,255,255,.03);
+        0 0 40px
+        rgba(235, 100, 210, .45),
 
-    transform: scale(.3);
+        0 0 120px
+        rgba(160, 60, 210, .25),
+
+        inset 0 0 50px
+        rgba(255,255,255,.03);
+
+    transform:
+        scale(.3);
 
     transition:
-        transform .8s cubic-bezier(.17,.89,.32,1.28);
+        transform .8s
+        cubic-bezier(.17,.89,.32,1.28);
 }
 
-#revealOverlay.show .reveal-box {
-    transform: scale(1);
+
+#revealOverlay.show
+.reveal-box {
+
+    transform:
+        scale(1);
 }
 
-/* brilho */
+
+/* =====================================================
+   BRILHO DO QUADRADO
+===================================================== */
 
 .reveal-box::before {
+
     content: "";
 
     position: absolute;
@@ -461,7 +826,7 @@ p {
         linear-gradient(
             90deg,
             transparent,
-            rgba(255, 150, 230, .8),
+            rgba(255,150,230,.8),
             transparent
         );
 
@@ -469,24 +834,33 @@ p {
 
     z-index: -1;
 
-    animation: brilho 3s linear infinite;
+    animation:
+        brilho 3s linear infinite;
 }
 
+
 @keyframes brilho {
+
     0% {
-        transform: translateX(-100%);
+
+        transform:
+            translateX(-100%);
     }
 
     100% {
-        transform: translateX(100%);
+
+        transform:
+            translateX(100%);
     }
 }
 
-/* =========================
+
+/* =====================================================
    PRESENTE REVELADO
-========================= */
+===================================================== */
 
 #revealIcon {
+
     font-size: 150px;
 
     margin-bottom: 15px;
@@ -499,21 +873,35 @@ p {
 
     animation:
         presenteRevelado
-        1.3s ease-in-out infinite alternate;
+        1.3s
+        ease-in-out
+        infinite
+        alternate;
 }
 
+
 @keyframes presenteRevelado {
+
     from {
-        transform: scale(1) rotate(-5deg);
+
+        transform:
+            scale(1)
+            rotate(-5deg);
     }
 
     to {
-        transform: scale(1.15) rotate(5deg);
+
+        transform:
+            scale(1.15)
+            rotate(5deg);
     }
 }
 
+
 #revealTitle {
-    font-size: clamp(38px, 6vw, 65px);
+
+    font-size:
+        clamp(38px, 6vw, 65px);
 
     margin-bottom: 10px;
 
@@ -526,43 +914,62 @@ p {
         );
 
     -webkit-background-clip: text;
+
     -webkit-text-fill-color: transparent;
 }
 
+
 #revealText {
+
     color: #ead9e8;
+
     font-size: 20px;
 }
 
-/* =========================
-   PARTÍCULAS DA EXPLOSÃO
-========================= */
+
+/* =====================================================
+   EXPLOSÃO
+===================================================== */
 
 #explosion {
+
     position: fixed;
+
     inset: 0;
 
-    z-index: 200;
+    z-index: 300;
 
     pointer-events: none;
 }
 
+
 .spark {
+
     position: absolute;
 
     font-size: 25px;
 
     animation:
-        explodir 1.5s ease-out forwards;
+        explodir
+        1.5s
+        ease-out
+        forwards;
 }
 
+
 @keyframes explodir {
+
     0% {
-        transform: translate(0,0) scale(.3);
+
+        transform:
+            translate(0,0)
+            scale(.3);
+
         opacity: 1;
     }
 
     100% {
+
         transform:
             translate(
                 calc((var(--x) - .5) * 100vw),
@@ -574,83 +981,170 @@ p {
     }
 }
 
-/* =========================
-   MOBILE
-========================= */
+
+/* =====================================================
+   TELA FINAL
+===================================================== */
+
+#page5 .btn {
+
+    margin-top: 35px;
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
 
 @media(max-width:600px) {
 
     .content {
+
         padding: 15px;
     }
 
     .crown {
+
         font-size: 50px;
     }
 
     .gifts {
+
         gap: 0;
     }
 
     .gift {
-        transform: scale(.82);
+
+        transform:
+            scale(.82);
     }
 
     .gift:hover {
-        transform: scale(.88) translateY(-8px);
+
+        transform:
+            scale(.88)
+            translateY(-8px);
+    }
+
+    .confirm-box {
+
+        width: 90vw;
+
+        padding:
+            35px 20px;
+
+        border-radius: 28px;
     }
 
     .reveal-box {
+
         width: 90vw;
+
         min-height: 430px;
-        padding: 30px 20px;
+
+        padding:
+            30px 20px;
+
         border-radius: 28px;
     }
 
     #revealIcon {
+
         font-size: 110px;
     }
 
     #revealTitle {
+
         font-size: 40px;
     }
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<!-- ESTRELAS -->
+
+<!-- =====================================================
+     ESTRELAS
+===================================================== -->
+
 <div id="stars"></div>
 
-<!-- ESTRELAS FIXAS -->
-<div class="fixed-star" style="top:10%;left:10%;">✦</div>
-<div class="fixed-star" style="top:18%;right:15%;">✧</div>
-<div class="fixed-star" style="top:40%;left:6%;">✦</div>
-<div class="fixed-star" style="top:65%;right:8%;">✧</div>
-<div class="fixed-star" style="bottom:12%;left:18%;">✦</div>
-<div class="fixed-star" style="bottom:20%;right:25%;">✧</div>
+
+<div
+    class="fixed-star"
+    style="top:10%;left:10%;">
+    ✦
+</div>
 
 
-<!-- =========================
+<div
+    class="fixed-star"
+    style="top:18%;right:15%;">
+    ✧
+</div>
+
+
+<div
+    class="fixed-star"
+    style="top:40%;left:6%;">
+    ✦
+</div>
+
+
+<div
+    class="fixed-star"
+    style="top:65%;right:8%;">
+    ✧
+</div>
+
+
+<div
+    class="fixed-star"
+    style="bottom:12%;left:18%;">
+    ✦
+</div>
+
+
+<div
+    class="fixed-star"
+    style="bottom:20%;right:25%;">
+    ✧
+</div>
+
+
+<!-- =====================================================
      TELA 1
-========================= -->
+===================================================== -->
 
-<section class="page active" id="page1">
+<section
+    class="page active"
+    id="page1">
 
     <div class="content">
 
-        <div class="crown">👑</div>
+        <div class="crown">
+            👑
+        </div>
 
         <h1>
             Uma pequena surpresa...
         </h1>
 
-        <p class="typing" id="typing"></p>
+        <p
+            class="typing"
+            id="typing">
+        </p>
 
-        <button class="btn" onclick="nextPage(2)">
+        <button
+            class="btn"
+            onclick="nextPage(2)">
+
             ✨ CLIQUE PARA DESCOBRIR ✨
+
         </button>
 
     </div>
@@ -658,15 +1152,19 @@ p {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      TELA 2
-========================= -->
+===================================================== -->
 
-<section class="page" id="page2">
+<section
+    class="page"
+    id="page2">
 
     <div class="content">
 
-        <div class="crown">👑</div>
+        <div class="crown">
+            👑
+        </div>
 
         <h2>
             Feliz Aniversário! 🎂
@@ -685,13 +1183,17 @@ p {
 
             <br><br>
 
-            Hoje é o seu dia. Então aproveite, sorria muito
-            e guarde cada momento. 💗
+            Hoje é o seu dia. Então aproveite,
+            sorria muito e guarde cada momento. 💗
 
         </p>
 
-        <button class="btn" onclick="nextPage(3)">
+        <button
+            class="btn"
+            onclick="nextPage(3)">
+
             Continuar ✨
+
         </button>
 
     </div>
@@ -699,15 +1201,19 @@ p {
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      TELA 3
-========================= -->
+===================================================== -->
 
-<section class="page" id="page3">
+<section
+    class="page"
+    id="page3">
 
     <div class="content">
 
-        <div class="crown">👑</div>
+        <div class="crown">
+            👑
+        </div>
 
         <h2>
             Só mais algumas palavras...
@@ -729,12 +1235,17 @@ p {
 
             <br><br>
 
-            Agora sim... chegou a hora da melhor parte! 😎
+            Agora sim...
+            chegou a hora da melhor parte! 😎
 
         </p>
 
-        <button class="btn" onclick="nextPage(4)">
-            🎁 🎁 🎁
+        <button
+            class="btn"
+            onclick="nextPage(4)">
+
+            🎁 Escolher meu presente
+
         </button>
 
     </div>
@@ -742,72 +1253,97 @@ p {
 </section>
 
 
-<!-- =========================
-     TELA 4
-========================= -->
+<!-- =====================================================
+     TELA 4 — PRESENTES
+===================================================== -->
 
-<section class="page" id="page4">
+<section
+    class="page"
+    id="page4">
 
     <div class="content">
 
-        <div class="crown">👑</div>
+        <div class="crown">
+            👑
+        </div>
 
         <h2>
             Agora chegou a melhor parte...
         </h2>
 
         <p>
+
             Existem três presentes esperando por você.
+
             <br>
+
             Mas você só pode escolher um. 👀
+
         </p>
+
 
         <div class="gifts">
 
-            <!-- FÊNIX -->
 
-            <button class="gift"
+            <!-- PRESENTE 1 — FÊNIX -->
+
+            <button
+                class="gift"
                 onclick="chooseGift(this,'phoenix')">
 
-                <div class="gift-crown">👑</div>
+                <div class="gift-crown">
+                    👑
+                </div>
 
                 <div class="gift-lid"></div>
 
                 <div class="gift-box"></div>
 
-                <div class="ribbon">🎀</div>
+                <div class="ribbon">
+                    🎀
+                </div>
 
             </button>
 
 
-            <!-- MINI LION -->
+            <!-- PRESENTE 2 — MINI LION -->
 
-            <button class="gift"
+            <button
+                class="gift"
                 onclick="chooseGift(this,'lion')">
 
-                <div class="gift-crown">👑</div>
+                <div class="gift-crown">
+                    👑
+                </div>
 
                 <div class="gift-lid"></div>
 
                 <div class="gift-box"></div>
 
-                <div class="ribbon">🎀</div>
+                <div class="ribbon">
+                    🎀
+                </div>
 
             </button>
 
 
-            <!-- ZEUS -->
+            <!-- PRESENTE 3 — ZEUS -->
 
-            <button class="gift"
+            <button
+                class="gift"
                 onclick="chooseGift(this,'zeus')">
 
-                <div class="gift-crown">👑</div>
+                <div class="gift-crown">
+                    👑
+                </div>
 
                 <div class="gift-lid"></div>
 
                 <div class="gift-box"></div>
 
-                <div class="ribbon">🎀</div>
+                <div class="ribbon">
+                    🎀
+                </div>
 
             </button>
 
@@ -818,22 +1354,83 @@ p {
 </section>
 
 
-<!-- =========================
-     QUADRADO DE REVELAÇÃO
-========================= -->
+<!-- =====================================================
+     CONFIRMAÇÃO
+===================================================== -->
 
-<div id="revealOverlay">
+<div
+    id="confirmOverlay">
+
+    <div class="confirm-box">
+
+        <div class="confirm-crown">
+            👑
+        </div>
+
+        <h2>
+            Tem certeza? 👀
+        </h2>
+
+        <p>
+
+            Você realmente quer
+            escolher este presente?
+
+        </p>
+
+        <div class="confirm-buttons">
+
+            <button
+                class="btn yes-btn"
+                onclick="confirmarPresente()">
+
+                ✨ Sim, quero!
+
+            </button>
+
+
+            <button
+                class="btn no-btn"
+                onclick="cancelarPresente()">
+
+                ❌ Não
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     REVELAÇÃO
+===================================================== -->
+
+<div
+    id="revealOverlay">
 
     <div class="reveal-box">
 
-        <div id="revealIcon"></div>
+        <div
+            id="revealIcon">
+        </div>
 
-        <h2 id="revealTitle"></h2>
+        <h2
+            id="revealTitle">
+        </h2>
 
-        <p id="revealText"></p>
+        <p
+            id="revealText">
+        </p>
 
-        <button class="btn" onclick="finalizar()">
+        <button
+            class="btn"
+            onclick="finalizar()">
+
             ✨ Continuar
+
         </button>
 
     </div>
@@ -841,18 +1438,22 @@ p {
 </div>
 
 
-<!-- =========================
+<!-- =====================================================
      TELA FINAL
-========================= -->
+===================================================== -->
 
-<section class="page" id="page5">
+<section
+    class="page"
+    id="page5">
 
     <div class="content">
 
-        <div class="crown">👑</div>
+        <div class="crown">
+            👑
+        </div>
 
         <h1>
-            Parabéns! ✨
+            Feliz aniversário! ✨
         </h1>
 
         <p>
@@ -862,16 +1463,21 @@ p {
 
             <br><br>
 
-            Agora olhe para sua tela! 💗👀
-            
+            Que seu novo ciclo seja incrível. 💗
+
             <br><br>
 
-        
+            Aproveite muito o seu dia! 🎂
 
         </p>
 
-        <button class="btn" onclick="location.reload()">
-            👑 Voltar ao início
+
+        <button
+            class="btn"
+            onclick="encerrarSite()">
+
+            👑 Fim
+
         </button>
 
     </div>
@@ -879,19 +1485,23 @@ p {
 </section>
 
 
-<!-- EXPLOSÃO -->
+<!-- =====================================================
+     EXPLOSÃO
+===================================================== -->
 
 <div id="explosion"></div>
 
 
 <script>
 
-/* =========================
-   CRIAR ESTRELAS
-========================= */
+
+/* =====================================================
+   ESTRELAS
+===================================================== */
 
 const stars =
     document.getElementById("stars");
+
 
 for(let i = 0; i < 80; i++) {
 
@@ -922,48 +1532,66 @@ for(let i = 0; i < 80; i++) {
 }
 
 
-/* =========================
+/* =====================================================
    TEXTO DIGITANDO
-========================= */
+===================================================== */
 
 const texto =
     "Eu poderia simplesmente te desejar feliz aniversário... mas você merece algo que fosse feito só para você. ✨";
 
+
 let posicao = 0;
+
 
 function escrever() {
 
     if(posicao < texto.length) {
 
-        document.getElementById("typing")
-            .textContent += texto.charAt(posicao);
+        document
+            .getElementById("typing")
+            .textContent +=
+            texto.charAt(posicao);
 
         posicao++;
 
-        setTimeout(escrever, 45);
+        setTimeout(
+            escrever,
+            45
+        );
     }
 }
+
 
 escrever();
 
 
-/* =========================
-   TROCAR PÁGINA
-========================= */
+/* =====================================================
+   TROCAR DE PÁGINA
+===================================================== */
 
 function nextPage(numero) {
 
     document
         .querySelectorAll(".page")
         .forEach(page => {
-            page.classList.remove("active");
+
+            page.classList.remove(
+                "active"
+            );
+
         });
+
 
     setTimeout(() => {
 
         document
-            .getElementById("page" + numero)
-            .classList.add("active");
+            .getElementById(
+                "page" + numero
+            )
+            .classList.add(
+                "active"
+            );
+
 
         explosao();
 
@@ -971,106 +1599,278 @@ function nextPage(numero) {
 }
 
 
-/* =========================
-   ESCOLHER PRESENTE
-========================= */
+/* =====================================================
+   VARIÁVEIS DA ESCOLHA
+===================================================== */
 
-let escolhido = false;
+let presenteSelecionado = null;
 
-function chooseGift(elemento, presente) {
-
-    if(escolhido) return;
-
-    escolhido = true;
+let elementoSelecionado = null;
 
 
-    /* OUTROS PRESENTES DESAPARECEM */
+/* =====================================================
+   CLICOU EM UM PRESENTE
+===================================================== */
+
+function chooseGift(
+    elemento,
+    presente
+) {
+
+    /*
+       Impede uma segunda seleção
+       enquanto a confirmação estiver aberta
+    */
+
+    if(
+        presenteSelecionado !== null
+    ) {
+
+        return;
+    }
+
+
+    /*
+       Guarda qual presente foi clicado
+    */
+
+    elementoSelecionado =
+        elemento;
+
+    presenteSelecionado =
+        presente;
+
+
+    /*
+       Abre confirmação
+    */
+
+    document
+        .getElementById(
+            "confirmOverlay"
+        )
+        .classList.add(
+            "show"
+        );
+}
+
+
+/* =====================================================
+   CLICOU EM SIM
+===================================================== */
+
+function confirmarPresente() {
+
+    if(
+        !presenteSelecionado
+    ) {
+
+        return;
+    }
+
+
+    /*
+       Fecha confirmação
+    */
+
+    document
+        .getElementById(
+            "confirmOverlay"
+        )
+        .classList.remove(
+            "show"
+        );
+
+
+    /*
+       Faz os outros presentes
+       desaparecerem
+    */
 
     document
         .querySelectorAll(".gift")
         .forEach(gift => {
 
-            if(gift !== elemento) {
+            if(
+                gift !==
+                elementoSelecionado
+            ) {
 
-                gift.classList.add("disabled");
+                gift.classList.add(
+                    "disabled"
+                );
 
             }
 
         });
 
 
-    /* EXPLOSÃO */
+    /*
+       Explosão
+    */
 
     explosao();
 
 
     let emoji = "";
+
     let nome = "";
+
     let mensagem = "";
 
 
-    if(presente === "phoenix") {
+    /*
+       FÊNIX
+    */
+
+    if(
+        presenteSelecionado ===
+        "phoenix"
+    ) {
 
         emoji = "🔥";
+
         nome = "FÊNIX";
+
         mensagem =
             "Você encontrou a Fênix. 🔥";
 
     }
 
 
-    if(presente === "lion") {
+    /*
+       MINI LION
+    */
+
+    if(
+        presenteSelecionado ===
+        "lion"
+    ) {
 
         emoji = "🦁";
+
         nome = "MINI LION";
+
         mensagem =
             "Você encontrou o Mini Lion. 🦁";
 
     }
 
 
-    if(presente === "zeus") {
+    /*
+       ZEUS
+    */
+
+    if(
+        presenteSelecionado ===
+        "zeus"
+    ) {
 
         emoji = "⚡";
+
         nome = "ZEUS";
+
         mensagem =
             "Você encontrou Zeus. ⚡";
 
     }
 
 
-    document.getElementById("revealIcon")
-        .textContent = emoji;
+    /*
+       Coloca o conteúdo
+       dentro do quadrado
+    */
 
-    document.getElementById("revealTitle")
-        .textContent = nome;
+    document
+        .getElementById(
+            "revealIcon"
+        )
+        .textContent =
+        emoji;
 
-    document.getElementById("revealText")
-        .textContent = mensagem;
+
+    document
+        .getElementById(
+            "revealTitle"
+        )
+        .textContent =
+        nome;
 
 
-    /* ABRE O QUADRADO */
+    document
+        .getElementById(
+            "revealText"
+        )
+        .textContent =
+        mensagem;
+
+
+    /*
+       Espera a animação
+       dos presentes
+    */
 
     setTimeout(() => {
 
         document
-            .getElementById("revealOverlay")
-            .classList.add("show");
+            .getElementById(
+                "revealOverlay"
+            )
+            .classList.add(
+                "show"
+            );
 
     }, 650);
-
 }
 
 
-/* =========================
-   FINALIZAR
-========================= */
+/* =====================================================
+   CLICOU EM NÃO
+===================================================== */
+
+function cancelarPresente() {
+
+    /*
+       Fecha confirmação
+    */
+
+    document
+        .getElementById(
+            "confirmOverlay"
+        )
+        .classList.remove(
+            "show"
+        );
+
+
+    /*
+       Limpa a escolha
+       para poder escolher
+       novamente
+    */
+
+    presenteSelecionado =
+        null;
+
+    elementoSelecionado =
+        null;
+}
+
+
+/* =====================================================
+   FINALIZAR REVELAÇÃO
+===================================================== */
 
 function finalizar() {
 
     document
-        .getElementById("revealOverlay")
-        .classList.remove("show");
+        .getElementById(
+            "revealOverlay"
+        )
+        .classList.remove(
+            "show"
+        );
+
 
     setTimeout(() => {
 
@@ -1080,14 +1880,81 @@ function finalizar() {
 }
 
 
-/* =========================
+/* =====================================================
+   BOTÃO FIM
+===================================================== */
+
+function encerrarSite() {
+
+    /*
+       Alguns navegadores impedem
+       que uma página feche a própria aba.
+       Por isso mostramos uma tela final.
+    */
+
+    document.body.innerHTML = `
+        <div style="
+            width:100vw;
+            height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+            padding:30px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #120618,
+                    #281034,
+                    #0d0512
+                );
+            color:white;
+            font-family:Segoe UI,Arial,sans-serif;
+        ">
+
+            <div>
+
+                <div style="
+                    font-size:70px;
+                    margin-bottom:20px;
+                ">
+                    👑
+                </div>
+
+                <h1 style="
+                    font-size:45px;
+                    margin-bottom:20px;
+                    color:#f5c1e7;
+                ">
+                    Fim da surpresa ✨
+                </h1>
+
+                <p style="
+                    color:#ead9e8;
+                    font-size:19px;
+                ">
+                    Espero que tenha gostado. 💗
+                </p>
+
+            </div>
+
+        </div>
+    `;
+
+}
+
+
+/* =====================================================
    EXPLOSÃO
-========================= */
+===================================================== */
 
 function explosao() {
 
     const container =
-        document.getElementById("explosion");
+        document.getElementById(
+            "explosion"
+        );
+
 
     const simbolos = [
         "✨",
@@ -1097,12 +1964,22 @@ function explosao() {
         "🎀"
     ];
 
-    for(let i = 0; i < 35; i++) {
+
+    for(
+        let i = 0;
+        i < 35;
+        i++
+    ) {
 
         const spark =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
-        spark.className = "spark";
+
+        spark.className =
+            "spark";
+
 
         spark.textContent =
             simbolos[
@@ -1112,28 +1989,42 @@ function explosao() {
                 )
             ];
 
-        spark.style.left = "50%";
-        spark.style.top = "50%";
+
+        spark.style.left =
+            "50%";
+
+        spark.style.top =
+            "50%";
+
 
         spark.style.setProperty(
             "--x",
             Math.random()
         );
 
+
         spark.style.setProperty(
             "--y",
             Math.random()
         );
 
-        container.appendChild(spark);
+
+        container.appendChild(
+            spark
+        );
+
 
         setTimeout(() => {
+
             spark.remove();
+
         }, 1600);
+
     }
 }
 
 </script>
 
 </body>
+
 </html>
