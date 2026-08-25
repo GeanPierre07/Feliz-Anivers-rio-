@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Uma surpresa para você ❤️</title>
 
     <style>
@@ -17,17 +18,21 @@
             background: #000;
             color: white;
             font-family: Arial, Helvetica, sans-serif;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             overflow-x: hidden;
             overflow-y: auto;
         }
 
         /* ESTRELAS */
+
         .stars {
             position: fixed;
             inset: 0;
+
             background:
                 radial-gradient(2px 2px at 10% 20%, white, transparent),
                 radial-gradient(1px 1px at 30% 80%, white, transparent),
@@ -38,11 +43,15 @@
                 radial-gradient(1px 1px at 20% 60%, white, transparent);
 
             background-size: 300px 300px;
-            animation: estrelas 8s linear infinite;
+
+            animation:
+                estrelas 8s linear infinite;
+
             opacity: .6;
         }
 
         @keyframes estrelas {
+
             from {
                 transform: translateY(0);
             }
@@ -52,34 +61,60 @@
             }
         }
 
+
+        /* CONTAINER */
+
         .container {
+
             position: relative;
+
             z-index: 2;
+
             width: 90%;
+
             max-width: 700px;
+
             text-align: center;
+
             padding: 60px 0;
         }
 
+
+        /* SUBTÍTULO */
+
         .subtitulo {
+
             color: #aaa;
+
             font-size: 14px;
+
             letter-spacing: 4px;
+
             text-transform: uppercase;
+
             margin-bottom: 25px;
-            animation: aparecer 2s ease forwards;
+
+            animation:
+                aparecer 2s ease forwards;
         }
 
+
+        /* TÍTULO */
+
         h1 {
-            font-size: clamp(40px, 9vw, 80px);
+
+            font-size:
+                clamp(40px, 9vw, 80px);
+
             margin-bottom: 20px;
 
-            background: linear-gradient(
-                90deg,
-                #fff,
-                #ff4d6d,
-                #fff
-            );
+            background:
+                linear-gradient(
+                    90deg,
+                    #fff,
+                    #ff4d6d,
+                    #fff
+                );
 
             background-size: 200%;
 
@@ -92,6 +127,7 @@
         }
 
         @keyframes brilho {
+
             0% {
                 background-position: 0%;
             }
@@ -101,31 +137,50 @@
             }
         }
 
+
+        /* MENSAGEM DIGITADA */
+
         .mensagem {
+
             font-size: 18px;
+
             line-height: 1.8;
+
             color: #ccc;
+
             min-height: 100px;
         }
 
         .cursor {
+
             color: #ff4d6d;
-            animation: piscar .7s infinite;
+
+            animation:
+                piscar .7s infinite;
         }
 
         @keyframes piscar {
+
             50% {
                 opacity: 0;
             }
         }
 
+
+        /* CORAÇÃO */
+
         .coracao {
+
             font-size: 45px;
+
             margin: 30px 0;
-            animation: pulsar 1.5s infinite;
+
+            animation:
+                pulsar 1.5s infinite;
         }
 
         @keyframes pulsar {
+
             0%, 100% {
                 transform: scale(1);
             }
@@ -135,105 +190,161 @@
             }
         }
 
+
         /* BOTÕES */
+
         .botao {
+
             display: inline-block;
+
             margin-top: 20px;
+
             padding: 16px 35px;
 
-            border: 1px solid #ff4d6d;
+            border:
+                1px solid #ff4d6d;
+
             border-radius: 50px;
 
             background: transparent;
+
             color: white;
 
             font-size: 16px;
-            font-family: Arial, Helvetica, sans-serif;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
 
             cursor: pointer;
+
             text-decoration: none;
 
             transition: .3s;
 
-            box-shadow: 0 0 0 rgba(255, 77, 109, 0);
+            box-shadow:
+                0 0 0
+                rgba(255,77,109,0);
         }
 
         .botao:hover {
+
             background: #ff4d6d;
 
             box-shadow:
-                0 0 30px rgba(255, 77, 109, .6);
+                0 0 30px
+                rgba(255,77,109,.6);
 
             transform: scale(1.05);
         }
 
+
         /* CARTA */
+
         .carta {
+
             display: none;
+
             margin-top: 30px;
+
             padding: 30px;
 
             border-radius: 20px;
 
-            background: rgba(255,255,255,.05);
+            background:
+                rgba(255,255,255,.05);
 
-            border: 1px solid rgba(255,255,255,.12);
+            border:
+                1px solid
+                rgba(255,255,255,.12);
 
-            backdrop-filter: blur(10px);
+            backdrop-filter:
+                blur(10px);
 
-            animation: subir .8s ease forwards;
+            animation:
+                subir .8s ease forwards;
         }
 
         .carta h2 {
+
             color: #ff4d6d;
+
             margin-bottom: 20px;
         }
 
         .carta p {
+
             color: #ddd;
+
             line-height: 1.8;
+
             font-size: 16px;
         }
 
-        /* BOTÃO DA SEGUNDA SURPRESA */
+
+        /* BOTÃO FINAL */
+
         .botao-final {
+
             margin-top: 30px;
+
+            opacity: 0;
 
             animation:
                 aparecerBotao 1s ease forwards;
 
             animation-delay: .5s;
-
-            opacity: 0;
         }
 
         @keyframes aparecerBotao {
+
             from {
+
                 opacity: 0;
-                transform: translateY(15px);
+
+                transform:
+                    translateY(15px);
             }
 
             to {
+
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
             }
         }
+
+
+        /* ANIMAÇÃO DA CARTA */
 
         @keyframes subir {
+
             from {
+
                 opacity: 0;
-                transform: translateY(30px);
+
+                transform:
+                    translateY(30px);
             }
 
             to {
+
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
             }
         }
 
+
         /* CORAÇÕES FLUTUANDO */
+
         .heart {
+
             position: fixed;
+
             bottom: -20px;
 
             color: #ff4d6d;
@@ -249,7 +360,9 @@
         }
 
         @keyframes subirCoracao {
+
             from {
+
                 transform:
                     translateY(0)
                     rotate(0);
@@ -258,6 +371,7 @@
             }
 
             to {
+
                 transform:
                     translateY(-110vh)
                     rotate(360deg);
@@ -269,30 +383,53 @@
     </style>
 </head>
 
+
 <body>
+
+    <!-- FUNDO -->
 
     <div class="stars"></div>
 
+
+    <!-- CONTEÚDO -->
+
     <main class="container">
+
+
+        <!-- TÍTULO -->
 
         <div class="subtitulo">
             uma pequena surpresa...
         </div>
 
+
         <h1>
             Feliz Aniversário ❤️
         </h1>
 
+
+        <!-- TEXTO -->
+
         <div class="mensagem">
+
             <span id="texto"></span>
-            <span class="cursor">|</span>
+
+            <span class="cursor">
+                |
+            </span>
+
         </div>
+
+
+        <!-- CORAÇÃO -->
 
         <div class="coracao">
             ❤️
         </div>
 
-        <!-- PRIMEIRO BOTÃO -->
+
+        <!-- BOTÃO PARA REVELAR A CARTA -->
+
         <button
             class="botao"
             id="botaoDescobrir"
@@ -303,35 +440,49 @@
 
 
         <!-- CARTA -->
-        <div class="carta" id="carta">
+
+        <div
+            class="carta"
+            id="carta"
+        >
 
             <h2>
                 Para você ✨
             </h2>
 
+
             <p>
 
-                Hoje é um daqueles dias que merecem ser lembrados.
+                Hoje é um daqueles dias
+                que merecem ser lembrados.
 
                 <br><br>
 
-                Eu queria te desejar um aniversário incrível,
-                cheio de momentos bons, sorrisos sinceros e pessoas
-                que realmente fazem você se sentir especial.
+                Eu queria te desejar um
+                aniversário incrível,
+                cheio de momentos bons,
+                sorrisos sinceros e pessoas
+                que realmente fazem você
+                se sentir especial.
 
                 <br><br>
 
-                E, sinceramente... eu fico muito feliz por ter
+                E, sinceramente...
+                eu fico muito feliz por ter
                 conhecido você.
 
                 <br><br>
 
-                Talvez você nem imagine, mas sua presença acabou
-                se tornando muito especial para mim.
+                Talvez você nem imagine,
+                mas sua presença acabou
+                se tornando muito especial
+                para mim.
 
                 <br><br>
 
-                Então aproveita muito o seu dia.
+                Então aproveita muito
+                o seu dia.
+
                 Você merece tudo de melhor. ❤️
 
                 <br><br>
@@ -343,7 +494,8 @@
             </p>
 
 
-            <!-- NOVO BOTÃO -->
+            <!-- BOTÃO PARA O FINAL -->
+
             <a
                 href="final.html"
                 class="botao botao-final"
@@ -367,55 +519,79 @@
 
         let i = 0;
 
+
         function escrever() {
 
             if (i < texto.length) {
 
-                document.getElementById("texto").innerHTML +=
+                document
+                    .getElementById("texto")
+                    .innerHTML +=
                     texto.charAt(i);
 
                 i++;
 
-                setTimeout(escrever, 45);
+                setTimeout(
+                    escrever,
+                    45
+                );
             }
         }
+
 
         escrever();
 
 
         /* =========================
-           ABRIR SURPRESA
+           ABRIR CARTA
         ========================= */
 
         function abrirSurpresa() {
 
             const carta =
-                document.getElementById("carta");
+                document.getElementById(
+                    "carta"
+                );
 
             const botao =
-                document.getElementById("botaoDescobrir");
+                document.getElementById(
+                    "botaoDescobrir"
+                );
 
 
-            carta.style.display = "block";
+            /* Mostra a carta */
 
-            botao.style.display = "none";
+            carta.style.display =
+                "block";
 
 
-            /* Corações */
+            /* Esconde o botão */
+
+            botao.style.display =
+                "none";
+
+
+            /* Solta os corações */
 
             criarCoracoes();
 
 
-            /* Rolar suavemente até a carta */
+            /* Rola até a carta */
 
             setTimeout(() => {
 
                 carta.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
+
+                    behavior:
+                        "smooth",
+
+                    block:
+                        "center"
+
                 });
 
             }, 300);
+
         }
 
 
@@ -425,14 +601,24 @@
 
         function criarCoracoes() {
 
-            for (let i = 0; i < 25; i++) {
+            for (
+                let i = 0;
+                i < 25;
+                i++
+            ) {
 
                 setTimeout(() => {
 
                     const heart =
-                        document.createElement("div");
+                        document.createElement(
+                            "div"
+                        );
 
-                    heart.classList.add("heart");
+
+                    heart.classList.add(
+                        "heart"
+                    );
+
 
                     heart.innerHTML =
                         Math.random() > .5
@@ -441,18 +627,32 @@
 
 
                     heart.style.left =
-                        Math.random() * 100 + "vw";
+                        Math.random() *
+                        100 +
+                        "vw";
 
 
                     heart.style.fontSize =
-                        (15 + Math.random() * 25) + "px";
+                        (
+                            15 +
+                            Math.random() *
+                            25
+                        ) +
+                        "px";
 
 
                     heart.style.animationDuration =
-                        (3 + Math.random() * 4) + "s";
+                        (
+                            3 +
+                            Math.random() *
+                            4
+                        ) +
+                        "s";
 
 
-                    document.body.appendChild(heart);
+                    document.body.appendChild(
+                        heart
+                    );
 
 
                     setTimeout(() => {
@@ -461,8 +661,11 @@
 
                     }, 7000);
 
+
                 }, i * 150);
+
             }
+
         }
 
     </script>
