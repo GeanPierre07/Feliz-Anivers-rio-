@@ -1,282 +1,916 @@
+# Site de Aniversário — index.html
+
 ```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uma pequena surpresa 👑</title>
 
-    <title>Uma surpresa para você ✨</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <style>
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+body {
+    background:
+        radial-gradient(circle at 50% 20%, rgba(255,255,255,.9), transparent 25%),
+        linear-gradient(135deg, #ffd6e8, #fff, #f8b8d4);
+    color: #6d2948;
+}
 
-        body {
-            background: #000;
-            color: #fff;
-            font-family: Arial, Helvetica, sans-serif;
-            height: 100vh;
-            overflow: hidden;
-        }
+/* FUNDO */
 
-        /* FUNDO */
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
 
-        .background {
-            position: fixed;
-            inset: 0;
-            background:
-                radial-gradient(circle at 20% 30%, rgba(120, 0, 255, 0.15), transparent 30%),
-                radial-gradient(circle at 80% 70%, rgba(0, 100, 255, 0.12), transparent 30%),
-                #000;
-            z-index: -2;
-        }
+.particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: rgba(255,255,255,.9);
+    border-radius: 50%;
+    animation: float 8s linear infinite;
+}
 
-        /* ESTRELAS */
+@keyframes float {
+    0% {
+        transform: translateY(110vh) scale(.5);
+        opacity: 0;
+    }
 
-        .stars {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-        }
+    20% {
+        opacity: 1;
+    }
 
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.6;
-            animation: twinkle 3s infinite ease-in-out;
-        }
+    80% {
+        opacity: 1;
+    }
 
-        @keyframes twinkle {
+    100% {
+        transform: translateY(-10vh) scale(1.3);
+        opacity: 0;
+    }
+}
 
-            0%, 100% {
-                opacity: 0.2;
-            }
+/* PÁGINAS */
 
-            50% {
-                opacity: 1;
-            }
+.page {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.08);
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
 
-        }
+.page.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
 
-        /* CONTEÚDO */
+/* CONTEÚDO */
 
-        .container {
-            height: 100vh;
+.content {
+    width: min(900px, 100%);
+    text-align: center;
+    padding: 35px;
+}
 
-            display: flex;
-            flex-direction: column;
+.crown {
+    font-size: 65px;
+    animation: crownFloat 3s ease-in-out infinite;
+    filter: drop-shadow(0 5px 12px rgba(255,170,205,.7));
+}
 
-            justify-content: center;
-            align-items: center;
+@keyframes crownFloat {
+    0%,100% {
+        transform: translateY(0) rotate(-3deg);
+    }
 
-            text-align: center;
+    50% {
+        transform: translateY(-12px) rotate(3deg);
+    }
+}
 
-            padding: 20px;
-        }
+h1 {
+    font-size: clamp(38px, 7vw, 75px);
+    margin: 15px 0;
+    color: #9e3f69;
+}
 
-        h1 {
-            font-size: clamp(2.5rem, 7vw, 5rem);
+h2 {
+    font-size: clamp(28px, 5vw, 48px);
+    margin-bottom: 20px;
+    color: #9e3f69;
+}
 
-            margin-bottom: 25px;
+p {
+    font-size: clamp(17px, 2.5vw, 21px);
+    line-height: 1.7;
+    color: #71465a;
+    max-width: 700px;
+    margin: auto;
+}
 
-            background: linear-gradient(
-                90deg,
-                #ffffff,
-                #a855f7,
-                #ffffff
-            );
+/* TEXTO DIGITANDO */
 
-            background-size: 200%;
+.typing {
+    min-height: 35px;
+    margin: 20px auto;
+}
 
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+/* BOTÕES */
 
-            animation: shine 4s linear infinite;
-        }
+.btn {
+    margin-top: 35px;
+    padding: 16px 35px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ef76a8, #c94f84);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(201,79,132,.3);
+    transition: .3s;
+}
 
-        @keyframes shine {
+.btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(201,79,132,.45);
+}
 
-            0% {
-                background-position: 0%;
-            }
+.btn:active {
+    transform: scale(.95);
+}
 
-            100% {
-                background-position: 200%;
-            }
+/* CORAÇÕES / ESTRELAS */
 
-        }
+.decorations {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
 
-        #text {
-            font-size: 1.1rem;
-            color: #aaa;
+.decoration {
+    position: absolute;
+    font-size: 25px;
+    opacity: .7;
+    animation: decorationFloat 5s ease-in-out infinite;
+}
 
-            max-width: 650px;
+@keyframes decorationFloat {
+    0%,100% {
+        transform: translateY(0) rotate(0);
+    }
 
-            min-height: 50px;
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
 
-            line-height: 1.7;
-        }
+/* CACHORRO */
 
-        /* BOTÃO */
+.dog-container {
+    margin: 20px auto;
+    width: 220px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
 
-        button {
-            margin-top: 35px;
+.dog-placeholder {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.65);
+    border: 3px dashed #e982aa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 15px 40px rgba(150,60,100,.12);
+}
 
-            padding: 15px 30px;
+.dog-placeholder span {
+    font-size: 70px;
+}
 
-            border-radius: 50px;
+.dog-placeholder small {
+    color: #a54b70;
+    margin-top: 5px;
+}
 
-            border: 1px solid #9333ea;
+/* PRESENTES */
 
-            background: transparent;
+.gifts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
 
-            color: white;
+.gift {
+    width: 150px;
+    height: 160px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    transition: .35s;
+}
 
-            font-size: 1rem;
+.gift:hover {
+    transform: translateY(-15px) scale(1.08);
+}
 
-            cursor: pointer;
+.gift-box {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 130px;
+    height: 100px;
+    border-radius: 12px;
+    background: linear-gradient(135deg,#ef78a9,#c94f84);
+    box-shadow: 0 15px 25px rgba(180,65,115,.25);
+}
 
-            transition: 0.3s;
+.gift-box::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 100%;
+    left: 52px;
+    background: #ffe6f0;
+}
 
-            box-shadow:
-                0 0 20px rgba(147, 51, 234, 0.2);
-        }
+.gift-lid {
+    position: absolute;
+    width: 145px;
+    height: 30px;
+    left: 3px;
+    bottom: 95px;
+    border-radius: 10px;
+    background: #d85b8e;
+}
 
-        button:hover {
+.ribbon {
+    position: absolute;
+    left: 57px;
+    bottom: 115px;
+    font-size: 35px;
+}
 
-            background: #9333ea;
+.gift-crown {
+    position: absolute;
+    top: -25px;
+    left: 53px;
+    font-size: 32px;
+    animation: crownFloat 2s infinite;
+}
 
-            transform: scale(1.07);
+/* REVELAÇÃO */
 
-            box-shadow:
-                0 0 35px rgba(147, 51, 234, 0.6);
+.reveal {
+    display: none;
+    margin-top: 30px;
+    animation: reveal .9s ease;
+}
 
-        }
+.reveal.show {
+    display: block;
+}
 
-        /* ANIMAÇÃO DE ENTRADA */
+.reveal-icon {
+    font-size: 100px;
+    animation: revealIcon 1.2s ease infinite alternate;
+}
 
-        .container > * {
-            opacity: 0;
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: scale(.3);
+    }
 
-            transform: translateY(20px);
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
-            animation: aparecer 1.2s forwards;
-        }
+@keyframes revealIcon {
+    from {
+        transform: scale(1) rotate(-5deg);
+    }
 
-        h1 {
-            animation-delay: 0.3s;
-        }
+    to {
+        transform: scale(1.15) rotate(5deg);
+    }
+}
 
-        #text {
-            animation-delay: 0.8s;
-        }
+/* ESCOLHA BLOQUEADA */
 
-        button {
-            animation-delay: 1.3s;
-        }
+.gift.disabled {
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(.5);
+}
 
-        @keyframes aparecer {
+/* EXPLOSÃO */
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+.explosion {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+}
 
-        }
+.spark {
+    position: absolute;
+    font-size: 25px;
+    animation: explode 1.5s ease-out forwards;
+}
 
-    </style>
+@keyframes explode {
+    0% {
+        transform: translate(0,0) scale(.3);
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate(
+                calc((var(--x) - .5) * 100vw),
+                calc((var(--y) - .5) * 100vh)
+            )
+            scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* RESPONSIVO */
+
+@media(max-width:600px) {
+
+    .content {
+        padding: 20px;
+    }
+
+    .crown {
+        font-size: 50px;
+    }
+
+    .gifts {
+        gap: 5px;
+    }
+
+    .gift {
+        transform: scale(.85);
+    }
+
+    .gift:hover {
+        transform: scale(.9) translateY(-8px);
+    }
+
+    .dog-container {
+        width: 180px;
+        height: 180px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <div class="background"></div>
+<!-- FUNDO -->
+<div class="background" id="background"></div>
 
-    <div class="stars" id="stars"></div>
+<!-- DECORAÇÕES -->
+<div class="decorations">
+    <div class="decoration" style="top:10%;left:8%">👑</div>
+    <div class="decoration" style="top:20%;right:10%">✨</div>
+    <div class="decoration" style="bottom:15%;left:12%">💗</div>
+    <div class="decoration" style="bottom:20%;right:8%">👑</div>
+    <div class="decoration" style="top:50%;left:5%">✨</div>
+    <div class="decoration" style="top:60%;right:5%">💗</div>
+</div>
 
-    <div class="container">
 
-        <h1>
-            Tenho uma coisa pra te mostrar...
-        </h1>
+<!-- ========================= -->
+<!-- TELA 1 -->
+<!-- ========================= -->
 
-        <p id="text"></p>
+<section class="page active" id="page1">
 
-        <button onclick="descobrir()">
-            Clique para descobrir ✨
+    <div class="content">
+
+        <div class="crown">👑</div>
+
+        <h1>Uma pequena surpresa...</h1>
+
+        <p class="typing" id="typing"></p>
+
+        <button class="btn" onclick="nextPage(2)">
+            ✨ CLIQUE PARA DESCOBRIR ✨
         </button>
 
     </div>
 
-
-    <script>
-
-        /* CRIAR ESTRELAS */
-
-        const stars = document.getElementById("stars");
-
-        for (let i = 0; i < 150; i++) {
-
-            const star = document.createElement("div");
-
-            star.classList.add("star");
-
-            star.style.left =
-                Math.random() * 100 + "%";
-
-            star.style.top =
-                Math.random() * 100 + "%";
-
-            star.style.animationDelay =
-                Math.random() * 3 + "s";
-
-            stars.appendChild(star);
-
-        }
+</section>
 
 
-        /* TEXTO DIGITANDO */
+<!-- ========================= -->
+<!-- TELA 2 -->
+<!-- ========================= -->
 
-        const frase =
-            "Algumas coisas merecem ser descobertas aos poucos...";
+<section class="page" id="page2">
 
-        let i = 0;
+    <div class="content">
 
-        function escrever() {
+        <div class="crown">👑</div>
 
-            if (i < frase.length) {
+        <h2>Feliz Aniversário! 🎂</h2>
 
-                document.getElementById("text").textContent +=
-                    frase.charAt(i);
+        <p>
+            Hoje é o seu dia! 🥳
+            <br><br>
+            Espero que esse novo ciclo venha cheio de
+            momentos incríveis, conquistas, risadas,
+            pessoas especiais e muitos motivos para sorrir.
+            <br><br>
+            Que você aproveite muito o seu dia
+            e que ele seja tão especial quanto merece. 💗
+        </p>
 
-                i++;
+        <button class="btn" onclick="nextPage(3)">
+            Continuar ✨
+        </button>
 
-                setTimeout(escrever, 50);
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- TELA 3 -->
+<!-- ========================= -->
+
+<section class="page" id="page3">
+
+    <div class="content">
+
+        <h2>Mas espera... 🐶</h2>
+
+        <div class="dog-container">
+
+            <!--
+            PARA COLOCAR UMA IMAGEM DO CACHORRO:
+
+            1. Coloque a imagem na mesma pasta deste index.html.
+            2. Renomeie para cachorro.png
+            3. Apague o bloco abaixo e coloque:
+
+            <img src="cachorro.png"
+                 style="width:190px;border-radius:50%;">
+
+            -->
+
+            <div class="dog-placeholder">
+
+                <span>🐶</span>
+
+                <small>
+                    Seu cachorro cartoon<br>
+                    pode aparecer aqui
+                </small>
+
+            </div>
+
+        </div>
+
+        <p>
+            É claro que ele também precisava
+            participar dessa surpresa. 👑
+        </p>
+
+        <button class="btn" onclick="nextPage(4)">
+            Continuar 🐾
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- TELA 4 -->
+<!-- ========================= -->
+
+<section class="page" id="page4">
+
+    <div class="content">
+
+        <div class="crown">👑</div>
+
+        <h2>Só mais algumas palavras...</h2>
+
+        <p>
+            Que você continue sendo essa pessoa única.
+            <br><br>
+            Que nunca faltem motivos para rir,
+            sonhos para correr atrás e momentos
+            que façam tudo valer a pena.
+            <br><br>
+            E que esse novo ciclo seja ainda melhor
+            que o anterior. ✨
+            <br><br>
+            Aproveite muito o seu dia. 💗
+        </p>
+
+        <button class="btn" onclick="nextPage(5)">
+            Tenho uma última coisa... 🎁
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- TELA 5 -->
+<!-- ========================= -->
+
+<section class="page" id="page5">
+
+    <div class="content">
+
+        <div class="crown">👑</div>
+
+        <h2>Agora chegou a melhor parte...</h2>
+
+        <p>
+            Existem três presentes esperando por você.
+            <br>
+            Mas você só pode escolher um. 👀
+        </p>
+
+        <div class="gifts">
+
+            <!-- PRESENTE 1 -->
+
+            <button class="gift" onclick="chooseGift(this,'phoenix')">
+
+                <div class="gift-crown">👑</div>
+
+                <div class="gift-lid"></div>
+
+                <div class="gift-box"></div>
+
+                <div class="ribbon">🎀</div>
+
+            </button>
+
+
+            <!-- PRESENTE 2 -->
+
+            <button class="gift" onclick="chooseGift(this,'lion')">
+
+                <div class="gift-crown">👑</div>
+
+                <div class="gift-lid"></div>
+
+                <div class="gift-box"></div>
+
+                <div class="ribbon">🎀</div>
+
+            </button>
+
+
+            <!-- PRESENTE 3 -->
+
+            <button class="gift" onclick="chooseGift(this,'zeus')">
+
+                <div class="gift-crown">👑</div>
+
+                <div class="gift-lid"></div>
+
+                <div class="gift-box"></div>
+
+                <div class="ribbon">🎀</div>
+
+            </button>
+
+        </div>
+
+
+        <!-- REVELAÇÃO -->
+
+        <div class="reveal" id="reveal">
+
+            <div class="reveal-icon" id="revealIcon"></div>
+
+            <h2 id="revealTitle"></h2>
+
+            <p id="revealText"></p>
+
+            <button class="btn" onclick="nextPage(6)">
+                Finalizar ✨
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- TELA 6 -->
+<!-- ========================= -->
+
+<section class="page" id="page6">
+
+    <div class="content">
+
+        <div class="crown">👑</div>
+
+        <h1>Surpresa concluída! ✨</h1>
+
+        <p>
+            Espero que tenha gostado dessa pequena
+            surpresa que preparei para você.
+            <br><br>
+            Feliz aniversário! 🎂💗
+            <br><br>
+            Que seu novo ciclo seja incrível.
+        </p>
+
+        <button class="btn" onclick="location.reload()">
+            👑 Voltar ao início
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- EXPLOSÃO -->
+
+<div class="explosion" id="explosion"></div>
+
+
+<script>
+
+/* ========================= */
+/* PARTÍCULAS */
+/* ========================= */
+
+const background = document.getElementById("background");
+
+for(let i = 0; i < 45; i++){
+
+    const particle = document.createElement("div");
+
+    particle.className = "particle";
+
+    particle.style.left = Math.random() * 100 + "%";
+
+    particle.style.animationDelay =
+        Math.random() * 8 + "s";
+
+    particle.style.animationDuration =
+        5 + Math.random() * 8 + "s";
+
+    particle.style.width =
+        3 + Math.random() * 5 + "px";
+
+    particle.style.height =
+        particle.style.width;
+
+    background.appendChild(particle);
+}
+
+
+/* ========================= */
+/* TEXTO INICIAL */
+/* ========================= */
+
+const text =
+"Porque algumas pessoas merecem receber algo diferente no dia delas. ✨";
+
+let index = 0;
+
+function typeText(){
+
+    if(index < text.length){
+
+        document.getElementById("typing").textContent +=
+            text.charAt(index);
+
+        index++;
+
+        setTimeout(typeText,45);
+
+    }
+
+}
+
+typeText();
+
+
+/* ========================= */
+/* MUDAR DE PÁGINA */
+/* ========================= */
+
+function nextPage(number){
+
+    document.querySelectorAll(".page")
+        .forEach(page => page.classList.remove("active"));
+
+    setTimeout(() => {
+
+        const page =
+            document.getElementById("page" + number);
+
+        page.classList.add("active");
+
+        createExplosion();
+
+    },100);
+
+}
+
+
+/* ========================= */
+/* ESCOLHER PRESENTE */
+/* ========================= */
+
+let alreadyChosen = false;
+
+function chooseGift(element, gift){
+
+    if(alreadyChosen) return;
+
+    alreadyChosen = true;
+
+    /* Bloqueia todos */
+
+    document.querySelectorAll(".gift")
+        .forEach(g => {
+
+            if(g !== element){
+
+                g.classList.add("disabled");
 
             }
 
-        }
-
-        escrever();
+        });
 
 
-        /* BOTÃO */
+    /* Explosão */
 
-        function descobrir() {
+    createExplosion();
 
-            alert(
-                "A surpresa está apenas começando... ❤️"
-            );
 
-        }
+    /* Informações */
 
-    </script>
+    const icon =
+        document.getElementById("revealIcon");
+
+    const title =
+        document.getElementById("revealTitle");
+
+    const text =
+        document.getElementById("revealText");
+
+
+    if(gift === "phoenix"){
+
+        icon.textContent = "🔥";
+
+        title.textContent = "FÊNIX";
+
+        text.textContent =
+            "Você encontrou a Fênix. 🔥";
+
+    }
+
+
+    if(gift === "lion"){
+
+        icon.textContent = "🦁";
+
+        title.textContent = "MINI LION";
+
+        text.textContent =
+            "Você encontrou o Mini Lion. 🦁";
+
+    }
+
+
+    if(gift === "zeus"){
+
+        icon.textContent = "⚡";
+
+        title.textContent = "ZEUS";
+
+        text.textContent =
+            "Você encontrou Zeus. ⚡";
+
+    }
+
+
+    setTimeout(() => {
+
+        document
+            .getElementById("reveal")
+            .classList.add("show");
+
+    },700);
+
+}
+
+
+/* ========================= */
+/* EXPLOSÃO DE PARTÍCULAS */
+/* ========================= */
+
+function createExplosion(){
+
+    const explosion =
+        document.getElementById("explosion");
+
+    const symbols =
+        ["✨","💗","👑","⭐","🎀"];
+
+    for(let i = 0; i < 25; i++){
+
+        const spark =
+            document.createElement("div");
+
+        spark.className = "spark";
+
+        spark.textContent =
+            symbols[Math.floor(
+                Math.random() * symbols.length
+            )];
+
+        spark.style.left =
+            "50%";
+
+        spark.style.top =
+            "50%";
+
+        spark.style.setProperty(
+            "--x",
+            Math.random()
+        );
+
+        spark.style.setProperty(
+            "--y",
+            Math.random()
+        );
+
+        explosion.appendChild(spark);
+
+
+        setTimeout(() => {
+
+            spark.remove();
+
+        },1600);
+
+    }
+
+}
+
+</script>
 
 </body>
 </html>
