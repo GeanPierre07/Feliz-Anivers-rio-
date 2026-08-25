@@ -1,356 +1,234 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Uma surpresa para você ✨</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <title>Uma surpresa para você</title>
 
-html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    font-family: "Segoe UI", sans-serif;
-    background: #000;
-    color: white;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    position: relative;
-}
+        body {
+            min-height: 100vh;
+            background: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
 
-/* FUNDO */
-.background {
-    position: fixed;
-    inset: 0;
-    background:
-        radial-gradient(circle at 50% 50%, #151515 0%, #050505 45%, #000 100%);
-    z-index: -3;
-}
+        .stars {
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(2px 2px at 10% 20%, white, transparent),
+                radial-gradient(1px 1px at 30% 80%, white, transparent),
+                radial-gradient(2px 2px at 70% 30%, white, transparent),
+                radial-gradient(1px 1px at 90% 70%, white, transparent),
+                radial-gradient(1px 1px at 50% 50%, white, transparent),
+                radial-gradient(2px 2px at 80% 10%, white, transparent),
+                radial-gradient(1px 1px at 20% 60%, white, transparent);
 
-/* ESTRELAS */
-.stars,
-.stars2,
-.stars3 {
-    position: fixed;
-    inset: 0;
-    background-repeat: repeat;
-    pointer-events: none;
-}
+            background-size: 300px 300px;
+            animation: estrelas 10s linear infinite;
+            opacity: .6;
+        }
 
-.stars {
-    z-index: -2;
-    background-image:
-        radial-gradient(2px 2px at 20px 30px, white, transparent),
-        radial-gradient(1px 1px at 90px 70px, white, transparent),
-        radial-gradient(2px 2px at 150px 120px, white, transparent),
-        radial-gradient(1px 1px at 220px 40px, white, transparent),
-        radial-gradient(2px 2px at 300px 180px, white, transparent),
-        radial-gradient(1px 1px at 380px 90px, white, transparent);
-    background-size: 420px 220px;
-    animation: moveStars 35s linear infinite;
-    opacity: .65;
-}
+        @keyframes estrelas {
+            from {
+                transform: translateY(0);
+            }
 
-.stars2 {
-    z-index: -1;
-    background-image:
-        radial-gradient(1px 1px at 50px 100px, white, transparent),
-        radial-gradient(2px 2px at 180px 50px, white, transparent),
-        radial-gradient(1px 1px at 270px 150px, white, transparent),
-        radial-gradient(2px 2px at 350px 30px, white, transparent);
-    background-size: 500px 250px;
-    animation: moveStars 60s linear infinite reverse;
-    opacity: .35;
-}
+            to {
+                transform: translateY(-300px);
+            }
+        }
 
-.stars3 {
-    z-index: -1;
-    background-image:
-        radial-gradient(1px 1px at 100px 50px, white, transparent),
-        radial-gradient(1px 1px at 250px 200px, white, transparent),
-        radial-gradient(1px 1px at 400px 100px, white, transparent);
-    background-size: 600px 300px;
-    animation: moveStars 90s linear infinite;
-    opacity: .25;
-}
+        .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 90%;
+            max-width: 700px;
+        }
 
-@keyframes moveStars {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(220px);
-    }
-}
+        .subtitulo {
+            color: #888;
+            font-size: 13px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            animation: aparecer 2s ease;
+        }
 
-/* CONTEÚDO */
-.container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 25px;
-}
+        h1 {
+            font-size: clamp(42px, 9vw, 80px);
+            margin-bottom: 25px;
 
-.content {
-    max-width: 700px;
-}
+            background: linear-gradient(
+                90deg,
+                #fff,
+                #ff4d6d,
+                #fff
+            );
 
-/* PEQUENO TEXTO */
-.subtitle {
-    font-size: 13px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: #aaa;
-    margin-bottom: 30px;
-    opacity: 0;
-    animation: fadeIn 2s ease forwards;
-    animation-delay: .5s;
-}
+            background-size: 200%;
 
-/* FRASE */
-.title {
-    font-size: clamp(35px, 7vw, 75px);
-    font-weight: 300;
-    line-height: 1.15;
-    letter-spacing: -2px;
-    margin-bottom: 25px;
-}
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
 
-.title span {
-    display: block;
-    opacity: 0;
-    transform: translateY(25px);
-    animation: textAppear 1.5s ease forwards;
-}
+            animation:
+                aparecer 2s ease,
+                brilho 4s linear infinite;
+        }
 
-.title span:nth-child(1) {
-    animation-delay: 1.5s;
-}
+        @keyframes brilho {
+            from {
+                background-position: 0%;
+            }
 
-.title span:nth-child(2) {
-    animation-delay: 2.5s;
-}
+            to {
+                background-position: 200%;
+            }
+        }
 
-.title span:nth-child(3) {
-    animation-delay: 3.5s;
-}
+        .mensagem {
+            color: #ccc;
+            font-size: 18px;
+            line-height: 1.8;
+            min-height: 80px;
+        }
 
-.highlight {
-    font-weight: 600;
-    background: linear-gradient(90deg, #fff, #aaa, #fff);
-    background-size: 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation:
-        textAppear 1.5s ease forwards,
-        shine 4s linear infinite;
-    animation-delay: 3.5s, 5s;
-}
+        .cursor {
+            color: #ff4d6d;
+            animation: piscar .7s infinite;
+        }
 
-/* DESCRIÇÃO */
-.description {
-    color: #888;
-    font-size: 16px;
-    line-height: 1.7;
-    max-width: 500px;
-    margin: 0 auto 40px;
-    opacity: 0;
-    animation: fadeIn 2s ease forwards;
-    animation-delay: 4.8s;
-}
+        @keyframes piscar {
+            50% {
+                opacity: 0;
+            }
+        }
 
-/* BOTÃO */
-.button-wrapper {
-    opacity: 0;
-    animation: fadeIn 2s ease forwards;
-    animation-delay: 5.8s;
-}
+        .coracao {
+            font-size: 45px;
+            margin: 30px 0;
+            animation: pulsar 1.5s infinite;
+        }
 
-.button {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px 35px;
-    min-width: 220px;
-    border: 1px solid #444;
-    border-radius: 50px;
-    color: white;
-    background: rgba(255,255,255,.03);
-    text-decoration: none;
-    font-size: 15px;
-    letter-spacing: 2px;
-    cursor: pointer;
-    overflow: hidden;
-    transition: .4s ease;
-    backdrop-filter: blur(8px);
-}
+        @keyframes pulsar {
+            0%, 100% {
+                transform: scale(1);
+            }
 
-.button::before {
-    content: "";
-    position: absolute;
-    left: -100%;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.15),
-        transparent
-    );
-    transition: .7s;
-}
+            50% {
+                transform: scale(1.2);
+            }
+        }
 
-.button:hover::before {
-    left: 100%;
-}
+        .botao {
+            display: inline-block;
+            padding: 16px 35px;
 
-.button:hover {
-    transform: translateY(-4px);
-    border-color: #aaa;
-    box-shadow:
-        0 0 20px rgba(255,255,255,.12),
-        0 0 60px rgba(255,255,255,.05);
-    background: rgba(255,255,255,.07);
-}
+            border: 1px solid #ff4d6d;
+            border-radius: 50px;
 
-/* BRILHO CENTRAL */
-.glow {
-    position: fixed;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(
-        circle,
-        rgba(255,255,255,.035),
-        transparent 70%
-    );
-    pointer-events: none;
-    animation: pulse 5s ease-in-out infinite;
-    z-index: -1;
-}
+            background: transparent;
+            color: white;
 
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-        opacity: .5;
-    }
+            font-size: 16px;
+            text-decoration: none;
 
-    50% {
-        transform: scale(1.2);
-        opacity: .9;
-    }
-}
+            cursor: pointer;
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
+            transition: .3s;
 
-    to {
-        opacity: 1;
-    }
-}
+            box-shadow: 0 0 0 rgba(255, 77, 109, 0);
+        }
 
-@keyframes textAppear {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-        filter: blur(8px);
-    }
+        .botao:hover {
+            background: #ff4d6d;
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
-}
+            box-shadow:
+                0 0 30px rgba(255, 77, 109, .6);
 
-@keyframes shine {
-    0% {
-        background-position: 200%;
-    }
+            transform: scale(1.05);
+        }
 
-    100% {
-        background-position: -200%;
-    }
-}
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
 
-/* RESPONSIVO */
-@media (max-width: 600px) {
-
-    .title {
-        font-size: 42px;
-    }
-
-    .description {
-        font-size: 14px;
-    }
-
-    .button {
-        min-width: 200px;
-    }
-
-    .glow {
-        width: 300px;
-        height: 300px;
-    }
-}
-</style>
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="background"></div>
-<div class="stars"></div>
-<div class="stars2"></div>
-<div class="stars3"></div>
+    <div class="stars"></div>
 
-<div class="glow"></div>
+    <main class="container">
 
-<main class="container">
-
-    <div class="content">
-
-        <div class="subtitle">
-            Uma pequena surpresa
+        <div class="subtitulo">
+            uma pequena surpresa...
         </div>
 
-        <h1 class="title">
-            <span>Hoje não é</span>
-            <span>um dia qualquer...</span>
-            <span class="highlight">é o seu dia.</span>
+        <h1>
+            Feliz Aniversário ❤️
         </h1>
 
-        <p class="description">
-            Eu poderia simplesmente te desejar feliz aniversário...
-            mas achei que você merecia algo um pouco diferente.
-        </p>
-
-        <div class="button-wrapper">
-
-            <a href="surpresa.html" class="button">
-                Clique para descobrir ✦
-            </a>
-
+        <div class="mensagem">
+            <span id="texto"></span>
+            <span class="cursor">|</span>
         </div>
 
-    </div>
+        <div class="coracao">
+            ❤️
+        </div>
 
-</main>
+        <!-- BOTÃO QUE ABRE A SURPRESA -->
+        <a href="surpresa.html" class="botao">
+            Clique para descobrir
+        </a>
+
+    </main>
+
+    <script>
+
+        const texto =
+            "Eu poderia simplesmente te mandar uma mensagem... mas achei que você merecia algo diferente.";
+
+        let i = 0;
+
+        function escrever() {
+
+            if (i < texto.length) {
+
+                document.getElementById("texto").innerHTML +=
+                    texto.charAt(i);
+
+                i++;
+
+                setTimeout(escrever, 45);
+            }
+        }
+
+        escrever();
+
+    </script>
 
 </body>
 </html>
-```
