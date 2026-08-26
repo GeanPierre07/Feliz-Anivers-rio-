@@ -29,9 +29,7 @@ body {
 }
 
 body {
-
     font-family: "Segoe UI", Arial, sans-serif;
-
     color: white;
 
     background:
@@ -61,23 +59,15 @@ body {
 ===================================================== */
 
 #stars {
-
     position: fixed;
-
     inset: 0;
-
     overflow: hidden;
-
     pointer-events: none;
-
     z-index: 1;
 }
 
-
 .star {
-
     position: absolute;
-
     bottom: -20px;
 
     width: 3px;
@@ -96,11 +86,9 @@ body {
     opacity: 0;
 }
 
-
 @keyframes subir {
 
     0% {
-
         transform:
             translateY(0)
             scale(.5);
@@ -109,17 +97,14 @@ body {
     }
 
     15% {
-
         opacity: .9;
     }
 
     80% {
-
         opacity: .8;
     }
 
     100% {
-
         transform:
             translateY(-120vh)
             scale(1.2);
@@ -130,17 +115,14 @@ body {
 
 
 /* =====================================================
-   ESTRELAS DECORATIVAS
+   ESTRELAS FIXAS
 ===================================================== */
 
 .fixed-star {
-
     position: fixed;
-
     z-index: 2;
 
     color: white;
-
     font-size: 20px;
 
     animation:
@@ -149,24 +131,17 @@ body {
     pointer-events: none;
 }
 
-
 @keyframes piscar {
 
     0%,
     100% {
-
         opacity: .25;
-
-        transform:
-            scale(.8);
+        transform: scale(.8);
     }
 
     50% {
-
         opacity: 1;
-
-        transform:
-            scale(1.2);
+        transform: scale(1.2);
     }
 }
 
@@ -176,29 +151,23 @@ body {
 ===================================================== */
 
 .page {
-
     position: absolute;
-
     inset: 0;
 
     z-index: 5;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     padding: 20px;
 
     opacity: 0;
-
     visibility: hidden;
 
     pointer-events: none;
 
-    transform:
-        scale(1.05);
+    transform: scale(1.05);
 
     transition:
         opacity .7s ease,
@@ -206,26 +175,18 @@ body {
         visibility .7s ease;
 }
 
-
 .page.active {
-
     opacity: 1;
-
     visibility: visible;
-
     pointer-events: auto;
 
-    transform:
-        scale(1);
+    transform: scale(1);
 }
 
 
 .content {
-
     width: min(900px, 100%);
-
     text-align: center;
-
     padding: 25px;
 }
 
@@ -235,7 +196,6 @@ body {
 ===================================================== */
 
 .crown {
-
     font-size: 65px;
 
     filter:
@@ -248,19 +208,16 @@ body {
         coroa 3s ease-in-out infinite;
 }
 
-
 @keyframes coroa {
 
     0%,
     100% {
-
         transform:
             translateY(0)
             rotate(-3deg);
     }
 
     50% {
-
         transform:
             translateY(-12px)
             rotate(3deg);
@@ -273,7 +230,6 @@ body {
 ===================================================== */
 
 h1 {
-
     margin: 15px 0;
 
     font-size:
@@ -288,13 +244,10 @@ h1 {
         );
 
     -webkit-background-clip: text;
-
     -webkit-text-fill-color: transparent;
 }
 
-
 h2 {
-
     margin-bottom: 25px;
 
     font-size:
@@ -303,11 +256,8 @@ h2 {
     color: #f5c1e7;
 }
 
-
 p {
-
     max-width: 700px;
-
     margin: auto;
 
     color: #ead9e8;
@@ -318,9 +268,7 @@ p {
     line-height: 1.7;
 }
 
-
 .typing {
-
     min-height: 40px;
 }
 
@@ -330,7 +278,6 @@ p {
 ===================================================== */
 
 .btn {
-
     margin-top: 30px;
 
     padding: 16px 35px;
@@ -344,7 +291,6 @@ p {
     color: white;
 
     font-size: 17px;
-
     font-weight: bold;
 
     background:
@@ -366,9 +312,7 @@ p {
     transition: .3s;
 }
 
-
 .btn:hover {
-
     transform:
         translateY(-5px)
         scale(1.05);
@@ -381,11 +325,8 @@ p {
         rgba(0,0,0,.5);
 }
 
-
 .btn:active {
-
-    transform:
-        scale(.94);
+    transform: scale(.94);
 }
 
 
@@ -394,11 +335,9 @@ p {
 ===================================================== */
 
 .gifts {
-
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     gap: 30px;
@@ -406,17 +345,13 @@ p {
     margin-top: 40px;
 }
 
-
 .gift {
-
     position: relative;
 
     width: 150px;
-
     height: 160px;
 
     border: none;
-
     background: transparent;
 
     cursor: pointer;
@@ -424,25 +359,19 @@ p {
     transition: .4s;
 }
 
-
 .gift:hover {
-
     transform:
         translateY(-15px)
         scale(1.08);
 }
 
-
 .gift-box {
-
     position: absolute;
 
     left: 10px;
-
     bottom: 10px;
 
     width: 130px;
-
     height: 100px;
 
     border-radius: 12px;
@@ -459,9 +388,7 @@ p {
         rgba(230, 100, 200, .4);
 }
 
-
 .gift-box::before {
-
     content: "";
 
     position: absolute;
@@ -469,23 +396,18 @@ p {
     left: 52px;
 
     width: 25px;
-
     height: 100%;
 
     background: #ffe4f5;
 }
 
-
 .gift-lid {
-
     position: absolute;
 
     left: 3px;
-
     bottom: 95px;
 
     width: 145px;
-
     height: 30px;
 
     border-radius: 10px;
@@ -493,13 +415,10 @@ p {
     background: #c7549b;
 }
 
-
 .gift-crown {
-
     position: absolute;
 
     top: -30px;
-
     left: 53px;
 
     font-size: 32px;
@@ -508,13 +427,10 @@ p {
         coroa 2s infinite;
 }
 
-
 .ribbon {
-
     position: absolute;
 
     left: 57px;
-
     bottom: 115px;
 
     font-size: 35px;
@@ -526,18 +442,15 @@ p {
 ===================================================== */
 
 .gift.disabled {
-
     pointer-events: none;
 
     animation:
         sumir .6s forwards;
 }
 
-
 @keyframes sumir {
 
     to {
-
         opacity: 0;
 
         transform:
@@ -552,7 +465,6 @@ p {
 ===================================================== */
 
 #confirmOverlay {
-
     position: fixed;
 
     inset: 0;
@@ -562,14 +474,12 @@ p {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     background:
         rgba(5, 1, 10, .78);
 
-    backdrop-filter:
-        blur(8px);
+    backdrop-filter: blur(8px);
 
     opacity: 0;
 
@@ -581,9 +491,7 @@ p {
         opacity .4s ease;
 }
 
-
 #confirmOverlay.show {
-
     opacity: 1;
 
     visibility: visible;
@@ -591,9 +499,7 @@ p {
     pointer-events: auto;
 }
 
-
 .confirm-box {
-
     width:
         min(550px, 88vw);
 
@@ -622,25 +528,18 @@ p {
         0 0 100px
         rgba(160, 60, 210, .25);
 
-    transform:
-        scale(.6);
+    transform: scale(.6);
 
     transition:
         transform .5s
         cubic-bezier(.17,.89,.32,1.28);
 }
 
-
-#confirmOverlay.show
-.confirm-box {
-
-    transform:
-        scale(1);
+#confirmOverlay.show .confirm-box {
+    transform: scale(1);
 }
 
-
 .confirm-crown {
-
     font-size: 65px;
 
     margin-bottom: 10px;
@@ -649,21 +548,15 @@ p {
         coroa 2s ease-in-out infinite;
 }
 
-
 .confirm-box h2 {
-
     margin-bottom: 15px;
 }
 
-
 .confirm-box p {
-
     font-size: 19px;
 }
 
-
 .confirm-buttons {
-
     display: flex;
 
     justify-content: center;
@@ -675,15 +568,11 @@ p {
     margin-top: 25px;
 }
 
-
 .confirm-buttons .btn {
-
     margin-top: 0;
 }
 
-
 .no-btn {
-
     background:
         linear-gradient(
             135deg,
@@ -692,9 +581,7 @@ p {
         );
 }
 
-
 .yes-btn:hover {
-
     box-shadow:
         0 0 35px
         rgba(255, 130, 220, .8);
@@ -706,7 +593,6 @@ p {
 ===================================================== */
 
 #revealOverlay {
-
     position: fixed;
 
     inset: 0;
@@ -716,14 +602,12 @@ p {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     background:
         rgba(5, 1, 10, .82);
 
-    backdrop-filter:
-        blur(10px);
+    backdrop-filter: blur(10px);
 
     opacity: 0;
 
@@ -735,9 +619,7 @@ p {
         opacity .5s ease;
 }
 
-
 #revealOverlay.show {
-
     opacity: 1;
 
     visibility: visible;
@@ -745,9 +627,7 @@ p {
     pointer-events: auto;
 }
 
-
 .reveal-box {
-
     position: relative;
 
     width:
@@ -763,7 +643,6 @@ p {
     flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
 
     text-align: center;
@@ -791,20 +670,15 @@ p {
         inset 0 0 50px
         rgba(255,255,255,.03);
 
-    transform:
-        scale(.3);
+    transform: scale(.3);
 
     transition:
         transform .8s
         cubic-bezier(.17,.89,.32,1.28);
 }
 
-
-#revealOverlay.show
-.reveal-box {
-
-    transform:
-        scale(1);
+#revealOverlay.show .reveal-box {
+    transform: scale(1);
 }
 
 
@@ -813,7 +687,6 @@ p {
 ===================================================== */
 
 .reveal-box::before {
-
     content: "";
 
     position: absolute;
@@ -838,17 +711,14 @@ p {
         brilho 3s linear infinite;
 }
 
-
 @keyframes brilho {
 
     0% {
-
         transform:
             translateX(-100%);
     }
 
     100% {
-
         transform:
             translateX(100%);
     }
@@ -860,7 +730,6 @@ p {
 ===================================================== */
 
 #revealIcon {
-
     font-size: 150px;
 
     margin-bottom: 15px;
@@ -879,27 +748,22 @@ p {
         alternate;
 }
 
-
 @keyframes presenteRevelado {
 
     from {
-
         transform:
             scale(1)
             rotate(-5deg);
     }
 
     to {
-
         transform:
             scale(1.15)
             rotate(5deg);
     }
 }
 
-
 #revealTitle {
-
     font-size:
         clamp(38px, 6vw, 65px);
 
@@ -914,13 +778,10 @@ p {
         );
 
     -webkit-background-clip: text;
-
     -webkit-text-fill-color: transparent;
 }
 
-
 #revealText {
-
     color: #ead9e8;
 
     font-size: 20px;
@@ -932,7 +793,6 @@ p {
 ===================================================== */
 
 #explosion {
-
     position: fixed;
 
     inset: 0;
@@ -942,9 +802,7 @@ p {
     pointer-events: none;
 }
 
-
 .spark {
-
     position: absolute;
 
     font-size: 25px;
@@ -956,11 +814,9 @@ p {
         forwards;
 }
 
-
 @keyframes explodir {
 
     0% {
-
         transform:
             translate(0,0)
             scale(.3);
@@ -969,7 +825,6 @@ p {
     }
 
     100% {
-
         transform:
             translate(
                 calc((var(--x) - .5) * 100vw),
@@ -983,12 +838,36 @@ p {
 
 
 /* =====================================================
-   TELA FINAL
+   AJUDA DE MARIA DOS GATOS
 ===================================================== */
 
-#page5 .btn {
+.maria-gatos {
 
-    margin-top: 35px;
+    position: absolute;
+
+    right: 45px;
+    bottom: 35px;
+
+    font-size: 17px;
+
+    color:
+        rgba(255,255,255,.62);
+
+    letter-spacing: 1px;
+
+    opacity: .8;
+
+    transition: .3s;
+}
+
+.maria-gatos:hover {
+
+    opacity: 1;
+
+    color: #f5c1e7;
+
+    transform:
+        translateY(-2px);
 }
 
 
@@ -999,35 +878,29 @@ p {
 @media(max-width:600px) {
 
     .content {
-
         padding: 15px;
     }
 
     .crown {
-
         font-size: 50px;
     }
 
     .gifts {
-
         gap: 0;
     }
 
     .gift {
-
         transform:
             scale(.82);
     }
 
     .gift:hover {
-
         transform:
             scale(.88)
             translateY(-8px);
     }
 
     .confirm-box {
-
         width: 90vw;
 
         padding:
@@ -1037,7 +910,6 @@ p {
     }
 
     .reveal-box {
-
         width: 90vw;
 
         min-height: 430px;
@@ -1049,14 +921,27 @@ p {
     }
 
     #revealIcon {
-
         font-size: 110px;
     }
 
     #revealTitle {
-
         font-size: 40px;
     }
+
+    .maria-gatos {
+
+        right: 50%;
+
+        transform:
+            translateX(50%);
+
+        bottom: 20px;
+
+        white-space: nowrap;
+
+        font-size: 14px;
+    }
+
 }
 
 </style>
@@ -1080,13 +965,11 @@ p {
     ✦
 </div>
 
-
 <div
     class="fixed-star"
     style="top:18%;right:15%;">
     ✧
 </div>
-
 
 <div
     class="fixed-star"
@@ -1094,20 +977,17 @@ p {
     ✦
 </div>
 
-
 <div
     class="fixed-star"
     style="top:65%;right:8%;">
     ✧
 </div>
 
-
 <div
     class="fixed-star"
     style="bottom:12%;left:18%;">
     ✦
 </div>
-
 
 <div
     class="fixed-star"
@@ -1285,7 +1165,7 @@ p {
         <div class="gifts">
 
 
-            <!-- PRESENTE 1 — FÊNIX -->
+            <!-- PRESENTE 1 -->
 
             <button
                 class="gift"
@@ -1306,7 +1186,7 @@ p {
             </button>
 
 
-            <!-- PRESENTE 2 — MINI LION -->
+            <!-- PRESENTE 2 -->
 
             <button
                 class="gift"
@@ -1327,7 +1207,7 @@ p {
             </button>
 
 
-            <!-- PRESENTE 3 — ZEUS -->
+            <!-- PRESENTE 3 -->
 
             <button
                 class="gift"
@@ -1387,7 +1267,6 @@ p {
                 ✨ Sim, quero!
 
             </button>
-
 
             <button
                 class="btn no-btn"
@@ -1471,7 +1350,6 @@ p {
 
         </p>
 
-
         <button
             class="btn"
             onclick="encerrarSite()">
@@ -1479,6 +1357,15 @@ p {
             👑 Fim
 
         </button>
+
+    </div>
+
+
+    <!-- AJUDA DE MARIA DOS GATOS -->
+
+    <div class="maria-gatos">
+
+        👑 Ajuda de Maria dos Gatos
 
     </div>
 
@@ -1539,7 +1426,6 @@ for(let i = 0; i < 80; i++) {
 const texto =
     "Eu poderia simplesmente te desejar feliz aniversário... mas você merece algo que fosse feito só para você. ✨";
 
-
 let posicao = 0;
 
 
@@ -1566,7 +1452,7 @@ escrever();
 
 
 /* =====================================================
-   TROCAR DE PÁGINA
+   MUDAR PÁGINA
 ===================================================== */
 
 function nextPage(numero) {
@@ -1592,7 +1478,6 @@ function nextPage(numero) {
                 "active"
             );
 
-
         explosao();
 
     }, 100);
@@ -1600,7 +1485,7 @@ function nextPage(numero) {
 
 
 /* =====================================================
-   VARIÁVEIS DA ESCOLHA
+   VARIÁVEIS DO PRESENTE
 ===================================================== */
 
 let presenteSelecionado = null;
@@ -1609,7 +1494,7 @@ let elementoSelecionado = null;
 
 
 /* =====================================================
-   CLICOU EM UM PRESENTE
+   ESCOLHER PRESENTE
 ===================================================== */
 
 function chooseGift(
@@ -1617,22 +1502,12 @@ function chooseGift(
     presente
 ) {
 
-    /*
-       Impede uma segunda seleção
-       enquanto a confirmação estiver aberta
-    */
-
     if(
         presenteSelecionado !== null
     ) {
-
         return;
     }
 
-
-    /*
-       Guarda qual presente foi clicado
-    */
 
     elementoSelecionado =
         elemento;
@@ -1640,10 +1515,6 @@ function chooseGift(
     presenteSelecionado =
         presente;
 
-
-    /*
-       Abre confirmação
-    */
 
     document
         .getElementById(
@@ -1656,7 +1527,7 @@ function chooseGift(
 
 
 /* =====================================================
-   CLICOU EM SIM
+   CONFIRMAR PRESENTE
 ===================================================== */
 
 function confirmarPresente() {
@@ -1664,14 +1535,9 @@ function confirmarPresente() {
     if(
         !presenteSelecionado
     ) {
-
         return;
     }
 
-
-    /*
-       Fecha confirmação
-    */
 
     document
         .getElementById(
@@ -1681,11 +1547,6 @@ function confirmarPresente() {
             "show"
         );
 
-
-    /*
-       Faz os outros presentes
-       desaparecerem
-    */
 
     document
         .querySelectorAll(".gift")
@@ -1705,10 +1566,6 @@ function confirmarPresente() {
         });
 
 
-    /*
-       Explosão
-    */
-
     explosao();
 
 
@@ -1718,10 +1575,6 @@ function confirmarPresente() {
 
     let mensagem = "";
 
-
-    /*
-       FÊNIX
-    */
 
     if(
         presenteSelecionado ===
@@ -1738,10 +1591,6 @@ function confirmarPresente() {
     }
 
 
-    /*
-       MINI LION
-    */
-
     if(
         presenteSelecionado ===
         "lion"
@@ -1757,10 +1606,6 @@ function confirmarPresente() {
     }
 
 
-    /*
-       ZEUS
-    */
-
     if(
         presenteSelecionado ===
         "zeus"
@@ -1775,11 +1620,6 @@ function confirmarPresente() {
 
     }
 
-
-    /*
-       Coloca o conteúdo
-       dentro do quadrado
-    */
 
     document
         .getElementById(
@@ -1805,11 +1645,6 @@ function confirmarPresente() {
         mensagem;
 
 
-    /*
-       Espera a animação
-       dos presentes
-    */
-
     setTimeout(() => {
 
         document
@@ -1830,10 +1665,6 @@ function confirmarPresente() {
 
 function cancelarPresente() {
 
-    /*
-       Fecha confirmação
-    */
-
     document
         .getElementById(
             "confirmOverlay"
@@ -1842,12 +1673,6 @@ function cancelarPresente() {
             "show"
         );
 
-
-    /*
-       Limpa a escolha
-       para poder escolher
-       novamente
-    */
 
     presenteSelecionado =
         null;
@@ -1886,61 +1711,152 @@ function finalizar() {
 
 function encerrarSite() {
 
-    /*
-       Alguns navegadores impedem
-       que uma página feche a própria aba.
-       Por isso mostramos uma tela final.
-    */
+    document
+        .querySelectorAll(".page")
+        .forEach(page => {
 
-    document.body.innerHTML = `
-        <div style="
-            width:100vw;
-            height:100vh;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            text-align:center;
-            padding:30px;
-            background:
-                linear-gradient(
-                    135deg,
-                    #120618,
-                    #281034,
-                    #0d0512
-                );
-            color:white;
-            font-family:Segoe UI,Arial,sans-serif;
-        ">
+            page.classList.remove(
+                "active"
+            );
 
-            <div>
+        });
 
-                <div style="
-                    font-size:70px;
-                    margin-bottom:20px;
-                ">
-                    👑
+
+    document.body.style.background =
+        `
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(190,80,200,.22),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #120618,
+            #281034,
+            #0d0512
+        )
+        `;
+
+
+    setTimeout(() => {
+
+        document.body.innerHTML = `
+
+            <div style="
+                width:100vw;
+                height:100vh;
+
+                display:flex;
+                align-items:center;
+                justify-content:center;
+
+                text-align:center;
+
+                padding:30px;
+
+                background:
+                    radial-gradient(
+                        circle at 50% 30%,
+                        rgba(190,80,200,.22),
+                        transparent 35%
+                    ),
+
+                    linear-gradient(
+                        135deg,
+                        #120618,
+                        #281034,
+                        #0d0512
+                    );
+
+                color:white;
+
+                font-family:
+                    Segoe UI,
+                    Arial,
+                    sans-serif;
+
+                position:relative;
+            ">
+
+                <div>
+
+                    <div style="
+                        font-size:75px;
+                        margin-bottom:20px;
+
+                        filter:
+                            drop-shadow(
+                                0 0 20px
+                                rgba(255,200,250,.7)
+                            );
+                    ">
+                        👑
+                    </div>
+
+
+                    <h1 style="
+                        font-size:
+                            clamp(38px,7vw,65px);
+
+                        margin-bottom:20px;
+
+                        background:
+                            linear-gradient(
+                                90deg,
+                                white,
+                                #f3a9df,
+                                white
+                            );
+
+                        -webkit-background-clip:text;
+                        -webkit-text-fill-color:transparent;
+                    ">
+
+                        Fim da surpresa ✨
+
+                    </h1>
+
+
+                    <p style="
+                        color:#ead9e8;
+                        font-size:19px;
+                        line-height:1.7;
+                    ">
+
+                        Espero que tenha gostado. 💗
+
+                    </p>
+
                 </div>
 
-                <h1 style="
-                    font-size:45px;
-                    margin-bottom:20px;
-                    color:#f5c1e7;
-                ">
-                    Fim da surpresa ✨
-                </h1>
 
-                <p style="
-                    color:#ead9e8;
-                    font-size:19px;
+                <!-- MARIA DOS GATOS -->
+
+                <div style="
+                    position:absolute;
+
+                    right:45px;
+                    bottom:35px;
+
+                    font-size:17px;
+
+                    color:
+                        rgba(255,255,255,.62);
+
+                    letter-spacing:1px;
+
+                    opacity:.8;
                 ">
-                    Espero que tenha gostado. 💗
-                </p>
+
+                    👑 Ajuda de Maria dos Gatos
+
+                </div>
 
             </div>
 
-        </div>
-    `;
+        `;
 
+    }, 500);
 }
 
 
