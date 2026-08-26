@@ -12,39 +12,37 @@
 <style>
 
 /* =====================================================
-   CONFIGURAÇÕES GERAIS
+   CONFIGURAÇÕES
 ===================================================== */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html,
-body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
 }
 
-body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    color: white;
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    color:white;
 
     background:
         radial-gradient(
             circle at 50% 20%,
-            rgba(190, 80, 200, .25),
+            rgba(190,80,200,.25),
             transparent 30%
         ),
-
         radial-gradient(
             circle at 20% 80%,
-            rgba(255, 90, 180, .12),
+            rgba(255,90,180,.12),
             transparent 30%
         ),
-
         linear-gradient(
             135deg,
             #120618,
@@ -55,61 +53,59 @@ body {
 
 
 /* =====================================================
-   ESTRELAS SUBINDO
+   ESTRELAS
 ===================================================== */
 
-#stars {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 1;
+#stars{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
 }
 
-.star {
-    position: absolute;
-    bottom: -20px;
+.star{
+    position:absolute;
+    bottom:-20px;
 
-    width: 3px;
-    height: 3px;
+    width:3px;
+    height:3px;
 
-    border-radius: 50%;
+    border-radius:50%;
 
-    background: white;
+    background:white;
 
     box-shadow:
         0 0 6px white,
         0 0 12px #f0a4ff;
 
-    animation: subir linear infinite;
+    animation:subir linear infinite;
 
-    opacity: 0;
+    opacity:0;
 }
 
-@keyframes subir {
+@keyframes subir{
 
-    0% {
+    0%{
         transform:
             translateY(0)
             scale(.5);
-
-        opacity: 0;
+        opacity:0;
     }
 
-    15% {
-        opacity: .9;
+    15%{
+        opacity:.9;
     }
 
-    80% {
-        opacity: .8;
+    80%{
+        opacity:.8;
     }
 
-    100% {
+    100%{
         transform:
             translateY(-120vh)
             scale(1.2);
-
-        opacity: 0;
+        opacity:0;
     }
 }
 
@@ -118,30 +114,29 @@ body {
    ESTRELAS FIXAS
 ===================================================== */
 
-.fixed-star {
-    position: fixed;
-    z-index: 2;
+.fixed-star{
+    position:fixed;
+    z-index:2;
 
-    color: white;
-    font-size: 20px;
+    color:white;
+    font-size:20px;
 
     animation:
         piscar 2s ease-in-out infinite;
 
-    pointer-events: none;
+    pointer-events:none;
 }
 
-@keyframes piscar {
+@keyframes piscar{
 
-    0%,
-    100% {
-        opacity: .25;
-        transform: scale(.8);
+    0%,100%{
+        opacity:.25;
+        transform:scale(.8);
     }
 
-    50% {
-        opacity: 1;
-        transform: scale(1.2);
+    50%{
+        opacity:1;
+        transform:scale(1.2);
     }
 }
 
@@ -150,24 +145,26 @@ body {
    PÁGINAS
 ===================================================== */
 
-.page {
-    position: absolute;
-    inset: 0;
+.page{
+    position:absolute;
+    inset:0;
 
-    z-index: 5;
+    z-index:5;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    padding: 20px;
+    padding:20px;
 
-    opacity: 0;
-    visibility: hidden;
+    opacity:0;
+    visibility:hidden;
 
-    pointer-events: none;
+    pointer-events:none;
 
-    transform: scale(1.05);
+    transform:
+        scale(1.05)
+        translateY(20px);
 
     transition:
         opacity .7s ease,
@@ -175,19 +172,20 @@ body {
         visibility .7s ease;
 }
 
-.page.active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+.page.active{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
 
-    transform: scale(1);
+    transform:
+        scale(1)
+        translateY(0);
 }
 
-
-.content {
-    width: min(900px, 100%);
-    text-align: center;
-    padding: 25px;
+.content{
+    width:min(900px,100%);
+    text-align:center;
+    padding:25px;
 }
 
 
@@ -195,29 +193,28 @@ body {
    COROA
 ===================================================== */
 
-.crown {
-    font-size: 65px;
+.crown{
+    font-size:65px;
 
     filter:
         drop-shadow(
             0 0 15px
-            rgba(255, 190, 250, .8)
+            rgba(255,190,250,.8)
         );
 
     animation:
         coroa 3s ease-in-out infinite;
 }
 
-@keyframes coroa {
+@keyframes coroa{
 
-    0%,
-    100% {
+    0%,100%{
         transform:
             translateY(0)
             rotate(-3deg);
     }
 
-    50% {
+    50%{
         transform:
             translateY(-12px)
             rotate(3deg);
@@ -229,11 +226,11 @@ body {
    TEXTOS
 ===================================================== */
 
-h1 {
-    margin: 15px 0;
+h1{
+    margin:15px 0;
 
     font-size:
-        clamp(38px, 7vw, 75px);
+        clamp(38px,7vw,75px);
 
     background:
         linear-gradient(
@@ -243,33 +240,33 @@ h1 {
             #ffffff
         );
 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-h2 {
-    margin-bottom: 25px;
+h2{
+    margin-bottom:25px;
 
     font-size:
-        clamp(28px, 5vw, 48px);
+        clamp(28px,5vw,48px);
 
-    color: #f5c1e7;
+    color:#f5c1e7;
 }
 
-p {
-    max-width: 700px;
-    margin: auto;
+p{
+    max-width:700px;
+    margin:auto;
 
-    color: #ead9e8;
+    color:#ead9e8;
 
     font-size:
-        clamp(17px, 2.5vw, 21px);
+        clamp(17px,2.5vw,21px);
 
-    line-height: 1.7;
+    line-height:1.7;
 }
 
-.typing {
-    min-height: 40px;
+.typing{
+    min-height:40px;
 }
 
 
@@ -277,21 +274,21 @@ p {
    BOTÕES
 ===================================================== */
 
-.btn {
-    margin-top: 30px;
+.btn{
+    margin-top:30px;
 
-    padding: 16px 35px;
+    padding:16px 35px;
 
     border:
         1px solid
         rgba(255,255,255,.25);
 
-    border-radius: 50px;
+    border-radius:50px;
 
-    color: white;
+    color:white;
 
-    font-size: 17px;
-    font-weight: bold;
+    font-size:17px;
+    font-weight:bold;
 
     background:
         linear-gradient(
@@ -300,33 +297,33 @@ p {
             #843d91
         );
 
-    cursor: pointer;
+    cursor:pointer;
 
     box-shadow:
         0 0 20px
-        rgba(220, 90, 190, .3),
+        rgba(220,90,190,.3),
 
         0 10px 30px
         rgba(0,0,0,.4);
 
-    transition: .3s;
+    transition:.3s;
 }
 
-.btn:hover {
+.btn:hover{
     transform:
         translateY(-5px)
         scale(1.05);
 
     box-shadow:
         0 0 35px
-        rgba(235, 110, 205, .7),
+        rgba(235,110,205,.7),
 
         0 15px 40px
         rgba(0,0,0,.5);
 }
 
-.btn:active {
-    transform: scale(.94);
+.btn:active{
+    transform:scale(.94);
 }
 
 
@@ -334,47 +331,47 @@ p {
    PRESENTES
 ===================================================== */
 
-.gifts {
-    display: flex;
+.gifts{
+    display:flex;
 
-    justify-content: center;
-    align-items: center;
+    justify-content:center;
+    align-items:center;
 
-    gap: 30px;
+    gap:30px;
 
-    margin-top: 40px;
+    margin-top:40px;
 }
 
-.gift {
-    position: relative;
+.gift{
+    position:relative;
 
-    width: 150px;
-    height: 160px;
+    width:150px;
+    height:160px;
 
-    border: none;
-    background: transparent;
+    border:none;
+    background:transparent;
 
-    cursor: pointer;
+    cursor:pointer;
 
-    transition: .4s;
+    transition:.4s;
 }
 
-.gift:hover {
+.gift:hover{
     transform:
         translateY(-15px)
         scale(1.08);
 }
 
-.gift-box {
-    position: absolute;
+.gift-box{
+    position:absolute;
 
-    left: 10px;
-    bottom: 10px;
+    left:10px;
+    bottom:10px;
 
-    width: 130px;
-    height: 100px;
+    width:130px;
+    height:100px;
 
-    border-radius: 12px;
+    border-radius:12px;
 
     background:
         linear-gradient(
@@ -385,73 +382,73 @@ p {
 
     box-shadow:
         0 0 30px
-        rgba(230, 100, 200, .4);
+        rgba(230,100,200,.4);
 }
 
-.gift-box::before {
-    content: "";
+.gift-box::before{
+    content:"";
 
-    position: absolute;
+    position:absolute;
 
-    left: 52px;
+    left:52px;
 
-    width: 25px;
-    height: 100%;
+    width:25px;
+    height:100%;
 
-    background: #ffe4f5;
+    background:#ffe4f5;
 }
 
-.gift-lid {
-    position: absolute;
+.gift-lid{
+    position:absolute;
 
-    left: 3px;
-    bottom: 95px;
+    left:3px;
+    bottom:95px;
 
-    width: 145px;
-    height: 30px;
+    width:145px;
+    height:30px;
 
-    border-radius: 10px;
+    border-radius:10px;
 
-    background: #c7549b;
+    background:#c7549b;
 }
 
-.gift-crown {
-    position: absolute;
+.gift-crown{
+    position:absolute;
 
-    top: -30px;
-    left: 53px;
+    top:-30px;
+    left:53px;
 
-    font-size: 32px;
+    font-size:32px;
 
     animation:
         coroa 2s infinite;
 }
 
-.ribbon {
-    position: absolute;
+.ribbon{
+    position:absolute;
 
-    left: 57px;
-    bottom: 115px;
+    left:57px;
+    bottom:115px;
 
-    font-size: 35px;
+    font-size:35px;
 }
 
 
 /* =====================================================
-   PRESENTES DESAPARECENDO
+   PRESENTES BLOQUEADOS
 ===================================================== */
 
-.gift.disabled {
-    pointer-events: none;
+.gift.disabled{
+    pointer-events:none;
 
     animation:
-        sumir .6s forwards;
+        desaparecer .6s forwards;
 }
 
-@keyframes sumir {
+@keyframes desaparecer{
 
-    to {
-        opacity: 0;
+    to{
+        opacity:0;
 
         transform:
             scale(.2)
@@ -461,54 +458,49 @@ p {
 
 
 /* =====================================================
-   CONFIRMAÇÃO
+   TELAS DE ZOEIRA
 ===================================================== */
 
-#confirmOverlay {
-    position: fixed;
+.joke-overlay{
+    position:fixed;
 
-    inset: 0;
+    inset:0;
 
-    z-index: 150;
+    z-index:150;
 
-    display: flex;
+    display:flex;
 
-    align-items: center;
-    justify-content: center;
+    align-items:center;
+    justify-content:center;
 
     background:
-        rgba(5, 1, 10, .78);
+        rgba(5,1,10,.82);
 
-    backdrop-filter: blur(8px);
+    backdrop-filter:blur(9px);
 
-    opacity: 0;
+    opacity:0;
+    visibility:hidden;
 
-    visibility: hidden;
-
-    pointer-events: none;
+    pointer-events:none;
 
     transition:
         opacity .4s ease;
 }
 
-#confirmOverlay.show {
-    opacity: 1;
-
-    visibility: visible;
-
-    pointer-events: auto;
+.joke-overlay.show{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
 }
 
-.confirm-box {
-    width:
-        min(550px, 88vw);
+.joke-box{
+    width:min(600px,90vw);
 
-    padding:
-        45px 30px;
+    padding:45px 30px;
 
-    text-align: center;
+    text-align:center;
 
-    border-radius: 30px;
+    border-radius:32px;
 
     background:
         linear-gradient(
@@ -519,72 +511,41 @@ p {
 
     border:
         1px solid
-        rgba(255, 180, 240, .55);
+        rgba(255,180,240,.55);
 
     box-shadow:
-        0 0 40px
-        rgba(235, 100, 210, .45),
+        0 0 45px
+        rgba(235,100,210,.45),
 
         0 0 100px
-        rgba(160, 60, 210, .25);
+        rgba(160,60,210,.25);
 
-    transform: scale(.6);
+    transform:scale(.5);
 
     transition:
-        transform .5s
+        transform .6s
         cubic-bezier(.17,.89,.32,1.28);
 }
 
-#confirmOverlay.show .confirm-box {
-    transform: scale(1);
+.joke-overlay.show .joke-box{
+    transform:scale(1);
 }
 
-.confirm-crown {
-    font-size: 65px;
+.joke-icon{
+    font-size:65px;
 
-    margin-bottom: 10px;
+    margin-bottom:15px;
 
     animation:
         coroa 2s ease-in-out infinite;
 }
 
-.confirm-box h2 {
-    margin-bottom: 15px;
+.joke-box h2{
+    margin-bottom:15px;
 }
 
-.confirm-box p {
-    font-size: 19px;
-}
-
-.confirm-buttons {
-    display: flex;
-
-    justify-content: center;
-
-    gap: 15px;
-
-    flex-wrap: wrap;
-
-    margin-top: 25px;
-}
-
-.confirm-buttons .btn {
-    margin-top: 0;
-}
-
-.no-btn {
-    background:
-        linear-gradient(
-            135deg,
-            #49334d,
-            #291c2d
-        );
-}
-
-.yes-btn:hover {
-    box-shadow:
-        0 0 35px
-        rgba(255, 130, 220, .8);
+.joke-box p{
+    font-size:19px;
 }
 
 
@@ -592,62 +553,57 @@ p {
    REVELAÇÃO
 ===================================================== */
 
-#revealOverlay {
-    position: fixed;
+#revealOverlay{
+    position:fixed;
 
-    inset: 0;
+    inset:0;
 
-    z-index: 200;
+    z-index:200;
 
-    display: flex;
+    display:flex;
 
-    align-items: center;
-    justify-content: center;
+    align-items:center;
+    justify-content:center;
 
     background:
-        rgba(5, 1, 10, .82);
+        rgba(5,1,10,.85);
 
-    backdrop-filter: blur(10px);
+    backdrop-filter:blur(10px);
 
-    opacity: 0;
+    opacity:0;
+    visibility:hidden;
 
-    visibility: hidden;
-
-    pointer-events: none;
+    pointer-events:none;
 
     transition:
         opacity .5s ease;
 }
 
-#revealOverlay.show {
-    opacity: 1;
-
-    visibility: visible;
-
-    pointer-events: auto;
+#revealOverlay.show{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
 }
 
-.reveal-box {
-    position: relative;
+.reveal-box{
+    position:relative;
 
-    width:
-        min(700px, 88vw);
+    width:min(700px,88vw);
 
-    min-height: 480px;
+    min-height:480px;
 
-    padding:
-        50px 30px;
+    padding:50px 30px;
 
-    display: flex;
+    display:flex;
 
-    flex-direction: column;
+    flex-direction:column;
 
-    align-items: center;
-    justify-content: center;
+    align-items:center;
+    justify-content:center;
 
-    text-align: center;
+    text-align:center;
 
-    border-radius: 35px;
+    border-radius:35px;
 
     background:
         linear-gradient(
@@ -658,81 +614,30 @@ p {
 
     border:
         1px solid
-        rgba(255, 180, 240, .55);
+        rgba(255,180,240,.55);
 
     box-shadow:
         0 0 40px
-        rgba(235, 100, 210, .45),
+        rgba(235,100,210,.45),
 
         0 0 120px
-        rgba(160, 60, 210, .25),
+        rgba(160,60,210,.25);
 
-        inset 0 0 50px
-        rgba(255,255,255,.03);
-
-    transform: scale(.3);
+    transform:scale(.3);
 
     transition:
         transform .8s
         cubic-bezier(.17,.89,.32,1.28);
 }
 
-#revealOverlay.show .reveal-box {
-    transform: scale(1);
+#revealOverlay.show .reveal-box{
+    transform:scale(1);
 }
 
+#revealIcon{
+    font-size:150px;
 
-/* =====================================================
-   BRILHO DO QUADRADO
-===================================================== */
-
-.reveal-box::before {
-    content: "";
-
-    position: absolute;
-
-    inset: -2px;
-
-    border-radius: 37px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,150,230,.8),
-            transparent
-        );
-
-    opacity: .45;
-
-    z-index: -1;
-
-    animation:
-        brilho 3s linear infinite;
-}
-
-@keyframes brilho {
-
-    0% {
-        transform:
-            translateX(-100%);
-    }
-
-    100% {
-        transform:
-            translateX(100%);
-    }
-}
-
-
-/* =====================================================
-   PRESENTE REVELADO
-===================================================== */
-
-#revealIcon {
-    font-size: 150px;
-
-    margin-bottom: 15px;
+    margin-bottom:15px;
 
     filter:
         drop-shadow(
@@ -741,33 +646,32 @@ p {
         );
 
     animation:
-        presenteRevelado
-        1.3s
+        presente 1.3s
         ease-in-out
         infinite
         alternate;
 }
 
-@keyframes presenteRevelado {
+@keyframes presente{
 
-    from {
+    from{
         transform:
             scale(1)
             rotate(-5deg);
     }
 
-    to {
+    to{
         transform:
             scale(1.15)
             rotate(5deg);
     }
 }
 
-#revealTitle {
+#revealTitle{
     font-size:
-        clamp(38px, 6vw, 65px);
+        clamp(38px,6vw,65px);
 
-    margin-bottom: 10px;
+    margin-bottom:10px;
 
     background:
         linear-gradient(
@@ -777,14 +681,13 @@ p {
             white
         );
 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-#revealText {
-    color: #ead9e8;
-
-    font-size: 20px;
+#revealText{
+    color:#ead9e8;
+    font-size:20px;
 }
 
 
@@ -792,39 +695,38 @@ p {
    EXPLOSÃO
 ===================================================== */
 
-#explosion {
-    position: fixed;
+#explosion{
+    position:fixed;
 
-    inset: 0;
+    inset:0;
 
-    z-index: 300;
+    z-index:300;
 
-    pointer-events: none;
+    pointer-events:none;
 }
 
-.spark {
-    position: absolute;
+.spark{
+    position:absolute;
 
-    font-size: 25px;
+    font-size:25px;
 
     animation:
-        explodir
-        1.5s
+        explodir 1.5s
         ease-out
         forwards;
 }
 
-@keyframes explodir {
+@keyframes explodir{
 
-    0% {
+    0%{
         transform:
             translate(0,0)
             scale(.3);
 
-        opacity: 1;
+        opacity:1;
     }
 
-    100% {
+    100%{
         transform:
             translate(
                 calc((var(--x) - .5) * 100vw),
@@ -832,42 +734,30 @@ p {
             )
             scale(1.5);
 
-        opacity: 0;
+        opacity:0;
     }
 }
 
 
 /* =====================================================
-   AJUDA DE MARIA DOS GATOS
+   MARIA DOS GATOS
 ===================================================== */
 
-.maria-gatos {
+.maria-gatos{
 
-    position: absolute;
+    position:absolute;
 
-    right: 45px;
-    bottom: 35px;
+    right:45px;
+    bottom:35px;
 
-    font-size: 17px;
+    font-size:17px;
 
     color:
         rgba(255,255,255,.62);
 
-    letter-spacing: 1px;
+    letter-spacing:1px;
 
-    opacity: .8;
-
-    transition: .3s;
-}
-
-.maria-gatos:hover {
-
-    opacity: 1;
-
-    color: #f5c1e7;
-
-    transform:
-        translateY(-2px);
+    opacity:.8;
 }
 
 
@@ -875,73 +765,70 @@ p {
    CELULAR
 ===================================================== */
 
-@media(max-width:600px) {
+@media(max-width:600px){
 
-    .content {
-        padding: 15px;
+    .content{
+        padding:15px;
     }
 
-    .crown {
-        font-size: 50px;
+    .crown{
+        font-size:50px;
     }
 
-    .gifts {
-        gap: 0;
+    .gifts{
+        gap:0;
     }
 
-    .gift {
-        transform:
-            scale(.82);
+    .gift{
+        transform:scale(.82);
     }
 
-    .gift:hover {
+    .gift:hover{
         transform:
             scale(.88)
             translateY(-8px);
     }
 
-    .confirm-box {
-        width: 90vw;
+    .joke-box{
+        width:90vw;
 
         padding:
             35px 20px;
 
-        border-radius: 28px;
+        border-radius:28px;
     }
 
-    .reveal-box {
-        width: 90vw;
+    .reveal-box{
+        width:90vw;
 
-        min-height: 430px;
+        min-height:430px;
 
         padding:
             30px 20px;
 
-        border-radius: 28px;
+        border-radius:28px;
     }
 
-    #revealIcon {
-        font-size: 110px;
+    #revealIcon{
+        font-size:110px;
     }
 
-    #revealTitle {
-        font-size: 40px;
+    #revealTitle{
+        font-size:40px;
     }
 
-    .maria-gatos {
-
-        right: 50%;
+    .maria-gatos{
+        right:50%;
 
         transform:
             translateX(50%);
 
-        bottom: 20px;
+        bottom:20px;
 
-        white-space: nowrap;
+        white-space:nowrap;
 
-        font-size: 14px;
+        font-size:14px;
     }
-
 }
 
 </style>
@@ -957,7 +844,6 @@ p {
 ===================================================== -->
 
 <div id="stars"></div>
-
 
 <div
     class="fixed-star"
@@ -1134,7 +1020,7 @@ p {
 
 
 <!-- =====================================================
-     TELA 4 — PRESENTES
+     TELA 4 — ESCOLHA
 ===================================================== -->
 
 <section
@@ -1165,7 +1051,7 @@ p {
         <div class="gifts">
 
 
-            <!-- PRESENTE 1 -->
+            <!-- FÊNIX -->
 
             <button
                 class="gift"
@@ -1186,7 +1072,7 @@ p {
             </button>
 
 
-            <!-- PRESENTE 2 -->
+            <!-- MINI LION -->
 
             <button
                 class="gift"
@@ -1207,7 +1093,7 @@ p {
             </button>
 
 
-            <!-- PRESENTE 3 -->
+            <!-- ZEUS -->
 
             <button
                 class="gift"
@@ -1235,48 +1121,167 @@ p {
 
 
 <!-- =====================================================
-     CONFIRMAÇÃO
+     TELA DE ZOEIRA 1
 ===================================================== -->
 
 <div
-    id="confirmOverlay">
+    class="joke-overlay"
+    id="joke1">
 
-    <div class="confirm-box">
+    <div class="joke-box">
 
-        <div class="confirm-crown">
-            👑
+        <div class="joke-icon">
+            👀
         </div>
 
         <h2>
-            Tem certeza? 👀
+            Calma aí...
         </h2>
 
         <p>
 
-            Você realmente quer
-            escolher este presente?
+            Tem certeza dessa decisão?
+
+            <br><br>
+
+            Você escolheu muito rápido... 🤨
 
         </p>
 
-        <div class="confirm-buttons">
+        <button
+            class="btn"
+            onclick="jokeNext(2)">
 
-            <button
-                class="btn yes-btn"
-                onclick="confirmarPresente()">
+            Tenho certeza 😎
 
-                ✨ Sim, quero!
+        </button>
 
-            </button>
+    </div>
 
-            <button
-                class="btn no-btn"
-                onclick="cancelarPresente()">
+</div>
 
-                ❌ Não
 
-            </button>
+<!-- =====================================================
+     TELA DE ZOEIRA 2
+===================================================== -->
 
+<div
+    class="joke-overlay"
+    id="joke2">
+
+    <div class="joke-box">
+
+        <div class="joke-icon">
+            🤔
         </div>
+
+        <h2>
+            Pera... pensa mais um pouco.
+        </h2>
+
+        <p>
+
+            Essa escolha pode mudar
+            completamente o seu destino...
+
+            <br><br>
+
+            Ou talvez eu só esteja
+            enrolando você mesmo KKKKK 😂
+
+        </p>
+
+        <button
+            class="btn"
+            onclick="jokeNext(3)">
+
+            Continuar 😂
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TELA DE ZOEIRA 3
+===================================================== -->
+
+<div
+    class="joke-overlay"
+    id="joke3">
+
+    <div class="joke-box">
+
+        <div class="joke-icon">
+            😈
+        </div>
+
+        <h2>
+            Última chance!
+        </h2>
+
+        <p>
+
+            Depois daqui não adianta
+            reclamar da escolha...
+
+            <br><br>
+
+            Tem CERTEZA MESMO? 👀
+
+        </p>
+
+        <button
+            class="btn"
+            onclick="jokeNext(4)">
+
+            SIM, EU TENHO CERTEZA! 🔥
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TELA FINAL DE ZOEIRA
+===================================================== -->
+
+<div
+    class="joke-overlay"
+    id="joke4">
+
+    <div class="joke-box">
+
+        <div class="joke-icon">
+            👑
+        </div>
+
+        <h2>
+            AGORA VAI. 😂
+        </h2>
+
+        <p>
+
+            Tá bom, eu parei de enrolar.
+
+            <br><br>
+
+            Você realmente quer esse presente,
+            então vamos descobrir o que tem dentro. 🎁
+
+        </p>
+
+        <button
+            class="btn"
+            onclick="revealGift()">
+
+            ABRIR MEU PRESENTE 🎁
+
+        </button>
 
     </div>
 
@@ -1361,8 +1366,6 @@ p {
     </div>
 
 
-    <!-- AJUDA DE MARIA DOS GATOS -->
-
     <div class="maria-gatos">
 
         👑 Ajuda de Maria dos Gatos
@@ -1383,37 +1386,37 @@ p {
 
 
 /* =====================================================
-   ESTRELAS
+   CRIAR ESTRELAS
 ===================================================== */
 
 const stars =
     document.getElementById("stars");
 
 
-for(let i = 0; i < 80; i++) {
+for(let i=0;i<80;i++){
 
     const star =
         document.createElement("div");
 
-    star.className = "star";
+    star.className="star";
 
     star.style.left =
-        Math.random() * 100 + "%";
+        Math.random()*100+"%";
 
     star.style.animationDelay =
-        Math.random() * 10 + "s";
+        Math.random()*10+"s";
 
     star.style.animationDuration =
-        5 + Math.random() * 9 + "s";
+        5+Math.random()*9+"s";
 
     const size =
-        2 + Math.random() * 4;
+        2+Math.random()*4;
 
     star.style.width =
-        size + "px";
+        size+"px";
 
     star.style.height =
-        size + "px";
+        size+"px";
 
     stars.appendChild(star);
 }
@@ -1424,14 +1427,13 @@ for(let i = 0; i < 80; i++) {
 ===================================================== */
 
 const texto =
-    "Eu poderia simplesmente te desejar feliz aniversário... mas você merece algo que fosse feito só para você. ✨";
+"Eu poderia simplesmente te desejar feliz aniversário... mas você merece algo que fosse feito só para você. ✨";
 
-let posicao = 0;
+let posicao=0;
 
+function escrever(){
 
-function escrever() {
-
-    if(posicao < texto.length) {
+    if(posicao<texto.length){
 
         document
             .getElementById("typing")
@@ -1447,19 +1449,18 @@ function escrever() {
     }
 }
 
-
 escrever();
 
 
 /* =====================================================
-   MUDAR PÁGINA
+   TROCAR PÁGINA
 ===================================================== */
 
-function nextPage(numero) {
+function nextPage(numero){
 
     document
         .querySelectorAll(".page")
-        .forEach(page => {
+        .forEach(page=>{
 
             page.classList.remove(
                 "active"
@@ -1468,11 +1469,11 @@ function nextPage(numero) {
         });
 
 
-    setTimeout(() => {
+    setTimeout(()=>{
 
         document
             .getElementById(
-                "page" + numero
+                "page"+numero
             )
             .classList.add(
                 "active"
@@ -1480,17 +1481,17 @@ function nextPage(numero) {
 
         explosao();
 
-    }, 100);
+    },100);
 }
 
 
 /* =====================================================
-   VARIÁVEIS DO PRESENTE
+   PRESENTE SELECIONADO
 ===================================================== */
 
-let presenteSelecionado = null;
+let presenteSelecionado=null;
 
-let elementoSelecionado = null;
+let elementoSelecionado=null;
 
 
 /* =====================================================
@@ -1500,14 +1501,11 @@ let elementoSelecionado = null;
 function chooseGift(
     elemento,
     presente
-) {
+){
 
-    if(
-        presenteSelecionado !== null
-    ) {
+    if(presenteSelecionado!==null){
         return;
     }
-
 
     elementoSelecionado =
         elemento;
@@ -1516,46 +1514,13 @@ function chooseGift(
         presente;
 
 
-    document
-        .getElementById(
-            "confirmOverlay"
-        )
-        .classList.add(
-            "show"
-        );
-}
-
-
-/* =====================================================
-   CONFIRMAR PRESENTE
-===================================================== */
-
-function confirmarPresente() {
-
-    if(
-        !presenteSelecionado
-    ) {
-        return;
-    }
-
-
-    document
-        .getElementById(
-            "confirmOverlay"
-        )
-        .classList.remove(
-            "show"
-        );
-
+    /* ESCONDE OS OUTROS PRESENTES */
 
     document
         .querySelectorAll(".gift")
-        .forEach(gift => {
+        .forEach(gift=>{
 
-            if(
-                gift !==
-                elementoSelecionado
-            ) {
+            if(gift!==elemento){
 
                 gift.classList.add(
                     "disabled"
@@ -1569,83 +1534,139 @@ function confirmarPresente() {
     explosao();
 
 
-    let emoji = "";
+    /* PRIMEIRA ZOEIRA */
 
-    let nome = "";
+    setTimeout(()=>{
 
-    let mensagem = "";
+        document
+            .getElementById("joke1")
+            .classList.add("show");
+
+    },500);
+}
+
+
+/* =====================================================
+   PASSAR PELAS ZOEIRAS
+===================================================== */
+
+function jokeNext(numero){
+
+    /* FECHA A ATUAL */
+
+    document
+        .querySelectorAll(".joke-overlay")
+        .forEach(tela=>{
+
+            tela.classList.remove(
+                "show"
+            );
+
+        });
+
+
+    explosao();
+
+
+    /* ABRE A PRÓXIMA */
+
+    setTimeout(()=>{
+
+        document
+            .getElementById(
+                "joke"+numero
+            )
+            .classList.add(
+                "show"
+            );
+
+    },350);
+}
+
+
+/* =====================================================
+   REVELAR PRESENTE
+===================================================== */
+
+function revealGift(){
+
+    document
+        .querySelectorAll(".joke-overlay")
+        .forEach(tela=>{
+
+            tela.classList.remove(
+                "show"
+            );
+
+        });
+
+
+    let emoji="";
+    let nome="";
+    let mensagem="";
 
 
     if(
-        presenteSelecionado ===
-        "phoenix"
-    ) {
+        presenteSelecionado==="phoenix"
+    ){
 
-        emoji = "🔥";
+        emoji="🔥";
 
-        nome = "FÊNIX";
+        nome="FÊNIX";
 
-        mensagem =
+        mensagem=
             "Você encontrou a Fênix. 🔥";
 
     }
 
 
     if(
-        presenteSelecionado ===
-        "lion"
-    ) {
+        presenteSelecionado==="lion"
+    ){
 
-        emoji = "🦁";
+        emoji="🦁";
 
-        nome = "MINI LION";
+        nome="MINI LION";
 
-        mensagem =
+        mensagem=
             "Você encontrou o Mini Lion. 🦁";
 
     }
 
 
     if(
-        presenteSelecionado ===
-        "zeus"
-    ) {
+        presenteSelecionado==="zeus"
+    ){
 
-        emoji = "⚡";
+        emoji="⚡";
 
-        nome = "ZEUS";
+        nome="ZEUS";
 
-        mensagem =
+        mensagem=
             "Você encontrou Zeus. ⚡";
 
     }
 
 
     document
-        .getElementById(
-            "revealIcon"
-        )
-        .textContent =
-        emoji;
+        .getElementById("revealIcon")
+        .textContent=emoji;
 
 
     document
-        .getElementById(
-            "revealTitle"
-        )
-        .textContent =
-        nome;
+        .getElementById("revealTitle")
+        .textContent=nome;
 
 
     document
-        .getElementById(
-            "revealText"
-        )
-        .textContent =
-        mensagem;
+        .getElementById("revealText")
+        .textContent=mensagem;
 
 
-    setTimeout(() => {
+    explosao();
+
+
+    setTimeout(()=>{
 
         document
             .getElementById(
@@ -1655,30 +1676,7 @@ function confirmarPresente() {
                 "show"
             );
 
-    }, 650);
-}
-
-
-/* =====================================================
-   CLICOU EM NÃO
-===================================================== */
-
-function cancelarPresente() {
-
-    document
-        .getElementById(
-            "confirmOverlay"
-        )
-        .classList.remove(
-            "show"
-        );
-
-
-    presenteSelecionado =
-        null;
-
-    elementoSelecionado =
-        null;
+    },500);
 }
 
 
@@ -1686,7 +1684,7 @@ function cancelarPresente() {
    FINALIZAR REVELAÇÃO
 ===================================================== */
 
-function finalizar() {
+function finalizar(){
 
     document
         .getElementById(
@@ -1697,11 +1695,11 @@ function finalizar() {
         );
 
 
-    setTimeout(() => {
+    setTimeout(()=>{
 
         nextPage(5);
 
-    }, 500);
+    },500);
 }
 
 
@@ -1709,11 +1707,11 @@ function finalizar() {
    BOTÃO FIM
 ===================================================== */
 
-function encerrarSite() {
+function encerrarSite(){
 
     document
         .querySelectorAll(".page")
-        .forEach(page => {
+        .forEach(page=>{
 
             page.classList.remove(
                 "active"
@@ -1722,25 +1720,9 @@ function encerrarSite() {
         });
 
 
-    document.body.style.background =
-        `
-        radial-gradient(
-            circle at 50% 30%,
-            rgba(190,80,200,.22),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #120618,
-            #281034,
-            #0d0512
-        )
-        `;
+    setTimeout(()=>{
 
-
-    setTimeout(() => {
-
-        document.body.innerHTML = `
+        document.body.innerHTML=`
 
             <div style="
                 width:100vw;
@@ -1830,8 +1812,6 @@ function encerrarSite() {
                 </div>
 
 
-                <!-- MARIA DOS GATOS -->
-
                 <div style="
                     position:absolute;
 
@@ -1856,15 +1836,15 @@ function encerrarSite() {
 
         `;
 
-    }, 500);
+    },500);
 }
 
 
 /* =====================================================
-   EXPLOSÃO
+   EXPLOSÃO DE PARTÍCULAS
 ===================================================== */
 
-function explosao() {
+function explosao(){
 
     const container =
         document.getElementById(
@@ -1872,7 +1852,7 @@ function explosao() {
         );
 
 
-    const simbolos = [
+    const simbolos=[
         "✨",
         "💗",
         "👑",
@@ -1882,10 +1862,10 @@ function explosao() {
 
 
     for(
-        let i = 0;
-        i < 35;
+        let i=0;
+        i<35;
         i++
-    ) {
+    ){
 
         const spark =
             document.createElement(
@@ -1893,24 +1873,21 @@ function explosao() {
             );
 
 
-        spark.className =
-            "spark";
+        spark.className="spark";
 
 
         spark.textContent =
             simbolos[
                 Math.floor(
-                    Math.random() *
+                    Math.random()*
                     simbolos.length
                 )
             ];
 
 
-        spark.style.left =
-            "50%";
+        spark.style.left="50%";
 
-        spark.style.top =
-            "50%";
+        spark.style.top="50%";
 
 
         spark.style.setProperty(
@@ -1930,11 +1907,11 @@ function explosao() {
         );
 
 
-        setTimeout(() => {
+        setTimeout(()=>{
 
             spark.remove();
 
-        }, 1600);
+        },1600);
 
     }
 }
