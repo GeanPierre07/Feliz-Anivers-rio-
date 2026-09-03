@@ -800,24 +800,8 @@ p{
 
 
 /* =====================================================
-   MARIA DOS GATOS
+   
 ===================================================== */
-
-.maria-gatos{
-    position:absolute;
-
-    right:45px;
-    bottom:30px;
-
-    color:
-        rgba(255,255,255,.6);
-
-    font-size:17px;
-
-    letter-spacing:1px;
-
-    opacity:.8;
-}
 
 
 /* =====================================================
@@ -931,19 +915,6 @@ p{
 
     #revealTitle{
         font-size:42px;
-    }
-
-    .maria-gatos{
-        right:50%;
-
-        transform:
-            translateX(50%);
-
-        bottom:18px;
-
-        white-space:nowrap;
-
-        font-size:13px;
     }
 }
 
@@ -1127,11 +1098,11 @@ p{
         <div class="gifts">
 
 
-            <!-- FÊNIX -->
+            <!-- TRAJETÓRIA FUTURA -->
 
             <button
                 class="gift"
-                onclick="chooseGift(this,'phoenix')">
+                onclick="chooseGift(this,'future')">
 
                 <div class="gift-crown">
                     👑
@@ -1148,11 +1119,11 @@ p{
             </button>
 
 
-            <!-- MINI LION -->
+            <!-- NEBULOSA DA ROSA -->
 
             <button
                 class="gift"
-                onclick="chooseGift(this,'lion')">
+                onclick="chooseGift(this,'rose')">
 
                 <div class="gift-crown">
                     👑
@@ -1169,11 +1140,11 @@ p{
             </button>
 
 
-            <!-- ZEUS -->
+            <!-- PLANETA MARAVILHOSO -->
 
             <button
                 class="gift"
-                onclick="chooseGift(this,'zeus')">
+                onclick="chooseGift(this,'planet')">
 
                 <div class="gift-crown">
                     👑
@@ -1498,12 +1469,6 @@ p{
 
     </div>
 
-    <div class="maria-gatos">
-
-        👑 Ajuda de Maria dos Gatos
-
-    </div>
-
 </section>
 
 
@@ -1784,38 +1749,38 @@ function revealGift(){
     let mensagem="";
 
 
-    if(presenteEscolhido==="phoenix"){
+    if(presenteEscolhido==="future"){
 
-        emoji="🔥";
+        emoji="🌠";
 
-        nome="FÊNIX";
+        nome="TRAJETÓRIA FUTURA";
 
         mensagem=
-        "Você encontrou a Fênix. 🔥";
+        "Você encontrou a Trajetória Futura. 🌠";
 
     }
 
 
-    if(presenteEscolhido==="lion"){
+    if(presenteEscolhido==="rose"){
 
-        emoji="🦁";
+        emoji="🌹";
 
-        nome="MINI LION";
+        nome="NEBULOSA DA ROSA";
 
         mensagem=
-        "Você encontrou o Mini Lion. 🦁";
+        "Você encontrou a Nebulosa da Rosa. 🌹";
 
     }
 
 
-    if(presenteEscolhido==="zeus"){
+    if(presenteEscolhido==="planet"){
 
-        emoji="⚡";
+        emoji="🪐";
 
-        nome="ZEUS";
+        nome="PLANETA MARAVILHOSO";
 
         mensagem=
-        "Você encontrou Zeus. ⚡";
+        "Você encontrou o Planeta Maravilhoso. 🪐";
 
     }
 
@@ -1973,7 +1938,7 @@ function encerrarSite(){
                 font-size:17px;
             ">
 
-                👑 Ajuda de Maria dos Gatos
+                
 
             </div>
 
